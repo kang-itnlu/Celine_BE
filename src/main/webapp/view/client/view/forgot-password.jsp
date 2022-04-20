@@ -27,11 +27,10 @@
         </h4>
         <formgroup>
             <input type="text" name="email"/>
-            <label ><br>Email</label>
+            <label><br>Email</label>
             <span>Nhập email của bạn</span>
         </formgroup>
         <button id="login-btn" onclick="goto()">Gửi</button>
-
 
 
     </form>
@@ -40,8 +39,8 @@
 </div>
 </body>
 <script>
-    function goto(){
-        location.href="login.html"
+    function goto() {
+        location.href = "login.html"
     }
 </script>
 </html>

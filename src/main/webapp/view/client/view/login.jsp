@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/view/client/static" var="url"></c:url>
 <%
-String alert = (String) request.getAttribute("alert");
+    String alert = (String) request.getAttribute("alert");
 %>
 
 
@@ -56,7 +56,7 @@ String alert = (String) request.getAttribute("alert");
             </div>
             <form id="form-regex" autocomplete="off" onsubmit="checkForm()" action="login" method="post">
                 <%
-                    if(alert !=null){
+                    if (alert != null) {
                 %>
                 <p class="alert alert-danger" role="alert">
                     <%= alert %>
@@ -66,25 +66,28 @@ String alert = (String) request.getAttribute("alert");
                 %>
                 <div class="auth-form__form">
                     <div class="auth-form__group">
-                        <input type="text" class="auth-form__input" id= "email1" name="username" placeholder="Tên người dùng">
+                        <input type="text" class="auth-form__input" id="email1" name="username"
+                               placeholder="Tên người dùng">
                         <small>Error message</small>
                     </div>
                     <div class="auth-form__group">
-                        <input type="password" class="auth-form__input" id="password1" name="password" placeholder="Mật khẩu">
+                        <input type="password" class="auth-form__input" id="password1" name="password"
+                               placeholder="Mật khẩu">
                         <small>Error message</small>
                     </div>
                 </div>
                 <div class="auth-form__aside">
                     <div class="auth-form__help">
-                        <a href="forgot_password.html" class="auth-form__help-link auth-form__help-forgot">Quên mật khẩu</a>
+                        <a href="forgot_password.html" class="auth-form__help-link auth-form__help-forgot">Quên mật
+                            khẩu</a>
                         <span class="auth-form__help-separate"></span>
                         <a href="" class="auth-form__help-link">Cần trợ giúp?</a>
                     </div>
                 </div>
                 <div class="auth-form__controls">
                     <a style="margin-right: 12px;margin-top:6px;"
-                            href="${pageContext.request.contextPath }/register">Tạo tài khoản</a>
-                    <input type="submit"  class="btn btn--primary" value="ĐĂNG NHẬP"></input>
+                       href="${pageContext.request.contextPath }/register">Tạo tài khoản</a>
+                    <input type="submit" class="btn btn--primary" value="ĐĂNG NHẬP"></input>
 
                 </div>
             </form>
@@ -269,19 +272,18 @@ String alert = (String) request.getAttribute("alert");
         return re.test(String(email).toLowerCase());
     }
 
-    function isValidVietnamesePhone(phone){
+    function isValidVietnamesePhone(phone) {
         return /(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/.test(phone);
     }
 
-    var count=0, count1=0;
+    var count = 0, count1 = 0;
 
     function checkForm() {
         if (email.value === '') {
             showError(email, 'Vui lòng nhập email');
         } else if (!isValidEmail(email.value)) {
             showError(email, 'Email không tồn tại');
-        }
-        else {
+        } else {
             showSuccess(email);
             count++;
         }
@@ -289,22 +291,19 @@ String alert = (String) request.getAttribute("alert");
             showError(phone, 'Vui lòng nhập số điện thoại');
         } else if (!isValidVietnamesePhone(phone.value)) {
             showError(phone, 'Email không tồn tại');
-        }
-        else {
+        } else {
             showSuccess(phone);
             count++;
         }
         if (password.value === '') {
             showError(password, 'Vui lòng nhập mật khẩu');
-        }
-        else {
+        } else {
             showSuccess(password);
             count++;
         }
         if (re_password.value !== password.value || re_password === '') {
             showError(re_password, 'Xác nhận mật khẩu sai');
-        }
-        else{
+        } else {
             count++;
         }
 
@@ -312,29 +311,29 @@ String alert = (String) request.getAttribute("alert");
             showError(email1, 'Vui lòng nhập email');
         } else if (!isValidEmail(email1.value)) {
             showError(email1, 'Email không tồn tại');
-        }
-        else {
+        } else {
             showSuccess(email1);
             count1++;
         }
         if (password1.value === '') {
             showError(password1, 'Vui lòng nhập mật khẩu');
-        }
-        else {
+        } else {
             showSuccess(password1);
             count1++;
         }
 
 
     }
-    if(count===4){
+
+    if (count === 4) {
         alert("True")
-        location.href="index.html";
+        location.href = "index.html";
     }
-    if(count1 === 2) {
+    if (count1 === 2) {
         alert("true")
 
-        location.replace ="index.html";}
+        location.replace = "index.html";
+    }
 </script>
 
 </script>

@@ -8,6 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/view/client/static" var="url"></c:url>
+<c:set var="numProduct" value="${0}"/>
+<c:forEach
+        items="${sessionScope.cart}" var="map">
+    <c:set var="numProduct"
+           value="${numProduct + 1}"/>
+</c:forEach>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -36,7 +42,7 @@
     <div class="container">
         <div class="breadcrumbs">
             <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
+                <li><a href="${pageContext.request.contextPath }/welcome">Home</a></li>
                 <li class="active">Shopping Cart</li>
             </ol>
         </div>
@@ -45,8 +51,9 @@
                 <thead>
                 <tr class="cart_menu">
                     <td class="image">
-                        <input type="checkbox" class="checkbox-filter"  name="brands">
-                        Tất cả (${map.size()} sản phẩm)</td>
+                        <input type="checkbox" class="checkbox-filter" name="brands">
+                        Tất cả (${numProduct} sản phẩm)
+                    </td>
                     <td class="description"></td>
                     <td class="price">Đơn giá</td>
                     <td class="quantity">Số lượng</td>
@@ -55,36 +62,41 @@
                 </tr>
                 </thead>
                 <tbody>
-<c:forEach items="${sessionScope.cart}" var="map">
-                <tr>
-                    <c:url value="${map.value.product.image }"
-                           var="imgUrl"></c:url>
-                    <td class="cart_product">
-                        <input type="checkbox" class="checkbox-filter"  name="brands">
-                        <a href=""><img src="${imgUrl}" alt=""></a>
-                    </td>
-                    <td class="cart_description">
-                        <h4><a href="">${map.value.product.name}</a></h4>
-                    </td>
-                    <td class="cart_price">
-                        <p>${map.value.product.salePrice}đ</p>
-                    </td>
-                    <td class="cart_quantity">
-                        <div class="cart_quantity_button">
-                            <input onclick="var result = document.getElementById('quantity');
-                   					 var qty = result.value; if( !isNaN(qty) & qty > 1 ) result.value--;return false;" type='button' value='-' style="width:18px;border-radius:5px;" />
-                            <input id='quantity' min='1' name='quantity' type='text' value='1' style="width: 30px;" />
-                            <input onclick="var result = document.getElementById('quantity'); var qty = result.value; if( !isNaN(qty)) result.value++;return false;" type='button' value='+' style="width:18px;border-radius:5px;" />
-                        </div>
-                    </td>
-                    <td class="cart_total">
-                        <p class="cart_total_price">${map.value.product.price * map.value.quantity }đ</p>
-                    </td>
-                    <td class="cart_delete">
-                        <a class="cart_quantity_delete" href="${pageContext.request.contextPath}/member/cart/remove?pId=${map.value.product.id}"><i class="fa fa-times"></i></a>
-                    </td>
-                </tr>
-</c:forEach>
+                <c:forEach items="${sessionScope.cart}" var="map">
+                    <tr>
+                        <c:url value="${map.value.product.image }"
+                               var="imgUrl"></c:url>
+                        <td class="cart_product">
+                            <input type="checkbox" class="checkbox-filter" name="brands">
+                            <a href=""><img src="${imgUrl}" alt=""></a>
+                        </td>
+                        <td class="cart_description">
+                            <h4><a href="">${map.value.product.name}</a></h4>
+                        </td>
+                        <td class="cart_price">
+                            <p>${map.value.product.salePrice}đ</p>
+                        </td>
+                        <td class="cart_quantity">
+                            <div class="cart_quantity_button">
+                                <input onclick="var result = document.getElementById('quantity');
+                   					 var qty = result.value; if( !isNaN(qty) & qty > 1 ) result.value--;return false;"
+                                       type='button' value='-' style="width:18px;border-radius:5px;"/>
+                                <input id='quantity' min='1' name='quantity' type='text' value='${map.value.quantity}'
+                                       style="width: 30px;"/>
+                                <input onclick="var result = document.getElementById('quantity'); var qty = result.value; if( !isNaN(qty)) result.value++;return false;"
+                                       type='button' value='+' style="width:18px;border-radius:5px;"/>
+                            </div>
+                        </td>
+                        <td class="cart_total">
+                            <p class="cart_total_price">${map.value.product.salePrice * map.value.quantity }đ</p>
+                        </td>
+                        <td class="cart_delete">
+                            <a class="cart_quantity_delete"
+                               href="${pageContext.request.contextPath}/member/cart/remove?pId=${map.value.product.id}"><i
+                                    class="fa fa-times"></i></a>
+                        </td>
+                    </tr>
+                </c:forEach>
 
                 </tbody>
             </table>
@@ -120,10 +132,14 @@
             </div> -->
             <div class="col-sm-12">
                 <div class="total_area">
-                    <c:set var="total" value="${0}" /> <c:forEach
+                    <c:set var="total" value="${0}"/>
+                    <c:set var="numProduct" value="${0}"/>
+                    <c:forEach
                         items="${sessionScope.cart}" var="map">
                     <c:set var="total"
-                           value="${total + map.value.quantity * map.value.product.price}" />
+                           value="${total + map.value.quantity * map.value.product.salePrice}"/>
+                        <c:set var="numProduct"
+                               value="${numProduct + 1}"/>
                 </c:forEach>
                     <div class="checkout_calculate">
                         <div class="temp_price">
@@ -143,7 +159,7 @@
                     </div>
                     <div class="checkout_button">
                         <form action="/member/order">
-                            <button class="checkout">Mua hàng (${map.size()})</button>
+                            <button class="checkout">Mua hàng (${numProduct})</button>
                         </form>
                     </div>
                 </div>
@@ -156,7 +172,6 @@
 
 <jsp:include page="/view/client/view/facebook_noti.jsp"></jsp:include>
 <!--/Footer-->
-
 
 
 <script src="${url}/js/jquery.js"></script>

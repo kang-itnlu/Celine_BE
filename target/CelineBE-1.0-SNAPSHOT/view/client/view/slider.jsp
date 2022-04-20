@@ -99,4 +99,5 @@
             </div>
         </div>
     </div>
-</section><!--/slider-->
+</section>
+<!--/slider-->

@@ -46,27 +46,28 @@
                 <div class="news-wrap">
                     <c:forEach items="${blog}" var="b">
                         <c:url value="${b.image}" var="imgUrl"></c:url>
-                    <div class="row">
+                        <div class="row">
 
-    <div class="news-item animate-scroll">
-                            <div class="thumb">
-                                <p>
-                                    <a href="http://www.maisonjsc.com/blogs/fashion/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019/"><img
-                                            src="${imgUrl}"></a>
-                                </p>
+                            <div class="news-item animate-scroll">
+                                <div class="thumb">
+                                    <p>
+                                        <a href="http://www.maisonjsc.com/blogs/fashion/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019/"><img
+                                                src="${imgUrl}"></a>
+                                    </p>
+                                </div>
+                                <div class="copy">
+                                    <span><a href="blog.html" class="tag">${b.blog_category}</a> ${b.date}</span>
+                                    <h3>
+                                        <a href="http://www.maisonjsc.com/blogs/fashion/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019/">${b.name} </a>
+                                    </h3>
+                                    <p>${b.des}</p>
+                                    <a href="http://www.maisonjsc.com/blogs/fashion/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019/"
+                                       class="btn">Xem thêm<span><i
+                                            class="far fa-arrow-alt-circle-right"></i></span></a>
+                                </div>
+                                <div class="cl"></div>
                             </div>
-                            <div class="copy">
-                                <span><a href="blog.html" class="tag">${b.blog_category}</a> ${b.date}</span>
-                                <h3>
-                                    <a href="http://www.maisonjsc.com/blogs/fashion/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019/">${b.name} </a>
-                                </h3>
-                                <p>${b.des}</p>
-                                <a href="http://www.maisonjsc.com/blogs/fashion/cam-hung-co-dien-hoi-sinh-thoi-lan-gio-moi-vao-xu-huong-phu-kien-thu-dong-2019/"
-                                   class="btn">Xem thêm<span><i class="far fa-arrow-alt-circle-right"></i></span></a>
-                            </div>
-                            <div class="cl"></div>
                         </div>
-                    </div>
                     </c:forEach>
 
                     <ul class="pagination">
@@ -79,7 +80,7 @@
                         <c:forEach begin="1" end="${numOfPages}" var="i">
                             <c:choose>
                                 <c:when test="${currentPage eq i}">
-                                    <li class="page-item active"><a class="page-link" >
+                                    <li class="page-item active"><a class="page-link">
                                             ${i}</a>
                                     </li>
                                 </c:when>

@@ -45,7 +45,8 @@
                 <div id="mens" class="panel-collapse collapse">
                     <div class="panel-body">
                         <ul>
-                            <li><a href="${pageContext.request.contextPath }/product/detail?cate_id=${5}">Thời trang theo mùa</a></li>
+                            <li><a href="${pageContext.request.contextPath }/product/detail?cate_id=${5}">Thời trang
+                                theo mùa</a></li>
                             <li><a href="#">Thời trang tối giản</a></li>
                             <li><a href="#">Thời trang Vintage</a></li>
                             <li><a href="#">Thời trang lịch lãm</a></li>
@@ -125,9 +126,11 @@
             <div class="filter_products-price-range">
                 <div class="filter_products-price-range-header">Khoảng giá</div>
                 <div class="filter_products-price-range-input">
-                    <input type="text" maxlength="13" class="filter-price-range-filter__input" placeholder="₫ TỪ" value="">
+                    <input type="text" maxlength="13" class="filter-price-range-filter__input" placeholder="₫ TỪ"
+                           value="">
                     <div class="filter-price-range-filter__range-line"></div>
-                    <input type="text" maxlength="13" class="filter-price-range-filter__input" placeholder="₫ ĐẾN" value="">
+                    <input type="text" maxlength="13" class="filter-price-range-filter__input" placeholder="₫ ĐẾN"
+                           value="">
                 </div>
                 <button class="filter-button-solid" style="background-color: #efac92;">ÁP DỤNG</button>
             </div>

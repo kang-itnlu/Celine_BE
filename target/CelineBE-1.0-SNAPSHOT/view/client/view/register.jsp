@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/view/client/static" var="url"></c:url>
 <%
-String alertMsg = (String) request.getAttribute("alert");
+    String alertMsg = (String) request.getAttribute("alert");
 %>
 <!DOCTYPE html>
 <html>
@@ -50,13 +50,13 @@ String alertMsg = (String) request.getAttribute("alert");
             </div>
             <form id="form-regex" autocomplete="off" onsubmit="return(checkForm())" action="register" method="post">
                 <%
-                if(alertMsg !=null){
-                    %>
+                    if (alertMsg != null) {
+                %>
                 <p class="alert alert-danger" role="alert">
                     <%= alertMsg %>
                 </p>
                 <%
-                }
+                    }
                 %>
                 <div class="auth-form__form">
 
@@ -65,15 +65,18 @@ String alertMsg = (String) request.getAttribute("alert");
                         <small>Error message</small>
                     </div>
                     <div class="auth-form__group">
-                        <input type="text" class="auth-form__input" id="phone" name="username" placeholder="Tên người dùng">
+                        <input type="text" class="auth-form__input" id="phone" name="username"
+                               placeholder="Tên người dùng">
                         <small>Error message</small>
                     </div>
                     <div class="auth-form__group">
-                        <input type="password" class="auth-form__input" id="password" name="password" placeholder="Mật khẩu">
+                        <input type="password" class="auth-form__input" id="password" name="password"
+                               placeholder="Mật khẩu">
                         <small>Error message</small>
                     </div>
                     <div class="auth-form__group">
-                        <input type="password" class="auth-form__input" id="re-password" name="re-password" placeholder="Nhập lại mật khẩu">
+                        <input type="password" class="auth-form__input" id="re-password" name="re-password"
+                               placeholder="Nhập lại mật khẩu">
                         <small>Error message</small>
                     </div>
                 </div>
@@ -86,7 +89,8 @@ String alertMsg = (String) request.getAttribute("alert");
                     </p>
                 </div>
                 <div class="auth-form__controls">
-                    <input type="button" class="btn auth-form__controls-back btn--normal" onclick=location.href="${pageContext.request.contextPath }/login" value="TRỞ LẠI"></input>
+                    <input type="button" class="btn auth-form__controls-back btn--normal"
+                           onclick=location.href="${pageContext.request.contextPath }/login" value="TRỞ LẠI"></input>
                     <input type="submit" class="btn btn--primary" value="ĐĂNG KÝ"></input>
                 </div>
             </form>

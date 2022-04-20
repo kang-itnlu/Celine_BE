@@ -57,14 +57,6 @@ $(function () {
 
 //   });
 // });
-
-$(document).ready(function () {
-
-    document.getElementById("turn__off").onclick = function () {
-        document.getElementById("modal").style.display = 'none';
-    };
-
-});
 // Lấy 2 button và thẻ div
 //xử lí toggle chi tiết sản phẩm
 

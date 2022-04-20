@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/view/client/static" var="url"></c:url>
 <%
     request.setCharacterEncoding("UTF-8");
@@ -81,8 +81,8 @@
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <div class="product-img">
-                                            <a  href="${pageContext.request.contextPath }/product/detail?id=${p.id}">
-                                                <img src="${imgUrl}" alt=""  id="img__sp"/></a></div>
+                                            <a href="${pageContext.request.contextPath }/product/detail?id=${p.id}">
+                                                <img src="${imgUrl}" alt="" id="img__sp"/></a></div>
                                         <h4 class="home-product-item__name">${p.name}</h4>
                                     </div>
                                     <div class="home-product-item__price">
@@ -119,7 +119,7 @@
                         <c:forEach begin="1" end="${numOfPages}" var="i">
                             <c:choose>
                                 <c:when test="${currentPage eq i}">
-                                    <li class="page-item active"><a class="page-link" >
+                                    <li class="page-item active"><a class="page-link">
                                             ${i}</a>
                                     </li>
                                 </c:when>
@@ -155,7 +155,7 @@
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/main.js"></script>
 <script>
-    $(".nav li").click(function() {
+    $(".nav li").click(function () {
         if ($(".nav li").removeClass("active")) {
             $(this).removeClass("active");
         }

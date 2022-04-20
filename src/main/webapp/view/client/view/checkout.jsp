@@ -41,7 +41,8 @@
                 <thead>
                 <tr class="cart_menu">
                     <td class="image">
-                        Sản phẩm</td>
+                        Sản phẩm
+                    </td>
                     <td class="description"></td>
                     <td class="price">Đơn giá</td>
                     <td class="quantity">Số lượng</td>
@@ -50,28 +51,28 @@
                 </tr>
                 </thead>
                 <tbody>
-<c:forEach items="${sessionScope.cart}" var="map">
-                <tr>
-                    <c:url value="${map.value.product.image }"
-                           var="imgUrl"></c:url>
-                    <td class="cart_product">
-                        <a href=""><img src="${imgUrl}" alt=""></a>
-                    </td>
-                    <td class="cart_description">
-                        <h4><a href="">${map.value.product.name}</a></h4>
-                    </td>
-                    <td class="cart_price">
-                        <p>${map.value.product.salePrice}đ</p>
-                    </td>
-                    <td class="cart_quantity">
-                        ${map.value.quantity}
-                    </td>
-                    <td class="cart_total">
-                        <p class="cart_total_price">${map.value.quantity* map.value.product.salePrice}đ</p>
-                    </td>
+                <c:forEach items="${sessionScope.cart}" var="map">
+                    <tr>
+                        <c:url value="${map.value.product.image }"
+                               var="imgUrl"></c:url>
+                        <td class="cart_product">
+                            <a href=""><img src="${imgUrl}" alt=""></a>
+                        </td>
+                        <td class="cart_description">
+                            <h4><a href="">${map.value.product.name}</a></h4>
+                        </td>
+                        <td class="cart_price">
+                            <p>${map.value.product.salePrice}đ</p>
+                        </td>
+                        <td class="cart_quantity">
+                                ${map.value.quantity}
+                        </td>
+                        <td class="cart_total">
+                            <p class="cart_total_price">${map.value.quantity* map.value.product.salePrice}đ</p>
+                        </td>
 
-                </tr>
-</c:forEach>
+                    </tr>
+                </c:forEach>
 
                 </tbody>
             </table>
@@ -91,37 +92,78 @@
                             <div type="button" class="launch" data-toggle="modal" data-target="#staticBackdrop">THAY ĐỔI
                             </div>
                             <!-- Modal -->
-                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
+                                 tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-body">
-                                            <div class="text-right"> <i class="fas fa-times-circle text-close" data-dismiss="modal"></i> </div>
+                                            <div class="text-right"><i class="fas fa-times-circle text-close"
+                                                                       data-dismiss="modal"></i></div>
                                             <div class="tabs mt-3">
                                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                                    <li class="nav-item" role="presentation"> <a class="nav-link active" id="visa-tab" data-toggle="tab" href="#visa" role="tab" aria-controls="visa" aria-selected="true"> <img src="images/home/visa.jpg" width="80"> </a> </li>
-                                                    <li class="nav-item" role="presentation"> <a class="nav-link" id="paypal-tab" data-toggle="tab" href="#paypal" role="tab" aria-controls="paypal" aria-selected="false"> <img src="images/home/Paypal.png" width="80"> </a> </li>
+                                                    <li class="nav-item" role="presentation"><a class="nav-link active"
+                                                                                                id="visa-tab"
+                                                                                                data-toggle="tab"
+                                                                                                href="#visa" role="tab"
+                                                                                                aria-controls="visa"
+                                                                                                aria-selected="true">
+                                                        <img src="images/home/visa.jpg" width="80"> </a></li>
+                                                    <li class="nav-item" role="presentation"><a class="nav-link"
+                                                                                                id="paypal-tab"
+                                                                                                data-toggle="tab"
+                                                                                                href="#paypal"
+                                                                                                role="tab"
+                                                                                                aria-controls="paypal"
+                                                                                                aria-selected="false">
+                                                        <img src="images/home/Paypal.png" width="80"> </a></li>
                                                 </ul>
                                                 <div class="tab-content" id="myTabContent">
-                                                    <div class="tab-pane fade" id="visa" role="tabpanel" aria-labelledby="visa-tab">
+                                                    <div class="tab-pane fade" id="visa" role="tabpanel"
+                                                         aria-labelledby="visa-tab">
                                                         <div class="mt-4 mx-4">
                                                             <div class="text-center">
                                                                 <h5>Credit card</h5>
                                                             </div>
                                                             <div class="form mt-3">
-                                                                <div class="inputbox"> <input type="text" name="name" class="form-control" required="required"> <span>Cardholder Name</span> </div>
-                                                                <div class="inputbox"> <input type="text" name="name" min="1" max="999" class="form-control" required="required"> <span>Card Number</span> <i class="fa fa-eye"></i> </div>
-                                                                <div class="d-flex flex-row">
-                                                                    <div class="inputbox"> <input type="text" name="name" min="1" max="999" class="form-control" required="required"> <span>Expiration Date</span> </div>
-                                                                    <div class="inputbox"> <input type="text" name="name" min="1" max="999" class="form-control" required="required"> <span>CVV</span> </div>
+                                                                <div class="inputbox"><input type="text" name="name"
+                                                                                             class="form-control"
+                                                                                             required="required"> <span>Cardholder Name</span>
                                                                 </div>
-                                                                <div class="px-5 pay"> <button class="btn btn-success btn-block">Add card</button> </div>
+                                                                <div class="inputbox"><input type="text" name="name"
+                                                                                             min="1" max="999"
+                                                                                             class="form-control"
+                                                                                             required="required"> <span>Card Number</span>
+                                                                    <i class="fa fa-eye"></i></div>
+                                                                <div class="d-flex flex-row">
+                                                                    <div class="inputbox"><input type="text" name="name"
+                                                                                                 min="1" max="999"
+                                                                                                 class="form-control"
+                                                                                                 required="required">
+                                                                        <span>Expiration Date</span></div>
+                                                                    <div class="inputbox"><input type="text" name="name"
+                                                                                                 min="1" max="999"
+                                                                                                 class="form-control"
+                                                                                                 required="required">
+                                                                        <span>CVV</span></div>
+                                                                </div>
+                                                                <div class="px-5 pay">
+                                                                    <button class="btn btn-success btn-block">Add card
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="tab-pane fade  show active" id="paypal" role="tabpanel" aria-labelledby="paypal-tab">
+                                                    <div class="tab-pane fade  show active" id="paypal" role="tabpanel"
+                                                         aria-labelledby="paypal-tab">
                                                         <div class="px-5 mt-5">
-                                                            <div class="inputbox"> <input type="text" name="name" class="form-control" required="required"> <span>Paypal Email Address</span> </div>
-                                                            <div class="pay px-5"> <button class="btn btn-primary btn-block">Add paypal</button> </div>
+                                                            <div class="inputbox"><input type="text" name="name"
+                                                                                         class="form-control"
+                                                                                         required="required"> <span>Paypal Email Address</span>
+                                                            </div>
+                                                            <div class="pay px-5">
+                                                                <button class="btn btn-primary btn-block">Add paypal
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -161,10 +203,10 @@
             </div>
             <div class="col-sm-6">
                 <div class="total_area">
-                    <c:set var="total" value="${0}" /> <c:forEach
+                    <c:set var="total" value="${0}"/> <c:forEach
                         items="${sessionScope.cart}" var="map">
                     <c:set var="total"
-                           value="${total + map.value.quantity * map.value.product.price}" />
+                           value="${total + map.value.quantity * map.value.product.price}"/>
                 </c:forEach>
                     <div class="checkout_calculate">
                         <div class="temp_price">
@@ -178,7 +220,7 @@
                         <div class="filter-price-range-filter__range-line-checkout"></div>
                         <div class="sum_price">
                             <p>Tổng cộng:</p>
-                            <p  style="font-size: 24px;color: #efac92">${total}đ</p>
+                            <p style="font-size: 24px;color: #efac92">${total}đ</p>
                             <p class="no_product" style="display:none">Vui lòng chọn sản phẩm</p>
                         </div>
                         <p class="vat">(Đã bao gồm thuế VAT nếu có)</p>
@@ -196,7 +238,6 @@
 <jsp:include page="/view/client/view/footer.jsp"></jsp:include>
 
 <jsp:include page="/view/client/view/facebook_noti.jsp"></jsp:include><!--/Footer-->
-
 
 
 <script src="${url}/js/jquery.js"></script>

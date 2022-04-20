@@ -33,6 +33,8 @@
     <orderEntry type="library" name="all" level="application" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" name="ExternalLib" level="project" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="popper.js" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:4.0.1" level="project" />
     <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-catalina:7.0.52" level="project" />
@@ -54,7 +56,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-commons:1.7.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.7.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.7.1" level="project" />
-    <orderEntry type="library" name="bootstrap" level="application" />
-    <orderEntry type="library" name="popper.js" level="application" />
+    <orderEntry type="library" name="jquery-3.6.0" level="application" />
   </component>
 </module>
