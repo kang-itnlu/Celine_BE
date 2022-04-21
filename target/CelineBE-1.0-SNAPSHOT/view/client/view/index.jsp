@@ -28,6 +28,7 @@
     <link href="${url}/css/responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="${url}/css/owl.carousel.min.css">
     <link rel="stylesheet" href="${url}/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="${url}/view/client/static/css/product-detail.css">
     <link rel="shortcut icon" type="image/png" href="${url}/images/home/celine_login.png"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">

@@ -9,6 +9,131 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <c:url value="/view/client/static" var="url"></c:url>
+<style>
+    .header__nav-item {
+        position: relative;
+        min-height: 26px;
+    }
+
+    .header__nav-item-has-product:hover .header__has-cart {
+        display: block;
+    }
+    .header__nav-item-has-product:hover .header__no-cart {
+        display: block;
+    }
+
+    .header__has-cart, .header__no-cart {
+        position: absolute;
+        z-index: 1;
+        top: 118%;
+        right: 0%;
+        width: 480px;
+        border: 1px solid #d3d3d3;
+        background-color: white;
+        cursor: default;
+        transform-origin: calc(100% - 32px) top;
+        animation: headerNotifyGrowth ease-in 0.25s;
+        will-change: opacity, transform;
+        display: none;
+    }
+
+    /*chuyeen dong thong bao tu goc ben phai sang*/
+    @keyframes headerNotifyGrowth {
+        from {
+            opacity: 0;
+            transform: scale(0)
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .header__has-cart::before, .header__no-cart::before {
+        content: "";
+        /*chinh goc nhon cua thong bao*/
+        border-width: 14px 50px;
+        border-style: solid;
+        border-color: transparent transparent white transparent;
+        position: absolute;
+        right: 8px;
+        top: -30px;
+    }
+
+    .header__has-cart::after, .header__no-cart::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 97px;
+        right: 0;
+        top: -20px;
+        height: 20px;
+    }
+
+    .header__cart-item {
+        display: flex;
+        padding: 6px 6px;
+    }
+
+    .header__cart-item:hover {
+        background-color: #f7f7f7;
+    }
+
+    .header__cart-view:hover {
+        background-color: rgba(238, 75, 43, 0.09);
+    }
+
+    .header__cart-link {
+        display: flex;
+        width: 100%;
+        padding: 12px;
+        text-decoration: none;
+    }
+
+    .header__cart-img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+    }
+
+    .header__cart-name {
+        margin-top:20px;
+        display: block;
+        font-size: 1.6rem;
+        color: lightgray;
+        font-weight: 400;
+        line-height: 1.8rem;
+    }
+    .close{
+        margin-top: 30px;
+    }
+    .header__cart-footer{
+        display: flex;
+    }
+    .header__cart-footer-btn{
+        text-decoration: none;
+        color: #efac92;
+        padding: 8px 32px;
+        margin: auto;
+        font-size: 1.4rem;
+        font-weight: 400;
+        text-align: center;
+    }
+    .no__cart-text{
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    .no__cart-text span{
+        color: #efac92;
+
+    }
+    .img__no-cart{
+        display: block;
+        margin: 0 auto;
+        width: 60%;
+        height: 60%;
+    }
+</style>
 <header id="header"><!--header-->
     <div class="header-middle"><!--header-middle-->
         <!--Logo và login account...-->
@@ -49,14 +174,14 @@
                     <div class="col-sm-6">
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="${pageContext.request.contextPath}/welcome" class="active">Trang Chủ</a>
+                                <li><a href="${pageContext.request.contextPath}/welcome" class ="navbar__header-first" >Trang Chủ</a>
                                 </li>
-                                <li><a href="${pageContext.request.contextPath }/product/list">Sản Phẩm</a></li>
+                                <li><a href="${pageContext.request.contextPath }/product/list" class="navbar__header-first">Sản Phẩm</a></li>
 
 
-                                <li class="dropdown"><a href="${pageContext.request.contextPath }/blog">Blog</a>
+                                <li><a href="${pageContext.request.contextPath }/blog" class="navbar__header-first">Blog</a>
                                 </li>
-                                <li><a href="${pageContext.request.contextPath }/contact">Liên Hệ</a></li>
+                                <li><a href="${pageContext.request.contextPath }/contact" class="navbar__header-first">Liên Hệ</a></li>
                             </ul>
                         </div>
                     </div>
@@ -169,46 +294,74 @@
                         </form>
                     </div>
                 </div>
-                <div class="cart col-sm-2">
+                <div class="cart col-sm-2 ">
 
-                    <ul class="list-inline shop-badge badge-lists badge-icons pull-right">
-                        <li><a href="${pageContext.request.contextPath }/member/cart"><i
-                                class="fas fa-shopping-cart"><c:set
-                                var="count" value="${0}"/></i></a> <c:forEach items="${sessionScope.cart}"
-                                                                              var="map">
-                            <c:set var="count" value="${count + map.value.quantity}"/>
-                        </c:forEach> <span class="badge badge-sea rounded-x">${count }</span>
+                    <ul class="list-inline shop-badge badge-lists badge-icons pull-right header__nav-cart ">
+                        <li class="header__nav-item header__nav-item-has-product">
+                            <a href="${pageContext.request.contextPath }/member/cart" class="header__nav-item-link">
+                                <i class="fas fa-shopping-cart"><c:set var="count" value="${0}"/></i>
+                            </a>
+                            <c:forEach items="${sessionScope.cart}" var="map">
+                                <c:set var="count" value="${count + map.value.quantity}"/>
+                            </c:forEach>
+                            <span class="badge badge-sea rounded-x">${count }</span>
 
-                            <ul class="list-unstyled badge-open mCustomScrollbar"
-                                data-mcs-theme="minimal-dark">
-                                <c:forEach items="${sessionScope.cart}" var="map">
-                                    <li><c:url value="${map.value.product.image}"
-                                               var="imgUrl"></c:url> <img src="${imgUrl}" alt="" width="10"
-                                                                          height="20"> <a
-                                            href="${pageContext.request.contextPath}/member/cart/remove?pId=${map.value.product.id} ">
-                                        <button
-                                                type="button" class="close">×
-                                        </button>
-                                    </a>
-                                        <div class="overflow-h">
-                                            <span>${map.value.product.name }</span> <small>${map.value.quantity }
-                                            * ${map.value.product.salePrice }.0 $ </small>
+                            <c:choose>
+                                <c:when test="${sessionScope.account.avatar==null}">
+                                    <div class="header__no-cart">
+                                        <img src="${url}/images/home/no-cart.png" class="img__no-cart">
+                                        <div class="no__cart-text">
+                                            <span>Đăng nhập để xem giỏ hàng</span>
                                         </div>
-                                    </li>
-                                </c:forEach>
 
-                                <%--                                <div class="row">--%>
-                                <%--                                    <div class="col-xs-6">--%>
-                                <%--                                        <a href="${pageContext.request.contextPath}/member/cart"--%>
-                                <%--                                           class="btn-u btn-brd btn-brd-hover btn-u-sea-shop btn-block">View--%>
-                                <%--                                            Cart</a>--%>
-                                <%--                                    </div>--%>
-                                <%--                                    <div class="col-xs-6">--%>
-                                <%--                                        <a href="${pageContext.request.contextPath}/member/order"--%>
-                                <%--                                           class="btn-u btn-u-sea-shop btn-block">Checkout</a>--%>
-                                <%--                                    </div>--%>
-                                <%--                                </div>--%>
-                            </ul>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <div class="header__has-cart">
+                                        <ul class="list-unstyled badge-open mCustomScrollbar header__cart-list"
+                                            data-mcs-theme="minimal-dark">
+                                            <c:forEach items="${sessionScope.cart}" var="map">
+                                                <li class="header__cart-item header__cart-view"><c:url
+                                                        value="${map.value.product.image}"
+                                                        var="imgUrl"></c:url><a class="header__cart-link"
+                                                                                href="${pageContext.request.contextPath}/product/detail?id=${map.value.product.id}">
+                                                    <img src="${imgUrl}" alt="" width="10"
+                                                         height="20" class="header__cart-img">
+                                                    <div class="overflow-h header__cart-name">
+                                                        <span>${map.value.product.name }</span> <small>${map.value.quantity }
+                                                        * ${map.value.product.salePrice }đ </small>
+                                                    </div>
+                                                    <a
+                                                            href="${pageContext.request.contextPath}/member/cart/remove?pId=${map.value.product.id} ">
+                                                        <button
+                                                                type="button" class="close">×
+                                                        </button>
+                                                    </a>
+
+                                                </a>
+                                                </li>
+                                            </c:forEach>
+
+                                                <%--                                &lt;%&ndash;                                <div class="row">&ndash;%&gt;--%>
+                                                <%--                                &lt;%&ndash;                                    <div class="col-xs-6">&ndash;%&gt;--%>
+                                                <%--                                &lt;%&ndash;                                        <a href="${pageContext.request.contextPath}/member/cart"&ndash;%&gt;--%>
+                                                <%--                                &lt;%&ndash;                                           class="btn-u btn-brd btn-brd-hover btn-u-sea-shop btn-block">View&ndash;%&gt;--%>
+                                                <%--                                &lt;%&ndash;                                            Cart</a>&ndash;%&gt;--%>
+                                                <%--                                &lt;%&ndash;                                    </div>&ndash;%&gt;--%>
+                                                <%--                                &lt;%&ndash;                                    <div class="col-xs-6">&ndash;%&gt;--%>
+                                                <%--                                &lt;%&ndash;                                        <a href="${pageContext.request.contextPath}/member/order"&ndash;%&gt;--%>
+                                                <%--                                &lt;%&ndash;                                           class="btn-u btn-u-sea-shop btn-block">Checkout</a>&ndash;%&gt;--%>
+                                                <%--                                &lt;%&ndash;                                    </div>&ndash;%&gt;--%>
+                                                <%--                                &lt;%&ndash;                                </div>&ndash;%&gt;--%>
+                                        </ul>
+                                        <footer class="header__cart-footer">
+                                            <a href="${pageContext.request.contextPath }/member/cart" class="header__cart-footer-btn">Xem tất cả</a>
+                                        </footer>
+                                    </div>
+                                </c:otherwise>
+                            </c:choose>
+
+
 
                         </li>
                     </ul>
@@ -218,8 +371,20 @@
     </div><!--/header-bottom-->
 </header>
 <!--/header-->
+<script src="${url}/js/jquery.js"></script>
 <script>
-    var newYears = '1 May 2022'
+    $(document).ready(
+        function () {
+            $(".navbar__header-first").click(
+                function () {
+                    $(this).addClass("active").siblings().removeClass("active");
+                }
+            );
+        });
+</script>
+<script>
+
+    let newYears = '1 May 2022';
     const dayEl = document.getElementById('days')
     const hourEl = document.getElementById('hours')
     const minsEl = document.getElementById('mins')
@@ -256,5 +421,5 @@
     }
 
     //countdown ();
-    setInterval(countdown, 1000)
+    setInterval(countdown, 1000);
 </script>
