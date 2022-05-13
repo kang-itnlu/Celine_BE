@@ -8,6 +8,7 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/shop.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/view/client/view/header.jsp" value="file://$PROJECT_DIR$/src/main/webapp/view/client/view" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/view/client/view/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/view/client/view" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/client/view/left-bar.jsp" value="file://$PROJECT_DIR$/src/main/webapp/view/client/view" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/view/client/view/product-detail.jsp" value="file://$PROJECT_DIR$/src/main/webapp/view/client/view" />
       </map>
     </option>

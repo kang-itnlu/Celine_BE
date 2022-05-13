@@ -26,5 +26,7 @@ public interface ProductService {
     int numOfProducts();
 
     int getCateId(int parseInt);
+
+    List<Product> searchByBrand(String brand);
 }
 

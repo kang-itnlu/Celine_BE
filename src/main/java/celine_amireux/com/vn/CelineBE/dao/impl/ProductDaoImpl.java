@@ -248,7 +248,7 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
     @Override
     public List<Product> searchByName(String productName) {
         List<Product> productList = new ArrayList<Product>();
-        String sql = "SELECT product.id, product.name AS p_name, product.price, product.image, product.des , category.cate_name AS c_name, category.cate_id AS c_id,product.isLiked,product.rating,product.soldQuantity,product.brand,product.manufacturer,product.product_detail  				"
+        String sql = "SELECT product.id, product.name AS p_name, product.price,product.salePrice, product.image, product.des , category.cate_name AS c_name, category.cate_id AS c_id,product.isLiked,product.rating,product.soldQuantity,product.brand,product.manufacturer,product.product_detail  				"
                 + " FROM Product , Category   where product.cate_id = category.cate_id and Product.name like ? ";
         Connection conn = super.getJDBCConnection();
 
@@ -349,6 +349,47 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
             e.printStackTrace();
         }
         return result;
+    }
+
+    @Override
+    public List<Product> searchByBrand(String brand) {
+        List<Product> productList = new ArrayList<Product>();
+        String sql = "SELECT product.id, product.name AS p_name, product.price,product.salePrice, product.image, product.des , category.cate_name AS c_name, category.cate_id AS c_id,product.isLiked,product.rating,product.soldQuantity,product.brand,product.manufacturer,product.product_detail  				"
+                + " FROM Product , Category   where product.cate_id = category.cate_id and Product.brand like ? ";
+        Connection conn = getJDBCConnection();
+
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1,"%"+ brand +"%");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Category category = categortService.get(rs.getInt("c_id"));
+                Product product = new Product();
+                product.setId(rs.getInt("id"));
+                product.setName(rs.getString("p_name"));
+                product.setPrice(rs.getLong("price"));
+                product.setSalePrice(rs.getLong("salePrice"));
+                product.setImage(rs.getString("image"));
+                product.setDes(rs.getString("des"));
+                product.setCategory(category);
+
+                product.setCategory(category);
+                product.setLiked(rs.getInt("isLiked"));
+                product.setRating(rs.getInt("rating"));
+                product.setSoldQuantity(rs.getInt("soldQuantity"));
+                product.setBrand(rs.getString("brand"));
+                product.setManufacturer(rs.getString("manufacturer"));
+                product.setProduct_detail(rs.getString("product_detail"));
+                productList.add(product);
+            }
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return productList;
     }
 
 

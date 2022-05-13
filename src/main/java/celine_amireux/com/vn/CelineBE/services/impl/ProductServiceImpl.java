@@ -87,4 +87,9 @@ public class ProductServiceImpl implements ProductService {
         return productDao.getCateId(parseInt);
     }
 
+    @Override
+    public List<Product> searchByBrand(String brand) {
+        return productDao.searchByBrand(brand);
+    }
+
 }

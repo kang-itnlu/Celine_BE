@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: khang
-  Date: 4/5/2022
-  Time: 11:28 AM
+  Date: 4/22/2022
+  Time: 10:10 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <div style="padding: 32px 0;"></div>
-                    <c:forEach items="${productSearchByCategory}" var="p">
+                    <c:forEach items="${productSearchByBrand}" var="p">
                         <c:url value="${p.image}" var="imgUrl"></c:url>
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
@@ -170,3 +170,4 @@
 <![endif]-->
 </body>
 </html>
+

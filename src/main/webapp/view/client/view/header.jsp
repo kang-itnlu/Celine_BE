@@ -122,6 +122,7 @@
     .no__cart-text{
         font-size: 1.6rem;
         text-align: center;
+        margin-top: 12px;
     }
     .no__cart-text span{
         color: #efac92;
@@ -268,7 +269,7 @@
                         <form action="${pageContext.request.contextPath }/product/search" method="get">
                             <div class="header__search-input-wrap">
 
-                                <input type="text" class="header__search-input" placeholder="BỘ SƯU TẬP CUỐI NĂM">
+                                <input type="text" class="header__search-input" placeholder="BỘ SƯU TẬP CUỐI NĂM" name="name">
                                 <!--Lịch sử tìm kiếm-->
                                 <div class="header__search-history">
                                     <h3 class="header__search-history-heading">
@@ -384,7 +385,7 @@
 </script>
 <script>
 
-    let newYears = '1 May 2022';
+    let newYears = '1 June 2022';
     const dayEl = document.getElementById('days')
     const hourEl = document.getElementById('hours')
     const minsEl = document.getElementById('mins')

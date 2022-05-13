@@ -27,5 +27,7 @@ public interface ProductDao {
     int getNoOfProducts();
 
     int getCateId(int parseInt);
+
+    List<Product> searchByBrand(String brand);
 }
 

@@ -1,11 +1,16 @@
-<%@ page import="celine_amireux.com.vn.CelineBE.dao.ProductDao" %>
-<%@ page import="celine_amireux.com.vn.CelineBE.dao.impl.ProductDaoImpl" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: khang
+  Date: 4/22/2022
+  Time: 8:44 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/view/client/static" var="url"></c:url>
 <%
-request.setCharacterEncoding("UTF-8");
-response.setCharacterEncoding("UTF-8");
+  request.setCharacterEncoding("UTF-8");
+  response.setCharacterEncoding("UTF-8");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,40 +75,40 @@ response.setCharacterEncoding("UTF-8");
             </div>
           </div>
           <div style="padding: 32px 0;"></div>
-          <c:forEach items="${productList}" var="p">
+          <c:forEach items="${productSearchByName}" var="p">
             <c:url value="${p.image}" var="imgUrl"></c:url>
-          <div class="col-sm-4">
-            <div class="product-image-wrapper">
-              <div class="single-products">
-                <div class="productinfo text-center">
-                  <div class="product-img">
-                    <a  href="${pageContext.request.contextPath }/product/detail?id=${p.id}">
-                      <img src="${imgUrl}" alt=""  id="img__sp"/></a></div>
-                  <h4 class="home-product-item__name">${p.name}</h4>
-                </div>
-                <div class="home-product-item__price">
-                  <span class="home-product-item__price-old">${p.price}đ</span>
-                  <span class="home-product-item__price-current">${p.salePrice}đ</span>
-                </div>
-                <div class="home-product-item__action">
+            <div class="col-sm-4">
+              <div class="product-image-wrapper">
+                <div class="single-products">
+                  <div class="productinfo text-center">
+                    <div class="product-img">
+                      <a href="${pageContext.request.contextPath }/product/detail?id=${p.id}">
+                        <img src="${imgUrl}" alt="" id="img__sp"/></a></div>
+                    <h4 class="home-product-item__name">${p.name}</h4>
+                  </div>
+                  <div class="home-product-item__price">
+                    <span class="home-product-item__price-old">${p.price}đ</span>
+                    <span class="home-product-item__price-current">${p.salePrice}đ</span>
+                  </div>
+                  <div class="home-product-item__action">
 											<span class="home-product-item__like home-product-item__like--liked">
 												<i class="home-product-item__like-icon-empty far fa-heart"></i>
 												<i class="home-product-item__like-icon-fill fas fa-heart"></i>
 											</span>
-                  <div class="home-product-item__rating">
-                    <c:forEach begin="1" end="${p.rating}" var="i">
-                      <i class="home-product-item__star--gold fas fa-star"></i>
-                    </c:forEach>
+                    <div class="home-product-item__rating">
+                      <c:forEach begin="1" end="${p.rating}" var="i">
+                        <i class="home-product-item__star--gold fas fa-star"></i>
+                      </c:forEach>
+                    </div>
+                    <span class="home-product-item__sold">${p.soldQuantity}đã bán</span>
                   </div>
-                  <span class="home-product-item__sold">${p.soldQuantity}đã bán</span>
-                </div>
-                <div class="home-product-item__origin">
-                  <span class="home-product-item__brand">${p.brand}</span>
-                  <span class="home-product-item__origin-name">${p.manufacturer}</span>
+                  <div class="home-product-item__origin">
+                    <span class="home-product-item__brand">${p.brand}</span>
+                    <span class="home-product-item__origin-name">${p.manufacturer}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
           </c:forEach>
           <ul class="pagination">
             <c:if test="${currentPage != 1}">
@@ -115,7 +120,7 @@ response.setCharacterEncoding("UTF-8");
             <c:forEach begin="1" end="${numOfPages}" var="i">
               <c:choose>
                 <c:when test="${currentPage eq i}">
-                  <li class="page-item active"><a class="page-link" >
+                  <li class="page-item active"><a class="page-link">
                       ${i}</a>
                   </li>
                 </c:when>
@@ -151,7 +156,7 @@ response.setCharacterEncoding("UTF-8");
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/main.js"></script>
 <script>
-  $(".nav li").click(function() {
+  $(".nav li").click(function () {
     if ($(".nav li").removeClass("active")) {
       $(this).removeClass("active");
     }
@@ -165,3 +170,4 @@ response.setCharacterEncoding("UTF-8");
 <![endif]-->
 </body>
 </html>
+
