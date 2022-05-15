@@ -18,10 +18,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home | Céline</title>
-    <link href="${url}/css/all.min.css" rel="stylesheet">
+
     <link href="${url}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${url}/css/fontawesome.min.css" rel="stylesheet">
-    <link href="${url}/css/fontawesome.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css">
     <link href="${url}/css/prettyPhoto.css" rel="stylesheet">
     <link href="${url}/css/price-range.css" rel="stylesheet">
     <link href="${url}/css/animate.css" rel="stylesheet">

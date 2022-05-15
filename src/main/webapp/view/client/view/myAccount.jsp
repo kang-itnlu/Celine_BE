@@ -16,10 +16,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Account | Céline</title>
-    <link href="${url}/css/all.min.css" rel="stylesheet">
+
     <link href="${url}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${url}/css/fontawesome.min.css" rel="stylesheet">
-    <link href="${url}/css/fontawesome.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css">
     <link href="${url}/css/prettyPhoto.css" rel="stylesheet">
     <link href="${url}/css/price-range.css" rel="stylesheet">
     <link href="${url}/css/animate.css" rel="stylesheet">
@@ -459,15 +458,15 @@
                             </a>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Mật khẩu cũ</label>
+                            <label >Mật khẩu cũ</label>
                             <input type="password" class="form-control form-control-sm">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Mật khẩu mới</label>
+                            <label >Mật khẩu mới</label>
                             <input type="password" class="form-control form-control-sm">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nhập lại mật khẩu mới</label>
+                            <label>Nhập lại mật khẩu mới</label>
                             <input type="password" class="form-control form-control-sm">
                         </div>
                         <button type="submit" class="btn btn-block submit-btn">Xác nhận</button>

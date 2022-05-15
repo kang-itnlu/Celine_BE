@@ -9,6 +9,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <c:url value="/view/client/static" var="url"></c:url>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css">
 <style>
     .header__nav-item {
         position: relative;
@@ -373,6 +374,7 @@
 </header>
 <!--/header-->
 <script src="${url}/js/jquery.js"></script>
+
 <script>
     $(document).ready(
         function () {

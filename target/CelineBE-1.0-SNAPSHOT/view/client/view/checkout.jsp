@@ -15,9 +15,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Checkout | Céline</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <link href="${url}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${url}/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css">
     <link href="${url}/css/prettyPhoto.css" rel="stylesheet">
     <link href="${url}/css/price-range.css" rel="stylesheet">
     <link href="${url}/css/animate.css" rel="stylesheet">
@@ -247,5 +247,6 @@
 <script src="${url}/js/main.js"></script>
 <script src="${url}/js/html5shiv.js"></script>
 <script src="${url}/js/respond.min.js"></script>
+
 </body>
 </html>

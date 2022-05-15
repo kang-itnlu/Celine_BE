@@ -14,10 +14,8 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Product-Detail</title>
-    <link href="${url}/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css">
     <link href="${url}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${url}/css/fontawesome.min.css" rel="stylesheet">
-    <link href="${url}/css/fontawesome.css" rel="stylesheet">
     <link href="${url}/css/prettyPhoto.css" rel="stylesheet">
     <link href="${url}/css/price-range.css" rel="stylesheet">
     <link href="${url}/css/animate.css" rel="stylesheet">
@@ -44,23 +42,12 @@
             color: var(--main-color);
         }
 
-        .product__img {
-            position: relative;
-            width: 800px;
-            height: 550px;
-            overflow: hidden;
-        }
-
         .img__inner-detail {
             width: 500px;
             height: 500px;
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
-            /*position: absolute;*/
-            /*top: 0;*/
-            /*left: 0;*/
-            /*padding: 12px;*/
 
         }
 
@@ -443,6 +430,7 @@
 <script src="${url}/js/html5shiv.js"></script>
 <script src="${url}/js/respond.min.js"></script>
 <script src="${url}/js/owl.carousel.min.js"></script>
+
 <script>
     $(document).ready(function () {
         $(".owl-carousel").owlCarousel({
