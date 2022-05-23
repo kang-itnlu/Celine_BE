@@ -30,7 +30,7 @@ public class ProductSearchByBrand extends HttpServlet {
         request.setAttribute("currentPage",currentPage);
         request.setAttribute("productsPerPage",productsPerPage);
         String brand=request.getParameter("brands");
-        request.setAttribute("brand",brand);
+        request.setAttribute("br",brand);
         List<Product> productSearchByBrand =productService.searchByBrand(brand);
         request.setAttribute("productSearchByBrand", productSearchByBrand);
         request.getRequestDispatcher("/view/client/view/productSearchByBrand.jsp").forward(request, response);

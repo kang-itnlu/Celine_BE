@@ -19,7 +19,7 @@ public class Welcome extends HttpServlet {
         Object obj=session.getAttribute("account");
         User user=(User) obj;
         request.setAttribute("username", user.getUsername());
-        request.getRequestDispatcher("/view/admin/view/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/admin/view/trangchu.jsp").forward(request, response);
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

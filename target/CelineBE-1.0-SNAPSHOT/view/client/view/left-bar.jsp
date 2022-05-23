@@ -13,13 +13,15 @@
         <h2>Danh mục</h2>
         <div class="panel-group category-products" id="accordian"><!--category-productsr-->
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div class="panel-heading  more-button">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordian" href="${pageContext.request.contextPath }/product/category?cate_id=9">
-                            <span class="badge pull-right"><i class="fas fa-plus"></i></span>
+                        <a  data-toggle="collapse" data-parent="#accordian" style="cursor: pointer;">
                             Thương hiệu thời trang
+                            <span class="badge pull-right"><i class="fas fa-plus"></i></span>
                         </a>
+
                     </h4>
+
                 </div>
                 <div id="sportswear" class="panel-collapse collapse">
                     <div class="panel-body">
@@ -34,11 +36,12 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div class="panel-heading more-button1">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordian" href="${pageContext.request.contextPath }/product/category?cate_id=15">
-                            <span class="badge pull-right"><i class="fas fa-plus"></i></span>
+                        <a data-toggle="collapse" data-parent="#accordian" style="cursor: pointer;">
+
                             Thời trang cho nam
+                            <span class="badge pull-right"><i class="fas fa-plus"></i></span>
                         </a>
                     </h4>
                 </div>
@@ -58,9 +61,9 @@
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div class="panel-heading more-button2">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordian" href="${pageContext.request.contextPath }/product/category?cate_id=22">
+                        <a data-toggle="collapse" data-parent="#accordian" style="cursor: pointer;">
                             <span class="badge pull-right"><i class="fas fa-plus"></i></span>
                             Thời trang cho nữ
                         </a>
@@ -92,7 +95,7 @@
 
         <div class="filter_products"><!--filter_products-->
             <h2>Bộ lọc tìm kiếm</h2>
-            <form action="productSearchByBrand" method="post">
+            <form action="${pageContext.request.contextPath }/productSearchByBrand" method="post">
             <div class="filter_products-brand">
                 <div class="filter_products-header">Thương Hiệu</div>
                 <div class="filter_products-father-list">
@@ -130,10 +133,10 @@
                 <div class="filter_products-price-range-header">Khoảng giá</div>
                 <div class="filter_products-price-range-input">
                     <input type="text" maxlength="13" class="filter-price-range-filter__input" placeholder="₫ TỪ"
-                           value="">
+                           value="" name="priceFrom">
                     <div class="filter-price-range-filter__range-line"></div>
                     <input type="text" maxlength="13" class="filter-price-range-filter__input" placeholder="₫ ĐẾN"
-                           value="">
+                           value="" name="priceTo">
                 </div>
                 <input type="submit" class="filter-button-solid" style="background-color: #efac92;" value="ÁP DỤNG"></input>
             </div>
@@ -218,3 +221,84 @@
 
     </div>
 </div>
+<script src="${url}/js/jquery.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".more-button").on("click", function() {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("active");
+                $(this)
+                    .siblings("#sportswear")
+                    .slideUp(200);
+                $(".more-button > h4 > a > span i")
+                    .removeClass("fa-minus")
+                    .addClass("fa-plus");
+            } else {
+                $(".more-button > h4 > a > span i")
+                    .removeClass("fa-minus")
+                    .addClass("fa-plus");
+                $(this)
+                    .find("i")
+                    .removeClass("fa-plus")
+                    .addClass("fa-minus");
+                $(".more-button > h4 > a > span i").removeClass("active");
+                $(this).addClass("active");
+                $("#sportswear").slideUp(200);
+                $(this)
+                    .siblings("#sportswear")
+                    .slideDown(200);
+            }
+        });
+        $(".more-button1").on("click", function() {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("active");
+                $(this)
+                    .siblings("#mens")
+                    .slideUp(200);
+                $(".more-button1 > h4 > a > span i")
+                    .removeClass("fa-minus")
+                    .addClass("fa-plus");
+            } else {
+                $(".more-button1 > h4 > a > span i")
+                    .removeClass("fa-minus")
+                    .addClass("fa-plus");
+                $(this)
+                    .find("i")
+                    .removeClass("fa-plus")
+                    .addClass("fa-minus");
+                $(".more-button1 > h4 > a > span i").removeClass("active");
+                $(this).addClass("active");
+                $("#mens").slideUp(200);
+                $(this)
+                    .siblings("#mens")
+                    .slideDown(200);
+            }
+        });
+        $(".more-button2").on("click", function() {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("active");
+                $(this)
+                    .siblings("#womens")
+                    .slideUp(200);
+                $(".more-button2 > h4 > a > span i")
+                    .removeClass("fa-minus")
+                    .addClass("fa-plus");
+            } else {
+                $(".more-button2 > h4 > a > span i")
+                    .removeClass("fa-minus")
+                    .addClass("fa-plus");
+                $(this)
+                    .find("i")
+                    .removeClass("fa-plus")
+                    .addClass("fa-minus");
+                $(".more-button2 > h4 > a > span i").removeClass("active");
+                $(this).addClass("active");
+                $("#womens").slideUp(200);
+                $(this)
+                    .siblings("#womens")
+                    .slideDown(200);
+            }
+        });
+    });
+
+</script>

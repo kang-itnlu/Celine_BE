@@ -20,24 +20,24 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void edit(Product newProduct) {
-        Product oldProduct = productDao.get(newProduct.getId());
+            Product oldProduct = productDao.get(newProduct.getId());
 
-        oldProduct.setName(newProduct.getName());
-        oldProduct.setPrice(newProduct.getPrice());
-        oldProduct.setCategory(newProduct.getCategory());
-        if (newProduct.getImage() != null) {
-            // XOA ANH CU DI
-            String fileName = oldProduct.getImage();
-            final String dir = "F:\\upload";
-            File file = new File(dir + "/" + fileName);
-            if (file.exists()) {
-                file.delete();
+            oldProduct.setName(newProduct.getName());
+            oldProduct.setPrice(newProduct.getPrice());
+            oldProduct.setCategory(newProduct.getCategory());
+            if (newProduct.getImage() != null) {
+                // XOA ANH CU DI
+                String fileName = oldProduct.getImage();
+                final String dir = "F:\\upload";
+                File file = new File(dir + "/" + fileName);
+                if (file.exists()) {
+                    file.delete();
+                }
+
+                oldProduct.setImage(newProduct.getImage());
             }
 
-            oldProduct.setImage(newProduct.getImage());
-        }
-
-        productDao.edit(oldProduct);
+            productDao.edit(oldProduct);
 
     }
 

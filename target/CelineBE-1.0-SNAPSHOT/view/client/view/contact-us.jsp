@@ -8,6 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/view/client/static" var="url"></c:url>
+<%
+    String alert = (String) request.getAttribute("alert");
+%>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -17,7 +20,7 @@
     <title>Contact | Céline</title>
 
     <link href="${url}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="${url}/css/prettyPhoto.css" rel="stylesheet">
     <link href="${url}/css/price-range.css" rel="stylesheet">
     <link href="${url}/css/animate.css" rel="stylesheet">
@@ -34,10 +37,20 @@
 <jsp:include page="/view/client/view/header.jsp"></jsp:include>
 <div id="contact-page" class="container">
     <div class="row align-items-stretch no-gutters contact-wrap">
+
         <div class="col-md-8 col-sm-12">
             <div class="form h-100">
                 <h3>Liên hệ với chúng tôi</h3>
-                <form class="mb-5" id="contactForm" name="contactForm">
+                <%
+                    if (alert != null) {
+                %>
+                <p class="alert alert-danger" role="alert">
+                    <%= alert %>
+                </p>
+                <%
+                    }
+                %>
+                <form class="mb-5" id="contactForm" name="contactForm" action="sendContact">
                     <div class="row">
                         <div class="col-md-6 form-group mb-5">
                             <label class="col-form-label">Họ và tên *</label>
@@ -54,7 +67,7 @@
                     <div class="row">
                         <div class="col-md-12 form-group mb-5">
                             <label class="col-form-label">Tiêu đề</label>
-                            <input type="text" class="form-control" name="phone" id="phone" placeholder="Tiêu đề">
+                            <input type="text" class="form-control" name="title" id="phone" placeholder="Tiêu đề">
                         </div>
                     </div>
 
@@ -91,6 +104,8 @@
                             <span class="text">Khu phố 6, phường Linh Trung, quận Thủ Đức, TP Hồ chí Minh, Việt
                             Nam</span>
                         </li>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.2145946660494!2d106.78957301458999!3d10.871276392257197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175276398969f7b%3A0x9672b7efd0893fc4!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBOw7RuZyBMw6JtIFRwLiBI4buTIENow60gTWluaA!5e0!3m2!1svi!2s!4v1652806006618!5m2!1svi!2s" width="500" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
                         <li class="d-flex">
                             <span class="wrap-icon fas fa-phone-square mr-3"></span>
                             <span class="text">+84342111202</span>
@@ -113,8 +128,7 @@
                         <li><a href="#"><img src="${url}/images/home/instar_contact.png" alt="Instagram"></a>
                         </li>
 
-                        <li><a href="#"><img src="${url}/
-            images/home/twitter_contact.png" alt="Twtter"></a>
+                        <li><a href="#"><img src="${url}/images/home/twitter_contact.png" alt="Twitter"></a>
                         </li>
                     </ul>
                 </div>

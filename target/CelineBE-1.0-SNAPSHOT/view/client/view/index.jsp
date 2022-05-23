@@ -20,18 +20,14 @@
     <title>Home | Céline</title>
 
     <link href="${url}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="${url}/css/prettyPhoto.css" rel="stylesheet">
-    <link href="${url}/css/price-range.css" rel="stylesheet">
     <link href="${url}/css/animate.css" rel="stylesheet">
     <link href="${url}/css/main.css" rel="stylesheet">
     <link href="${url}/css/responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="${url}/css/owl.carousel.min.css">
     <link rel="stylesheet" href="${url}/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="${url}/view/client/static/css/product-detail.css">
     <link rel="shortcut icon" type="image/png" href="${url}/images/home/celine_login.png"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!--[if lt IE 9]>
     <![endif]-->
 </head><!--/head-->
@@ -254,8 +250,8 @@
 
                 <div class="recommended_items"><!--recommended_items-->
                     <h2 class="title text-center">Bán chạy tuần qua</h2>
-
-                    <div id="recommended-item-carousel">
+<div class="row">
+                    <div id="recommended">
                         <%--            <div class="carousel-inner">--%>
                         <%--              <div class="carousel-item active">--%>
                         <div class="owl-carousel">
@@ -297,15 +293,8 @@
                                 </div>
                             </c:forEach>
 
-                            <%--              </div>--%>
-                            <%--            </div>--%>
-                            <%--            <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">--%>
-                            <%--              <i class="fas fa-angle-left"></i>--%>
-                            <%--            </a>--%>
-                            <%--            <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">--%>
-                            <%--              <i class="fas fa-angle-right"></i>--%>
-                            <%--            </a>--%>
                         </div>
+                    </div>
                     </div>
                 </div><!--/recommended_items-->
 
@@ -320,21 +309,17 @@
 <script src="${url}/js/jquery.js"></script>
 <script src="${url}/js/bootstrap.min.js"></script>
 <script src="${url}/js/jquery.scrollUp.min.js"></script>
-<script src="${url}/js/price-range.js"></script>
 <script src="${url}/js/jquery.prettyPhoto.js"></script>
 <script src="${url}/js/main.js"></script>
-<script src="${url}/js/product_detail.js"></script>
 <script src="${url}/js/html5shiv.js"></script>
 <script src="${url}/js/respond.min.js"></script>
 <script src="${url}/js/owl.carousel.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('.owl-carousel').owlCarousel({
-
+        $(".owl-carousel").owlCarousel({
             loop: true,
             margin: 10,
-            items: 4
+            items: 5
         });
     });
     $(document).ready(function see() {
@@ -345,6 +330,7 @@
 
         });
     });
+
 </script>
 </body>
 </html>

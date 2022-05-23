@@ -14,10 +14,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Login | Céline</title>
-    <link href="${url}/css/all.min.css" rel="stylesheet">
+
     <link href="${url}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${url}/css/fontawesome.min.css" rel="stylesheet">
-    <link href="${url}/css/fontawesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">s
     <link href="${url}/css/prettyPhoto.css" rel="stylesheet">
     <link href="${url}/css/price-range.css" rel="stylesheet">
     <link href="${url}/css/animate.css" rel="stylesheet">
@@ -100,7 +99,8 @@
                               Facebook
                          </span>
             </a>
-            <a href="" class="auth-form__socials--google btn btn--size-s btn--with-icon">
+            <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/AccessGoogle/login-google&response_type=code
+    &client_id=244932279445-jrl3r41jt8ci3on7mkbnm1bbg4bjvse4.apps.googleusercontent.com&approval_prompt=force" class="auth-form__socials--google btn btn--size-s btn--with-icon">
                 <img src="${url}/images/home/google.png" alt="">
                 <span class="auth-form__socials-title">
                               Google

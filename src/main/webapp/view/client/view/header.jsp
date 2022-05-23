@@ -9,7 +9,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <c:url value="/view/client/static" var="url"></c:url>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css">
 <style>
     .header__nav-item {
         position: relative;
@@ -304,7 +303,7 @@
                                 <i class="fas fa-shopping-cart"><c:set var="count" value="${0}"/></i>
                             </a>
                             <c:forEach items="${sessionScope.cart}" var="map">
-                                <c:set var="count" value="${count + map.value.quantity}"/>
+                                <c:set var="count" value="${count + 1}"/>
                             </c:forEach>
                             <span class="badge badge-sea rounded-x">${count }</span>
 
@@ -387,7 +386,7 @@
 </script>
 <script>
 
-    let newYears = '1 June 2022';
+    let newYears = '13 June 2022';
     const dayEl = document.getElementById('days')
     const hourEl = document.getElementById('hours')
     const minsEl = document.getElementById('mins')
