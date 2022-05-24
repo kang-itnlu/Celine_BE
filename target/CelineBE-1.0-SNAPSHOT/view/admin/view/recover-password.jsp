@@ -30,14 +30,14 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="index2.html"><b>Admin</b>Céline</a>
+        <a href="${pageContext.request.contextPath}/Admin/Welcome"><b>Admin</b>Céline</a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">Vui lòng nhập mật khẩu mới để thay đổi mật khẩu.</p>
 
-            <form action="login.html" method="post">
+            <form action="${pageContext.request.contextPath}/Admin/changePassword" method="post">
                 <div class="input-group mb-3">
                     <input type="password" class="form-control" placeholder="Mật khẩu mới">
                     <div class="input-group-append">
@@ -63,7 +63,7 @@
             </form>
 
             <p class="mt-3 mb-1">
-                <a href="login.html">Đăng nhập</a>
+                <a href="${pageContext.request.contextPath}/Admin/Login">Đăng nhập</a>
             </p>
         </div>
         <!-- /.login-card-body -->

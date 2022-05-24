@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="quanlidanhmuc.html" class="nav-link">
+                    <a href="${pageContext.request.contextPath}/Admin/category/list" class="nav-link">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
                             Quản lý danh mục
@@ -53,7 +53,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="quanlitaikhoan.html" class="nav-link">
+                    <a href="${pageContext.request.contextPath}/Admin/user/list" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             Quản lý tài khoản
@@ -61,7 +61,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="quanlidonhang.html" class="nav-link">
+                    <a href="${pageContext.request.contextPath}/Admin/order/list" class="nav-link">
                         <i class="nav-icon fas fa-money-bill"></i>
                         <p>
                             Quản lý hóa đơn
@@ -69,7 +69,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="${pageContext.request.contextPath}/Admin/product" class="nav-link">
+                    <a href="${pageContext.request.contextPath}/Admin/product/list" class="nav-link">
                         <i class="nav-icon fa fa-book"></i>
                         <p>
                             Quản lý sản phẩm
@@ -77,7 +77,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="quanlitintuc.html" class="nav-link">
+                    <a href="${pageContext.request.contextPath}/Admin/news/list" class="nav-link">
                         <i class="nav-icon fa fa-newspaper"></i>
                         <p>
                             Quản lý tin tức
@@ -85,7 +85,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="quanlibinhluan.html" class="nav-link">
+                    <a href="${pageContext.request.contextPath}/Admin/comment/list" class="nav-link">
                         <i class="nav-icon fas fa-comment"></i>
                         <p>
                             Quản lý bình luận
@@ -93,7 +93,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="thongke.html" class="nav-link">
+                    <a href="${pageContext.request.contextPath}/Admin/user/dashboard" class="nav-link">
                         <i class="nav-icon fas fa-chart-area"></i>
                         <p>
                             Thống kê

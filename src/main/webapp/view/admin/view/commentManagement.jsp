@@ -42,7 +42,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="trangchu.html">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
                             <li class="breadcrumb-item active">Quản lý bình luận</li>
                         </ol>
                     </div>
@@ -88,7 +88,7 @@
                                     <td>1/11/2021</td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <a target="_blank" href="#">
+                                            <a target="_blank" href="${pageContext.request.contextPath}/Admin/comment/delete">
                                                 <button type="button" class="btn btn-block btn-outline-danger">
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>
@@ -106,7 +106,7 @@
                                     <td>11/11/2021</td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <a target="_blank" href="#">
+                                            <a target="_blank" href="${pageContext.request.contextPath}/Admin/comment/delete">
                                                 <button type="button" class="btn btn-block btn-outline-danger">
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>
@@ -124,7 +124,7 @@
                                     <td>1/12/2021</td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <a target="_blank" href="#">
+                                            <a target="_blank" href="${pageContext.request.contextPath}/Admin/comment/delete">
                                                 <button type="button" class="btn btn-block btn-outline-danger">
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>

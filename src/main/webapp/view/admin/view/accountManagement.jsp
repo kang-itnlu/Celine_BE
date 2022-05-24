@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="trangchu.html">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
                             <li class="breadcrumb-item active">Quản lý tài khoản</li>
                         </ol>
                     </div>
@@ -63,7 +63,7 @@
                                         Bảng quản lý các tài khoản</a>
                                 </div>
                                 <div class=" col-6 text-right">
-                                    <a href="themtaikhoan.html">
+                                    <a href="${pageContext.request.contextPath}/Admin/user/add">
                                         <button type="button" class="btn btn-primary text-right">
                                             <i class="fa fa-plus-circle"></i> Thêm tài khoản
                                         </button>
@@ -97,12 +97,12 @@
                                     <td>Online</td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <a href="#">
+                                            <a href="${pageContext.request.contextPath}/Admin/user/delete">
                                                 <button type="button" class="btn btn-block btn-outline-danger">
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>
                                             </a>
-                                            <a  href="suataikhoan.html">
+                                            <a  href="${pageContext.request.contextPath}/Admin/user/edit">
                                                 <button type="button" class="btn btn-block btn-outline-success ml-1">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
@@ -122,12 +122,12 @@
                                     <td>Offline</td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <a href="#">
+                                            <a href="${pageContext.request.contextPath}/Admin/user/delete">
                                                 <button type="button" class="btn btn-block btn-outline-danger">
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>
                                             </a>
-                                            <a  href="suataikhoan.html">
+                                            <a  href="${pageContext.request.contextPath}/Admin/user/edit">
                                                 <button type="button" class="btn btn-block btn-outline-success ml-1">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
@@ -146,12 +146,12 @@
                                     <td>Online</td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <a href="#">
+                                            <a href="${pageContext.request.contextPath}/Admin/user/delete">
                                                 <button type="button" class="btn btn-block btn-outline-danger">
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>
                                             </a>
-                                            <a  href="suataikhoan.html">
+                                            <a  href="${pageContext.request.contextPath}/Admin/user/edit">
                                                 <button type="button" class="btn btn-block btn-outline-success ml-1">
                                                     <i class="fa fa-edit"></i>
                                                 </button>

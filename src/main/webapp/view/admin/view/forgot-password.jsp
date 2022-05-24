@@ -30,14 +30,14 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="index2.html"><b>Admin</b>Céline</a>
+        <a href="${pageContext.request.contextPath}/Admin/Welcome"><b>Admin</b>Céline</a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">Bạn đã quên  mật khẩu? Hãy gửi yêu cầu cấp lại.</p>
+            <p class="login-box-msg">Bạn đã quên mật khẩu? Hãy gửi yêu cầu cấp lại.</p>
 
-            <form action="recover-password.html" method="post">
+            <form action="${pageContext.request.contextPath}/Admin/recoverPassword" method="post">
                 <div class="input-group mb-3">
                     <input type="email" class="form-control" placeholder="Email">
                     <div class="input-group-append">
@@ -56,9 +56,6 @@
 
             <p class="mt-3 mb-1">
                 <a href="login.jsp">Đăng nhập</a>
-            </p>
-            <p class="mb-0">
-                <a href="register.html" class="text-center">Đăng ký</a>
             </p>
         </div>
         <!-- /.login-card-body -->

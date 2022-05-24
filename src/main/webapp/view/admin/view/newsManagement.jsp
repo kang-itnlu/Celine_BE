@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="trangchu.html">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
                             <li class="breadcrumb-item active">Quản lý tin tức</li>
                         </ol>
                     </div>
@@ -63,7 +63,7 @@
                                         Bảng quản lý các tin tức</a>
                                 </div>
                                 <div class=" col-6 text-right">
-                                    <a href="themtintuc.html">
+                                    <a href="${pageContext.request.contextPath}/Admin/new/add">
                                         <button type="button" class="btn btn-primary text-right">
                                             <i class="fa fa-plus-circle"></i> Thêm tin tức
                                         </button>
@@ -95,12 +95,12 @@
                     display: block"></td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <a href="#">
+                                            <a href="${pageContext.request.contextPath}/Admin/news/delete">
                                                 <button type="button" class="btn btn-block btn-outline-danger">
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>
                                             </a>
-                                            <a href="suatintuc.html">
+                                            <a href="${pageContext.request.contextPath}/Admin/news/edit">
                                                 <button type="button" class="btn btn-block btn-outline-success ml-1">
                                                     <i class="fa fa-edit"></i>
                                                 </button>

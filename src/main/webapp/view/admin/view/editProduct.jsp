@@ -45,8 +45,8 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="trangchu.html">Trang chủ</a></li>
-              <li class="breadcrumb-item active"><a href="quanlisanpham.html">Quản lý sản phẩm</a></li>
+              <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
+              <li class="breadcrumb-item active"><a href="${pageContext.request.contextPath}/Admin/product/list">Quản lý sản phẩm</a></li>
               <li class="breadcrumb-item active">Sửa sản phẩm</li>
             </ol>
           </div>
@@ -76,7 +76,7 @@
                       <h3 class="card-title">Thông tin sản phẩm</h3>
                     </div>
                     <div class="card-body">
-                      <form role="form">
+                      <form role="form" action="${pageContext.request.contextPath}/Admin/product/edit" method="post">
                         <!-- Date dd/mm/yyyy -->
                         <div class="form-group">
                           <label>Mã hàng</label>
@@ -152,12 +152,12 @@
 
                         <div class="form-group">
                           <div class="input-group justify-content-center">
-                            <a href="#">
+
                               <button type="button" class="btn btn-success text-right">
                                 <i class="fa fa-edit"></i> Sửa
                               </button>
-                            </a>
-                            <a href="quanlisanpham.html">
+
+                            <a href="${pageContext.request.contextPath}/Admin/product/list">
                               <button type="button" class="btn btn-info text-right ml-1">
                                 <i class="fa fa-arrow-alt-circle-left"></i> Trở về
                               </button>

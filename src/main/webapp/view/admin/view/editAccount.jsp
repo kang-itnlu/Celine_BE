@@ -43,8 +43,8 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="trangchu.html">Trang chủ</a></li>
-                            <li class="breadcrumb-item active"><a href="quanlitaikhoan.html">Quản lý tài khoản</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
+                            <li class="breadcrumb-item active"><a href="${pageContext.request.contextPath}/Admin/user/list">Quản lý tài khoản</a></li>
                             <li class="breadcrumb-item active">Sửa tài khoản</li>
                         </ol>
                     </div>
@@ -74,7 +74,7 @@
                                             <h3 class="card-title">Thông tin tài khoản</h3>
                                         </div>
                                         <div class="card-body">
-                                            <form role="form">
+                                            <form role="form" action="${pageContext.request.contextPath}/Admin/user/edit" method="post">
                                                 <!-- Date dd/mm/yyyy -->
                                                 <div class="form-group">
                                                     <label>Mã tài khoản</label>
@@ -144,12 +144,12 @@
                                                 <!-- phone mask -->
                                                 <div class="form-group">
                                                     <div class="input-group justify-content-center">
-                                                        <a href="#">
+
                                                             <button type="button" class="btn btn-success text-right">
                                                                 <i class="fa fa-edit"></i> Sửa
                                                             </button>
-                                                        </a>
-                                                        <a href="quanlitaikhoan.html">
+
+                                                        <a href="${pageContext.request.contextPath}/Admin/user/list">
                                                             <button type="button" class="btn btn-info text-right ml-1">
                                                                 <i class="fa fa-arrow-alt-circle-left"></i> Trở về
                                                             </button>

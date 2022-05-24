@@ -42,7 +42,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="trangchu.html">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
                             <li class="breadcrumb-item active">Quản lý sản phẩm</li>
                         </ol>
                     </div>
@@ -98,7 +98,7 @@
                                     <td>Chất vải Cotton thấm hút, freesize</td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <a href="#">
+                                            <a href="${pageContext.request.contextPath}/Admin/product/delete">
                                                 <button type="button" class="btn btn-block btn-outline-danger">
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>

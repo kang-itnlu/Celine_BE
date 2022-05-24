@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: khang
   Date: 5/17/2022
-  Time: 12:42 AM
+  Time: 12:48 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Thêm danh mục</title>
+    <title>Thêm tin tức</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,13 +26,13 @@
     <link rel="stylesheet" href="${url}/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- summernote -->
+    <link rel="stylesheet" href="${url}/plugins/summernote/summernote-bs4.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
    <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
     <jsp:include page="/view/admin/view/mainbar.jsp"></jsp:include>
-
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -40,13 +40,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Thêm danh mục</h1>
+                        <h1>Thêm tin tức</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="trangchu.html">Trang chủ</a></li>
-                            <li class="breadcrumb-item active"><a href="quanlidanhmuc.html">Quản lý danh mục</a></li>
-                            <li class="breadcrumb-item active">Thêm danh mục</li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
+                            <li class="breadcrumb-item active"><a href="${pageContext.request.contextPath}/Admin/news/list">Quản lý tin tức</a></li>
+                            <li class="breadcrumb-item active">Thêm tin tức</li>
                         </ol>
                     </div>
                 </div>
@@ -62,23 +62,34 @@
                             <div class="row">
                                 <div class=" col-6">
                                     <a class="card-title">
-                                        Điền vào form để thêm danh mục</a>
+                                        Điền vào form để thêm tin tức</a>
                                 </div>
                             </div>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div class="row justify-content-center">
-                                <div class="col-md-6">
+                                <div class="col-md-10">
                                     <div class="card card-info">
                                         <div class="card-header">
-                                            <h3 class="card-title">Thông tin danh mục</h3>
+                                            <h3 class="card-title">Thông tin tin tức</h3>
                                         </div>
                                         <div class="card-body">
-                                            <form role="form">
+                                            <form role="form" action="${pageContext.request.contextPath}/Admin/news/add" method="post">
+                                                <div class="form-group">
+                                                    <label>Mã tin</label>
+
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="far fa-id-card"></i></span>
+                                                        </div>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
                                                 <!-- Date dd/mm/yyyy -->
                                                 <div class="form-group">
-                                                    <label>Mã danh mục</label>
+                                                    <label>Tiêu đề</label>
 
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
@@ -91,26 +102,38 @@
                                                 <!-- /.form group -->
                                                 <!-- phone mask -->
                                                 <div class="form-group">
-                                                    <label>Tên danh mục</label>
+                                                    <label>Nội dung</label>
 
                                                     <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-list"></i></span>
+                                                        <div class="mb-3">
+                                  <textarea class="textarea" placeholder="Place some text here"
+                                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;"></textarea>
                                                         </div>
-                                                        <input type="text" class="form-control">
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
                                                 <!-- /.form group -->
                                                 <!-- phone mask -->
                                                 <div class="form-group">
+                                                    <label>Hình ảnh</label>
+
+                                                    <!-- <label for="customFile">Custom File</label> -->
+
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFile">
+                                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                                <!-- phone mask -->
+                                                <div class="form-group">
                                                     <div class="input-group justify-content-center">
-                                                        <a href="#">
+
                                                             <button type="button" class="btn btn-success text-right">
                                                                 <i class="fa fa-plus-circle"></i> Thêm
                                                             </button>
-                                                        </a>
-                                                        <a href="quanlidanhmuc.html">
+
+                                                        <a href="${pageContext.request.contextPath}/Admin/news/list">
                                                             <button type="button" class="btn btn-info text-right ml-1">
                                                                 <i class="fa fa-arrow-alt-circle-left"></i> Trở về
                                                             </button>
@@ -119,7 +142,6 @@
                                                     <!-- /.input group -->
                                                 </div>
                                                 <!-- /.form group -->
-
                                             </form>
                                         </div>
                                         <!-- /.card-body -->
@@ -139,7 +161,7 @@
         </section>
         <!-- /.content -->
     </div>
-   <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
 </div>
 <!-- ./wrapper -->
 
@@ -166,6 +188,8 @@
 <script src="${url}/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="${url}/dist/js/demo.js"></script>
+<script src="${url}/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="${url}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <script>
     $(function () {
         $("#example1").DataTable();
@@ -247,6 +271,15 @@
         });
 
     })
+</script>
+<script>
+    $(function () {
+        // Summernote
+        $('.textarea').summernote()
+    })
+    $(document).ready(function () {
+        bsCustomFileInput.init();
+    });
 </script>
 </body>
 </html>

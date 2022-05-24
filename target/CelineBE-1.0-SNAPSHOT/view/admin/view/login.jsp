@@ -30,7 +30,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="index2.html"><b>Admin</b>Céline</a>
+        <a href="${pageContext.request.contextPath}/Admin/Welcome"><b>Admin</b>Céline</a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
@@ -76,14 +76,14 @@
                 <a href="#" class="btn btn-block btn-primary">
                     <i class="fab fa-facebook mr-2"></i> Đăng nhập với Facebook
                 </a>
-                <a href="#" class="btn btn-block btn-danger">
+                <a href="${pageContext.request.contextPath}/login-google" class="btn btn-block btn-danger">
                     <i class="fab fa-google-plus mr-2"></i> Đăng nhập với Google+
                 </a>
             </div>
             <!-- /.social-auth-links -->
 
             <p class="mb-1">
-                <a href="forgot-password.html">Quên mật khẩu</a>
+                <a href="${pageContext.request.contextPath}/Admin/forgotPassword">Quên mật khẩu</a>
             </p>
         </div>
         <!-- /.login-card-body -->

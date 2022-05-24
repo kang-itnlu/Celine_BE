@@ -28,231 +28,8 @@
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-dark navbar-info">
-        <!-- Left navbar links -->
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-            </li>
-        </ul>
-
-        <!-- SEARCH FORM -->
-        <form class="form-inline ml-3">
-            <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Tìm kiếm..." aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-navbar" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
-
-        <!-- Right navbar links -->
-        <ul class="navbar-nav ml-auto">
-
-            <!-- Notifications Dropdown Menu -->
-            <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="far fa-user-circle fa-2x"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <span class="dropdown-item dropdown-header">Tài khoản Admin</span>
-                    <div class="dropdown-divider"></div>
-                    <a href="" class="dropdown-item">
-                        <i class="fas fa-sign-in-alt mr-2"></i> Đăng nhập
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-registered mr-2"></i> Đăng ký
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-sign-out-alt mr-2"></i> Đăng xuất
-                    </a>
-                    <div class="dropdown-divider"></div>
-                </div>
-            </li>
-
-        </ul>
-    </nav>
-    <!-- /.navbar -->
-
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-light-info elevation-4">
-        <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link navbar-cyan">
-            <img src="${url}/dist/img/logo_login.png"
-                 alt="AdminLTE Logo"
-                 class="brand-image img-circle elevation-3"
-                 style="opacity: .8">
-            <span class="brand-text font-weight-bolder">Céline Store</span>
-        </a>
-
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <!-- Sidebar user (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="${url}/dist/img/logo_login.png" class="img-circle elevation-2" alt="User Image">
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">Céline Admin</a>
-                </div>
-            </div>
-
-            <!-- Sidebar Menu -->
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
-                    <li class="nav-item">
-                        <a href="trangchu.html" class="nav-link">
-                            <i class="nav-icon fas fa-home"></i>
-                            <p>
-                                Trang chủ
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="quanlidanhmuc.html" class="nav-link">
-                            <i class="nav-icon fas fa-th-list"></i>
-                            <p>
-                                Quản lý danh mục
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="themdanhmuc.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Thêm danh mục</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="suadanhmuc.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Sửa danh mục</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="quanlitaikhoan.html" class="nav-link">
-                            <i class="nav-icon fas fa-user"></i>
-                            <p>
-                                Quản lý tài khoản
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="themtaikhoan.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Thêm tài khoản</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="suataikhoan.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Sửa tài khoản</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="quanlidonhang.html" class="nav-link">
-                            <i class="nav-icon fas fa-money-bill"></i>
-                            <p>
-                                Quản lý hóa đơn
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="themdonhang.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Thêm hóa đơn</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="suadonhang.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Sửa hóa đơn</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="quanlisanpham.html" class="nav-link">
-                            <i class="nav-icon fa fa-book"></i>
-                            <p>
-                                Quản lý sản phẩm
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="themsanpham.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Thêm sản phẩm</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="suasanpham.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Sửa sản phẩm</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="quanlitintuc.html" class="nav-link">
-                            <i class="nav-icon fa fa-newspaper"></i>
-                            <p>
-                                Quản lý tin tức
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="themtintuc.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Thêm tin tức</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="suatintuc.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Sửa tin tức</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="quanlibinhluan.html" class="nav-link">
-                            <i class="nav-icon fas fa-comment"></i>
-                            <p>
-                                Quản lý bình luận
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="thongke.html" class="nav-link">
-                            <i class="nav-icon fas fa-chart-area"></i>
-                            <p>
-                                Thống kê
-                            </p>
-                        </a>
-                    </li>
-
-                </ul>
-            </nav>
-            <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
-    </aside>
+    <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/mainbar.jsp"></jsp:include>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -265,7 +42,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
                             <li class="breadcrumb-item active">Thông tin người dùng</li>
                         </ol>
                     </div>
@@ -283,8 +60,10 @@
                         <div class="card card-primary card-outline">
                             <div class="card-body box-profile">
                                 <div class="text-center">
+                                    <c:url value="${sessionScope.account.avatar }"
+                                           var="imgUrl"></c:url>
                                     <img class="profile-user-img img-fluid img-circle"
-                                         src="${url}/dist/img/user4-128x128.jpg"
+                                         src="${imgUrl}"
                                          alt="User profile picture">
                                 </div>
 
@@ -635,19 +414,8 @@
         </section>
         <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.2-pre
-        </div>
-        <strong>Copyright &copy; 2021 <a href="#">AdminCéline</a>.</strong> All rights
-        reserved.
-    </footer>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
+    <jsp:include page="/view/client/view/footer.jsp"></jsp:include>
     <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->

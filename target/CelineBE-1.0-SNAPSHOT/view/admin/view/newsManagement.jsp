@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: khang
   Date: 5/16/2022
-  Time: 11:24 PM
+  Time: 11:46 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Quản lý hóa đơn</title>
+    <title>Quản lý tin tức</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -39,12 +39,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Quản lý hóa đơn</h1>
+                        <h1>Quản lý tin tức</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="trangchu.html">Trang chủ</a></li>
-                            <li class="breadcrumb-item active">Quản lý hóa đơn</li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
+                            <li class="breadcrumb-item active">Quản lý tin tức</li>
                         </ol>
                     </div>
                 </div>
@@ -60,12 +60,12 @@
                             <div class="row">
                                 <div class=" col-6">
                                     <a class="card-title">
-                                        Bảng quản lý các hóa đơn</a>
+                                        Bảng quản lý các tin tức</a>
                                 </div>
                                 <div class=" col-6 text-right">
-                                    <a href="themdonhang.html">
+                                    <a href="${pageContext.request.contextPath}/Admin/new/add">
                                         <button type="button" class="btn btn-primary text-right">
-                                            <i class="fa fa-plus-circle"></i> Thêm mới hóa đơn
+                                            <i class="fa fa-plus-circle"></i> Thêm tin tức
                                         </button>
                                     </a>
                                 </div>
@@ -73,38 +73,34 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-responsive-md">
+                            <table id="example1" class="table table-bordered">
                                 <thead>
                                 <tr>
                                     <th title="Số thứ tự">STT</th>
-                                    <th>Mã hóa đơn</th>
-                                    <th>Họ tên</th>
-                                    <th>Địa chỉ</th>
-                                    <th>Tình trạng</th>
-                                    <th>Ngày mua</th>
-                                    <th>Tổng tiền</th>
+                                    <th>Mã tin</th>
+                                    <th>Tiêu đề</th>
+                                    <th>Nội dung</th>
+                                    <th>Hình ảnh</th>
                                     <th>Thao tác</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>hd1</td>
-                                    <td>Nguyễn Văn Tèo</td>
-                                    <td>56, Phan Văn Trị, Gò Vấp, TP.HCM</td>
-                                    <td>Đã đóng gói</td>
-                                    <td>
-                                        12/12/2021
+                                    <td>tt1
                                     </td>
-                                    <td>125000</td>
+                                    <td>Thời trang Đông-Xuân 2022</td>
+                                    <td>Giai đoạn chuyển năm chính là lúc để các xu hướng thời trang mới ra đời và dẫn đẫu xu hướng, với các phong cách thời trang...</td>
+                                    <td><img src="${url}/dist/img/thudong.jpg" alt="" style="width:30%; height: 20%;margin: 0 auto;
+                    display: block"></td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <a href="#">
+                                            <a href="${pageContext.request.contextPath}/Admin/news/delete">
                                                 <button type="button" class="btn btn-block btn-outline-danger">
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>
                                             </a>
-                                            <a  href="suadonhang.html">
+                                            <a href="${pageContext.request.contextPath}/Admin/news/edit">
                                                 <button type="button" class="btn btn-block btn-outline-success ml-1">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
@@ -115,13 +111,12 @@
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td>hd2</td>
-                                    <td>Cao Thị Thấp</td>
-                                    <td>23/10, đường số 7, Linh Trung, Tp. Thủ Đức</td>
-                                    <td>Đang xử lí</td>
-                                    <td>13/12/2021
+                                    <td>tt2
                                     </td>
-                                    <td>399000</td>
+                                    <td>Gucci ra mắt sản phẩm giày mới</td>
+                                    <td>Mới đây Gucci đã cho ra mắt sản phẩm giày mới mang tên Gucci Aventador lấy cảm hứng từ mẫu siêu xe Lamborghini...</td>
+                                    <td><img src="${url}/dist/img/gucci.png" alt="" style="width:30%; height: 20%;margin: 0 auto;
+                    display: block"></td>
                                     <td>
                                         <div class="row justify-content-center">
                                             <a href="#">
@@ -129,7 +124,7 @@
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>
                                             </a>
-                                            <a  href="suadonhang.html">
+                                            <a href="suatintuc.html">
                                                 <button type="button" class="btn btn-block btn-outline-success ml-1">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
@@ -140,13 +135,12 @@
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td>hd3</td>
-                                    <td>Huỳnh Văn Phúc</td>
-                                    <td>1, Võ Văn Ngân, Tp. Thủ Đức</td>
-                                    <td>Đã giao</td>
-                                    <td>5/12/2021
+                                    <td>tt3
                                     </td>
-                                    <td>999000</td>
+                                    <td>Khuyến mãi cực sốc đón Giáng sinh 2021</td>
+                                    <td>Nhân dịp Giáng sinh cửa hàng Céline sẽ giảm giá đồng loạt các sản phẩm thời trang localbrand..</td>
+                                    <td><img src="${url}/dist/img/sale.jpg" alt="" style="width:30%; height: 20%;margin: 0 auto;
+                    display: block"></td>
                                     <td>
                                         <div class="row justify-content-center">
                                             <a href="#">
@@ -154,7 +148,7 @@
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>
                                             </a>
-                                            <a  href="suadonhang.html">
+                                            <a href="suatintuc.html">
                                                 <button type="button" class="btn btn-block btn-outline-success ml-1">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
@@ -163,6 +157,7 @@
                                         </div>
                                     </td>
                                 </tr>
+
                                 </tbody>
                                 <tfoot>
                                 </tfoot>
@@ -178,7 +173,7 @@
         </section>
         <!-- /.content -->
     </div>
-  <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
+   <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
 </div>
 <!-- ./wrapper -->
 

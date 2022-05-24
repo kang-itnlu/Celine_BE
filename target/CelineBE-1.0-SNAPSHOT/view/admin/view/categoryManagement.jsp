@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: khang
   Date: 5/16/2022
-  Time: 11:41 PM
+  Time: 11:23 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Quản lý sản phẩm</title>
+    <title>Quản lý danh mục</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -38,12 +38,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Quản lý sản phẩm</h1>
+                        <h1>Quản lý danh mục</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="trangchu.html">Trang chủ</a></li>
-                            <li class="breadcrumb-item active">Quản lý sản phẩm</li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
+                            <li class="breadcrumb-item active">Quản lý danh mục</li>
                         </ol>
                     </div>
                 </div>
@@ -59,12 +59,12 @@
                             <div class="row">
                                 <div class=" col-6">
                                     <a class="card-title">
-                                        Bảng quản lý các sản phẩm</a>
+                                        Bảng quản lý các danh mục</a>
                                 </div>
                                 <div class=" col-6 text-right">
-                                    <a href="${pageContext.request.contextPath}/Admin/product/add">
+                                    <a href="${pageContext.request.contextPath}/Admin/category/add">
                                         <button type="button" class="btn btn-primary text-right">
-                                            <i class="fa fa-plus-circle"></i> Thêm mới sản phẩm
+                                            <i class="fa fa-plus-circle"></i> Thêm danh mục
                                         </button>
                                     </a>
                                 </div>
@@ -72,38 +72,30 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-responsive-md">
+                            <table id="example1" class="table table-bordered">
                                 <thead>
-                                <tr style="vertical-align: middle;">
+                                <tr>
                                     <th title="Số thứ tự">STT</th>
-                                    <th>Mã hàng</th>
-                                    <th>Tên hàng</th>
-                                    <th>Hình ảnh</th>
-                                    <th>Số lượng</th>
-                                    <th>Giá</th>
-                                    <th>Mô tả</th>
+                                    <th>Mã danh mục</th>
+                                    <th>Tên danh mục</th>
                                     <th>Thao tác</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>sp1</td>
-                                    <td>Áo thu nam  phong cách Hàn Quốc</td>
-                                    <td><img src="${url}/dist/img/ao3.jpg" alt="" style="width:30%; height: 20%;margin: 0 auto;
-                    display: block"></td>
-                                    <td>30</td>
-                                    <td>99000
+                                    <td>
+                                        dm_logo
                                     </td>
-                                    <td>Chất vải Cotton thấm hút, freesize</td>
+                                    <td>Logo</td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <a href="#">
+                                            <a href="${pageContext.request.contextPath}/Admin/category/delete">
                                                 <button type="button" class="btn btn-block btn-outline-danger">
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>
                                             </a>
-                                            <a  href="${pageContext.request.contextPath}/Admin/product/edit">
+                                            <a  href="${pageContext.request.contextPath}/Admin/category/edit">
                                                 <button type="button" class="btn btn-block btn-outline-success ml-1">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
@@ -114,22 +106,18 @@
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td>sp2</td>
-                                    <td>Áo loang unisex xanh da trời</td>
-                                    <td><img src="${url}/dist/img/ao5.jpg" alt="" style="width:30%; height: 20%;margin: 0 auto;
-                    display: block"></td>
-                                    <td>20</td>
-                                    <td>125000
+                                    <td>
+                                        dm_giohang
                                     </td>
-                                    <td>Chất vải co dãn, thấm hút mồ hôi, form áo rộng</td>
+                                    <td>Giỏ hàng</td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <a href="#">
+                                            <a href="${pageContext.request.contextPath}/Admin/category/delete">
                                                 <button type="button" class="btn btn-block btn-outline-danger">
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>
                                             </a>
-                                            <a  href="suasanpham.html">
+                                            <a  href="${pageContext.request.contextPath}/Admin/category/edit">
                                                 <button type="button" class="btn btn-block btn-outline-success ml-1">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
@@ -140,22 +128,18 @@
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td>sp3</td>
-                                    <td>Áo loang cầu vồng freezise</td>
-                                    <td><img src="${url}/dist/img/addimage2.jpg" alt="" style="width:30%; height: 20%;margin: 0 auto;
-                    display: block"></td>
-                                    <td>50</td>
-                                    <td>150000
+                                    <td>
+                                        dm_banner
                                     </td>
-                                    <td>Áo với các vết loang vô cùng thẩm mỹ, chất vải mịn</td>
+                                    <td>Banner</td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <a href="#">
+                                            <a href="${pageContext.request.contextPath}/Admin/category/delete">
                                                 <button type="button" class="btn btn-block btn-outline-danger">
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>
                                             </a>
-                                            <a  href="suasanpham.html">
+                                            <a  href="${pageContext.request.contextPath}/Admin/category/edit">
                                                 <button type="button" class="btn btn-block btn-outline-success ml-1">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
@@ -164,7 +148,6 @@
                                         </div>
                                     </td>
                                 </tr>
-
                                 </tbody>
                                 <tfoot>
                                 </tfoot>
@@ -198,11 +181,19 @@
 <!-- page script -->
 <script>
     $(function () {
-        $("#example1").DataTable();
+        $("#example1").DataTable({
+//Dùng bootstrap 4 để tạo search và mục phân trang, sắp xếp, tự động chiều ngang
+            "infor": true,
+            "searching": true,
+            "lengthChange": true,
+            "ordering":true,
+            "autoWidth": true,
+            "paging": true // hiện Show 10 entries
+        });
         $('#example2').DataTable({
             "paging": true,
             "lengthChange": false,
-            "searching": false,
+            "searching": true,
             "ordering": true,
             "info": true,
             "autoWidth": false,
@@ -211,6 +202,5 @@
 </script>
 </body>
 </html>
-
 
 

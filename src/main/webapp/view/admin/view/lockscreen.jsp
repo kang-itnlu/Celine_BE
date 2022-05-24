@@ -29,7 +29,7 @@
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
     <div class="lockscreen-logo">
-        <a href="index2.html"><b>Admin</b>Céline</a>
+        <a href="${pageContext.request.contextPath}/Admin/Welcome"><b>Admin</b>Céline</a>
     </div>
     <!-- User name -->
     <div class="lockscreen-name">John Doe</div>
@@ -38,7 +38,9 @@
     <div class="lockscreen-item">
         <!-- lockscreen image -->
         <div class="lockscreen-image">
-            <img src="${url}/dist/img/user1-128x128.jpg" alt="User Image">
+            <c:url value="${sessionScope.account.avatar }"
+                   var="imgUrl"></c:url>
+            <img src="${imgUrl}" alt="User Image">
         </div>
         <!-- /.lockscreen-image -->
 
@@ -60,7 +62,7 @@
         Nhập mật khẩu dể tiếp tục sử dụng
     </div>
     <div class="text-center">
-        <a href="login.html">Hoặc đăng nhập với tài khoản khác</a>
+        <a href="${pageContext.request.contextPath}/Admin/Login">Hoặc đăng nhập với tài khoản khác</a>
     </div>
     <div class="lockscreen-footer text-center">
         Copyright &copy; 2021 <b><a href="#" class="text-black">AdminCéline</a></b><br>

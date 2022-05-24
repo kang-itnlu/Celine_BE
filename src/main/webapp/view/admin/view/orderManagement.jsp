@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="trangchu.html">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
                             <li class="breadcrumb-item active">Quản lý hóa đơn</li>
                         </ol>
                     </div>
@@ -63,7 +63,7 @@
                                         Bảng quản lý các hóa đơn</a>
                                 </div>
                                 <div class=" col-6 text-right">
-                                    <a href="themdonhang.html">
+                                    <a href="${pageContext.request.contextPath}/Admin/order/add">
                                         <button type="button" class="btn btn-primary text-right">
                                             <i class="fa fa-plus-circle"></i> Thêm mới hóa đơn
                                         </button>
@@ -99,12 +99,12 @@
                                     <td>125000</td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <a href="#">
+                                            <a href="${pageContext.request.contextPath}/Admin/order/delete">
                                                 <button type="button" class="btn btn-block btn-outline-danger">
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>
                                             </a>
-                                            <a  href="suadonhang.html">
+                                            <a  href="${pageContext.request.contextPath}/Admin/order/edit">
                                                 <button type="button" class="btn btn-block btn-outline-success ml-1">
                                                     <i class="fa fa-edit"></i>
                                                 </button>

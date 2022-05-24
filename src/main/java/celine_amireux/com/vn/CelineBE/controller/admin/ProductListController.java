@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = { "/Admin/product" })
+@WebServlet(urlPatterns = { "/Admin/product/list" })
 public class ProductListController extends HttpServlet {
     ProductService productService = new ProductServiceImpl();
     CategoryService cateService = new CategoryServiceImpl();

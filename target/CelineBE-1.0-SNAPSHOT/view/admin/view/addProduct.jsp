@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: khang
   Date: 5/17/2022
-  Time: 12:38 AM
+  Time: 12:45 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sửa tài khoản</title>
+    <title>Thêm sản phẩm</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,12 +26,13 @@
     <link rel="stylesheet" href="${url}/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- summernote -->
+    <link rel="stylesheet" href="${url}/plugins/summernote/summernote-bs4.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-    <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
+   <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
     <jsp:include page="/view/admin/view/mainbar.jsp"></jsp:include>
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -39,13 +40,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Sửa tài khoản</h1>
+                        <h1>Thêm sản phẩm</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="trangchu.html">Trang chủ</a></li>
-                            <li class="breadcrumb-item active"><a href="quanlitaikhoan.html">Quản lý tài khoản</a></li>
-                            <li class="breadcrumb-item active">Sửa tài khoản</li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
+                            <li class="breadcrumb-item active"><a href="${pageContext.request.contextPath}/Admin/product/list">Quản lý sản phẩm</a></li>
+                            <li class="breadcrumb-item active">Thêm sản phẩm</li>
                         </ol>
                     </div>
                 </div>
@@ -61,23 +62,24 @@
                             <div class="row">
                                 <div class=" col-6">
                                     <a class="card-title">
-                                        Điền vào form để sửa tài khoản</a>
+                                        Điền vào form để thêm sản phẩm</a>
                                 </div>
                             </div>
                         </div>
                         <!-- /.card-header -->
+
                         <div class="card-body">
                             <div class="row justify-content-center">
-                                <div class="col-md-6">
+                                <div class="col-md-10">
                                     <div class="card card-info">
                                         <div class="card-header">
-                                            <h3 class="card-title">Thông tin tài khoản</h3>
+                                            <h3 class="card-title">Thông tin sản phẩm</h3>
                                         </div>
                                         <div class="card-body">
-                                            <form role="form">
+                                            <form role="form" action="${pageContext.request.contextPath}/Admin/product/add" method="post">
                                                 <!-- Date dd/mm/yyyy -->
                                                 <div class="form-group">
-                                                    <label>Mã tài khoản</label>
+                                                    <label>Mã hàng</label>
 
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
@@ -87,14 +89,47 @@
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
-                                                <!-- /.form group -->
-                                                <!-- phone mask -->
                                                 <div class="form-group">
-                                                    <label>Mật khẩu</label>
+                                                    <label>Tên hàng</label>
 
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-key"></i></span>
+                                                            <span class="input-group-text"><i class="fa fa-list"></i></span>
+                                                        </div>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                                <!-- phone mask -->
+                                                <div class="form-group">
+                                                    <label>Hình ảnh</label>
+
+                                                    <!-- <label for="customFile">Custom File</label> -->
+
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFile">
+                                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                                <!-- phone mask -->
+                                                <div class="form-group">
+                                                    <label>Số lượng</label>
+
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="fa fa-th-list"></i></span>
+                                                        </div>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Giá</label>
+
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="fa fa-money-check"></i></span>
                                                         </div>
                                                         <input type="text" class="form-control">
                                                     </div>
@@ -103,53 +138,24 @@
                                                 <!-- /.form group -->
                                                 <!-- phone mask -->
                                                 <div class="form-group">
-                                                    <label>Họ và tên</label>
+                                                    <label>Mô tả</label>
 
                                                     <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-user-alt"></i></span>
+                                                        <div class="mb-3">
+                                  <textarea class="textarea" placeholder="Place some text here"
+                                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;"></textarea>
                                                         </div>
-                                                        <input type="text" class="form-control">
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
                                                 <!-- /.form group -->
 
-                                                <!-- phone mask -->
-                                                <div class="form-group">
-                                                    <label>Số điện thoại </label>
-
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-phone"></i></span>
-                                                        </div>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                                <!-- /.form group -->
-                                                <!-- phone mask -->
-                                                <div class="form-group">
-                                                    <label>Email</label>
-
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                                                        </div>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                                <!-- /.form group -->
-                                                <!-- phone mask -->
                                                 <div class="form-group">
                                                     <div class="input-group justify-content-center">
-                                                        <a href="#">
-                                                            <button type="button" class="btn btn-success text-right">
-                                                                <i class="fa fa-edit"></i> Sửa
+                                                            <button type="submit" class="btn btn-success text-right">
+                                                                <i class="fa fa-plus-circle"></i> Thêm
                                                             </button>
-                                                        </a>
-                                                        <a href="quanlitaikhoan.html">
+                                                        <a href="${pageContext.request.contextPath}/Admin/product/list">
                                                             <button type="button" class="btn btn-info text-right ml-1">
                                                                 <i class="fa fa-arrow-alt-circle-left"></i> Trở về
                                                             </button>
@@ -158,7 +164,6 @@
                                                     <!-- /.input group -->
                                                 </div>
                                                 <!-- /.form group -->
-
                                             </form>
                                         </div>
                                         <!-- /.card-body -->
@@ -168,6 +173,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
@@ -178,7 +184,7 @@
         </section>
         <!-- /.content -->
     </div>
-  <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
+   <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
 </div>
 <!-- ./wrapper -->
 
@@ -205,6 +211,8 @@
 <script src="${url}/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="${url}/dist/js/demo.js"></script>
+<script src="${url}/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="${url}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <script>
     $(function () {
         $("#example1").DataTable();
@@ -287,9 +295,14 @@
 
     })
 </script>
+<script>
+    $(function () {
+        // Summernote
+        $('.textarea').summernote()
+    })
+    $(document).ready(function () {
+        bsCustomFileInput.init();
+    });
+</script>
 </body>
 </html>
-
-
-
-

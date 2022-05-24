@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: khang
   Date: 5/17/2022
-  Time: 12:47 AM
+  Time: 12:38 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Thêm tài khoản</title>
+    <title>Sửa tài khoản</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -29,7 +29,7 @@
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-  <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
     <jsp:include page="/view/admin/view/mainbar.jsp"></jsp:include>
 
     <!-- Content Wrapper. Contains page content -->
@@ -39,13 +39,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Thêm tài khoản</h1>
+                        <h1>Sửa tài khoản</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="trangchu.html">Trang chủ</a></li>
-                            <li class="breadcrumb-item active"><a href="quanlitaikhoan.html">Quản lý tài khoản</a></li>
-                            <li class="breadcrumb-item active">Thêm tài khoản</li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
+                            <li class="breadcrumb-item active"><a href="${pageContext.request.contextPath}/Admin/user/list">Quản lý tài khoản</a></li>
+                            <li class="breadcrumb-item active">Sửa tài khoản</li>
                         </ol>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                             <div class="row">
                                 <div class=" col-6">
                                     <a class="card-title">
-                                        Điền vào form để thêm tài khoản</a>
+                                        Điền vào form để sửa tài khoản</a>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                                             <h3 class="card-title">Thông tin tài khoản</h3>
                                         </div>
                                         <div class="card-body">
-                                            <form role="form">
+                                            <form role="form" action="${pageContext.request.contextPath}/Admin/user/edit" method="post">
                                                 <!-- Date dd/mm/yyyy -->
                                                 <div class="form-group">
                                                     <label>Mã tài khoản</label>
@@ -144,12 +144,12 @@
                                                 <!-- phone mask -->
                                                 <div class="form-group">
                                                     <div class="input-group justify-content-center">
-                                                        <a href="#">
+
                                                             <button type="button" class="btn btn-success text-right">
-                                                                <i class="fa fa-plus-circle"></i> Thêm
+                                                                <i class="fa fa-edit"></i> Sửa
                                                             </button>
-                                                        </a>
-                                                        <a href="quanlitaikhoan.html">
+
+                                                        <a href="${pageContext.request.contextPath}/Admin/user/list">
                                                             <button type="button" class="btn btn-info text-right ml-1">
                                                                 <i class="fa fa-arrow-alt-circle-left"></i> Trở về
                                                             </button>
@@ -229,9 +229,9 @@
         })
 
         //Datemask dd/mm/yyyy
-        $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+        $('#datemask').inputmask('dd/mm/yyyy', {'placeholder': 'dd/mm/yyyy'})
         //Datemask2 mm/dd/yyyy
-        $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+        $('#datemask2').inputmask('mm/dd/yyyy', {'placeholder': 'mm/dd/yyyy'})
         //Money Euro
         $('[data-mask]').inputmask()
 
@@ -248,16 +248,16 @@
         //Date range as a button
         $('#daterange-btn').daterangepicker(
             {
-                ranges   : {
-                    'Today'       : [moment(), moment()],
-                    'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                    'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
                     'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                    'This Month'  : [moment().startOf('month'), moment().endOf('month')],
-                    'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
                 },
                 startDate: moment().subtract(29, 'days'),
-                endDate  : moment()
+                endDate: moment()
             },
             function (start, end) {
                 $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
@@ -277,11 +277,11 @@
         //color picker with addon
         $('.my-colorpicker2').colorpicker()
 
-        $('.my-colorpicker2').on('colorpickerChange', function(event) {
+        $('.my-colorpicker2').on('colorpickerChange', function (event) {
             $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
         });
 
-        $("input[data-bootstrap-switch]").each(function(){
+        $("input[data-bootstrap-switch]").each(function () {
             $(this).bootstrapSwitch('state', $(this).prop('checked'));
         });
 
@@ -289,3 +289,7 @@
 </script>
 </body>
 </html>
+
+
+
+

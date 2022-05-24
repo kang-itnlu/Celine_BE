@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: khang
   Date: 5/16/2022
-  Time: 11:44 PM
+  Time: 11:21 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Quản lý tài khoản</title>
+    <title>Quản lý bình luận</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -31,7 +31,6 @@
 <div class="wrapper">
     <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
     <jsp:include page="/view/admin/view/mainbar.jsp"></jsp:include>
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -39,12 +38,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Quản lý tài khoản</h1>
+                        <h1>Quản lý bình luận</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="trangchu.html">Trang chủ</a></li>
-                            <li class="breadcrumb-item active">Quản lý tài khoản</li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
+                            <li class="breadcrumb-item active">Quản lý bình luận</li>
                         </ol>
                     </div>
                 </div>
@@ -60,14 +59,7 @@
                             <div class="row">
                                 <div class=" col-6">
                                     <a class="card-title">
-                                        Bảng quản lý các tài khoản</a>
-                                </div>
-                                <div class=" col-6 text-right">
-                                    <a href="themtaikhoan.html">
-                                        <button type="button" class="btn btn-primary text-right">
-                                            <i class="fa fa-plus-circle"></i> Thêm tài khoản
-                                        </button>
-                                    </a>
+                                        Bảng quản lý các bình luận</a>
                                 </div>
                             </div>
                         </div>
@@ -77,91 +69,73 @@
                                 <thead>
                                 <tr>
                                     <th title="Số thứ tự">STT</th>
-                                    <th>Mã khách hàng</th>
-                                    <th>Họ tên</th>
-                                    <th>Tên đăng nhập</th>
-                                    <th>Số điện thoại</th>
-                                    <th>Trạng thái</th>
+                                    <th>Mã bình luận</th>
+                                    <th>Nội dunng</th>
+                                    <th>Người bình luận</th>
+                                    <th>Phân loại</th>
+                                    <th>Thời gian</th>
                                     <th>Thao tác</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>user1</td>
-                                    <td>Nguyễn Văn Tèo</td>
-                                    <td>teodeptrai1999</td>
-                                    <td>
-                                        0785691234
+                                    <td>bl1</td>
+                                    <td>Sản phẩm rất tốt, vưa tầm giá</td>
+                                    <td>Tony Tèo</td>
+                                    <td>Bình thường
                                     </td>
-                                    <td>Online</td>
+                                    <td>1/11/2021</td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <a href="#">
+                                            <a target="_blank" href="${pageContext.request.contextPath}/Admin/comment/delete">
                                                 <button type="button" class="btn btn-block btn-outline-danger">
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>
                                             </a>
-                                            <a  href="suataikhoan.html">
-                                                <button type="button" class="btn btn-block btn-outline-success ml-1">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                            </a>
-
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td>user2</td>
-                                    <td>Cao Thị Thấp</td>
-                                    <td>thapthiketao123</td>
-                                    <td>
-                                        0342578545
+                                    <td>bl2</td>
+                                    <td>aaaaaaaaaaaa</td>
+                                    <td>Mr.Đờm</td>
+                                    <td>Spam
                                     </td>
-                                    <td>Offline</td>
+                                    <td>11/11/2021</td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <a href="#">
+                                            <a target="_blank" href="${pageContext.request.contextPath}/Admin/comment/delete">
                                                 <button type="button" class="btn btn-block btn-outline-danger">
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>
                                             </a>
-                                            <a  href="suataikhoan.html">
-                                                <button type="button" class="btn btn-block btn-outline-success ml-1">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                            </a>
-
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td>user3</td>
-                                    <td>Huỳnh Văn Phúc</td>
-                                    <td>phucloctho321</td>
-                                    <td>0815346709
+                                    <td>bl3</td>
+                                    <td>Chất vải chưa tốt lắm, cần nâng cấp</td>
+                                    <td>Ms.Kim</td>
+                                    <td>Bình thường
                                     </td>
-                                    <td>Online</td>
+                                    <td>1/12/2021</td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <a href="#">
+                                            <a target="_blank" href="${pageContext.request.contextPath}/Admin/comment/delete">
                                                 <button type="button" class="btn btn-block btn-outline-danger">
                                                     <i class="fa fa-trash-alt"></i>
                                                 </button>
                                             </a>
-                                            <a  href="suataikhoan.html">
-                                                <button type="button" class="btn btn-block btn-outline-success ml-1">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                            </a>
-
                                         </div>
                                     </td>
                                 </tr>
+
                                 </tbody>
                                 <tfoot>
+
                                 </tfoot>
                             </table>
                         </div>
@@ -175,7 +149,7 @@
         </section>
         <!-- /.content -->
     </div>
-  <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
+   <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
 </div>
 <!-- ./wrapper -->
 

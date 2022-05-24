@@ -44,8 +44,8 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="trangchu.html">Trang chủ</a></li>
-                            <li class="breadcrumb-item active"><a href="quanlidanhmuc.html">Quản lý danh mục</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
+                            <li class="breadcrumb-item active"><a href="${pageContext.request.contextPath}/Admin/category/list">Quản lý danh mục</a></li>
                             <li class="breadcrumb-item active">Thêm danh mục</li>
                         </ol>
                     </div>
@@ -75,7 +75,7 @@
                                             <h3 class="card-title">Thông tin danh mục</h3>
                                         </div>
                                         <div class="card-body">
-                                            <form role="form">
+                                            <form role="form" action="${pageContext.request.contextPath}/Admin/category/add" method="post">
                                                 <!-- Date dd/mm/yyyy -->
                                                 <div class="form-group">
                                                     <label>Mã danh mục</label>
@@ -105,12 +105,12 @@
                                                 <!-- phone mask -->
                                                 <div class="form-group">
                                                     <div class="input-group justify-content-center">
-                                                        <a href="#">
-                                                            <button type="button" class="btn btn-success text-right">
+
+                                                            <button type="submit" class="btn btn-success text-right">
                                                                 <i class="fa fa-plus-circle"></i> Thêm
                                                             </button>
-                                                        </a>
-                                                        <a href="quanlidanhmuc.html">
+
+                                                        <a href="${pageContext.request.contextPath}/Admin/category/list">
                                                             <button type="button" class="btn btn-info text-right ml-1">
                                                                 <i class="fa fa-arrow-alt-circle-left"></i> Trở về
                                                             </button>

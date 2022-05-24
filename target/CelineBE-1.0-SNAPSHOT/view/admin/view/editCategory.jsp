@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: khang
   Date: 5/16/2022
-  Time: 11:53 PM
+  Time: 11:51 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sửa hóa đơn</title>
+    <title>Sửa danh mục</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -39,13 +39,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Sửa hóa đơn</h1>
+                        <h1>Sửa danh mục</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="trangchu.html">Trang chủ</a></li>
-                            <li class="breadcrumb-item active"><a href="quanlidonhang.html">Quản lý hóa đơn</a></li>
-                            <li class="breadcrumb-item active">Sửa hóa đơn</li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/category/list">Quản lý danh mục</a></li>
+                            <li class="breadcrumb-item active">Sửa danh mục</li>
                         </ol>
                     </div>
                 </div>
@@ -61,24 +61,24 @@
                             <div class="row">
                                 <div class=" col-6">
                                     <a class="card-title">
-                                        Điền vào form để sửa hóa đơn</a>
+                                        Điền vào form để sửa danh mục</a>
                                 </div>
                             </div>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
                                     <div class="card card-info">
                                         <div class="card-header">
-                                            <h3 class="card-title">Thông tin hóa đơn</h3>
+                                            <h3 class="card-title">Thông tin danh mục</h3>
                                         </div>
+
                                         <div class="card-body">
-                                            <!-- Date dd/mm/yyyy -->
-                                            <form role="form>">
+                                            <form role="form" action="${pageContext.request.contextPath}/Admin/category/edit" method="post">
+                                                <!-- Date dd/mm/yyyy -->
                                                 <div class="form-group">
-                                                    <label>Mã hóa đơn</label>
+                                                    <label>Mã danh mục</label>
 
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
@@ -91,65 +91,11 @@
                                                 <!-- /.form group -->
                                                 <!-- phone mask -->
                                                 <div class="form-group">
-                                                    <label>Họ và tên</label>
+                                                    <label>Tên danh mục</label>
 
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-user"></i></span>
-                                                        </div>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                                <!-- /.form group -->
-                                                <!-- phone mask -->
-                                                <div class="form-group">
-                                                    <label>Địa chỉ</label>
-
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span>
-                                                        </div>
-                                                        <textarea class="form-control"></textarea>
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                                <!-- /.form group -->
-
-                                                <!-- phone mask -->
-                                                <div class="form-group">
-                                                    <label>Tình trạng</label>
-
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-info-circle"></i></span>
-                                                        </div>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                                <!-- /.form group -->
-                                                <!-- phone mask -->
-                                                <div class="form-group">
-                                                    <label>Ngày mua</label>
-
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                                                        </div>
-                                                        <input type="text" class="form-control" data-inputmask-alias="datetime"
-                                                               data-inputmask-inputformat="dd/mm/yyyy" data-mask="" im-insert="false">
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                                <!-- /.form group -->
-                                                <!-- phone mask -->
-                                                <div class="form-group">
-                                                    <label>Tổng tiền</label>
-
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-money-check"></i></span>
+                                                            <span class="input-group-text"><i class="fa fa-list"></i></span>
                                                         </div>
                                                         <input type="text" class="form-control">
                                                     </div>
@@ -159,12 +105,12 @@
                                                 <!-- phone mask -->
                                                 <div class="form-group">
                                                     <div class="input-group justify-content-center">
-                                                        <a href="#">
+
                                                             <button type="button" class="btn btn-success text-right">
                                                                 <i class="fa fa-edit"></i> Sửa
                                                             </button>
-                                                        </a>
-                                                        <a href="quanlidonhang.html">
+
+                                                        <a href="${pageContext.request.contextPath}/Admin/category/list">
                                                             <button type="button" class="btn btn-info text-right ml-1">
                                                                 <i class="fa fa-arrow-alt-circle-left"></i> Trở về
                                                             </button>
@@ -173,16 +119,16 @@
                                                     <!-- /.input group -->
                                                 </div>
                                                 <!-- /.form group -->
-                                            </form>
 
+                                            </form>
                                         </div>
+
                                         <!-- /.card-body -->
                                     </div>
                                     <!-- /.card -->
 
                                 </div>
                             </div>
-
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -305,6 +251,8 @@
 </script>
 </body>
 </html>
+
+
 
 
 

@@ -22,7 +22,7 @@ public class UserListController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> userList = userService.getAll();
         request.setAttribute("userList", userList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/view/userManagement.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/view/accountManagement.jsp");
         dispatcher.forward(request, response);
     }
     @Override
