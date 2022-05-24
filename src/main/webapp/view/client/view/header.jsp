@@ -240,7 +240,7 @@
                                                 class="fas fa-receipt"></i>Đơn mua</a>
                                     </li>
                                     <li class="header__navbar-user-item header__navbar-user-item-separate">
-                                        <a href="${pageContext.request.contextPath }/login"><i
+                                        <a href="${pageContext.request.contextPath }/logout"><i
                                                 class="fas fa-sign-out-alt"></i>Đăng xuất</a>
                                     </li>
                                 </ul>
@@ -386,7 +386,7 @@
 </script>
 <script>
 
-    let newYears = '13 June 2022';
+    let newYears = '12 June 2022';
     const dayEl = document.getElementById('days')
     const hourEl = document.getElementById('hours')
     const minsEl = document.getElementById('mins')

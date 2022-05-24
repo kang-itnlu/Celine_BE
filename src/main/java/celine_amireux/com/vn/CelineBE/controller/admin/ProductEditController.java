@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = { "/admin/product/edit" })
+@WebServlet(urlPatterns = { "/Admin/product/edit" })
 public class ProductEditController extends HttpServlet {
     ProductService productService = new ProductServiceImpl();
     CategoryService categoryService = new CategoryServiceImpl();
@@ -37,7 +37,7 @@ public class ProductEditController extends HttpServlet {
 
         request.setAttribute("product", product);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/view/edit-product.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/view/editProduct.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -84,7 +84,7 @@ public class ProductEditController extends HttpServlet {
             }
             productService.edit(product);
 
-            resp.sendRedirect(req.getContextPath() + "/admin/product/list");
+            resp.sendRedirect(req.getContextPath() + "/Admin/product/list");
         } catch (FileUploadException e) {
             e.printStackTrace();
         } catch (Exception e) {

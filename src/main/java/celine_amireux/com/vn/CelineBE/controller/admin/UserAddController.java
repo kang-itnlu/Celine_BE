@@ -19,7 +19,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-@WebServlet(urlPatterns = { "/admin/user/add" })
+@WebServlet(urlPatterns = { "/Admin/user/add" })
 public class UserAddController extends HttpServlet {
     UserService userService = new UserServiceImpl();
 
@@ -31,7 +31,7 @@ public class UserAddController extends HttpServlet {
                 request.setAttribute("errMsg", "Username da ton tai!!!");
             }
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/view/add-user.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/view/addAccount.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -68,11 +68,11 @@ public class UserAddController extends HttpServlet {
 
             userService.insert(user);
 
-            response.sendRedirect(request.getContextPath() + "/admin/user/list");
+            response.sendRedirect(request.getContextPath() + "/Admin/user/list");
         } catch (FileUploadException e) {
             e.printStackTrace();
         } catch (Exception e) {
-            response.sendRedirect(request.getContextPath() + "/admin/user/add?e=1");
+            response.sendRedirect(request.getContextPath() + "/Admin/user/add?e=1");
         }
 
     }

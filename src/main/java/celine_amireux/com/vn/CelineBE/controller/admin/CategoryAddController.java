@@ -15,13 +15,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = { "/admin/category/add" })
+@WebServlet(urlPatterns = { "/Admin/category/add" })
 public class CategoryAddController extends HttpServlet {
     CategoryService cateService = new CategoryServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/category/add-category.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/view/addCategory.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -36,7 +36,7 @@ public class CategoryAddController extends HttpServlet {
 
         cateService.insert(category);
 
-        response.sendRedirect(request.getContextPath() + "/admin/category/list");
+        response.sendRedirect(request.getContextPath() + "/Admin/category/list");
 
     }
 }

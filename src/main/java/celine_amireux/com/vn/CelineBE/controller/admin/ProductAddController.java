@@ -22,7 +22,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-@WebServlet(urlPatterns = { "/admin/product/add" })
+@WebServlet(urlPatterns = { "/Admin/product/add" })
 public class ProductAddController extends HttpServlet {
     ProductService productService = new ProductServiceImpl();
     CategoryService categoryService = new CategoryServiceImpl();
@@ -33,7 +33,7 @@ public class ProductAddController extends HttpServlet {
 
         request.setAttribute("categories", categories);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/view/add-product.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/view/addProduct.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -69,7 +69,7 @@ public class ProductAddController extends HttpServlet {
 
             productService.insert(product);
 
-            response.sendRedirect(request.getContextPath() + "/admin/product/list");
+            response.sendRedirect(request.getContextPath() + "/Admin/product/list");
         } catch (FileUploadException e) {
             e.printStackTrace();
         } catch (Exception e) {

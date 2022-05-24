@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = { "/admin/user/dashboard" })
+@WebServlet(urlPatterns = { "/Admin/user/dashboard" })
 public class DashBoardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/dashboard.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin//view/Statistic.jsp");
         dispatcher.forward(request, response);
     }
     @Override

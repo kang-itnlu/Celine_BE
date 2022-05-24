@@ -74,8 +74,13 @@
                     <div class="row">
                         <div class="col-md-12 form-group mb-5">
                             <label for="message" class="col-form-label">Nội dung *</label>
-                            <textarea class="form-control" name="message" id="message" cols="30" rows="4"
+                            <textarea class="form-control ckeditor" name="message" id="message" cols="30" rows="4"
                                       placeholder="Nhập nội dung" required></textarea>
+                            <script>
+
+                                CKEDITOR.replace( 'message' );
+
+                            </script>
                         </div>
                     </div>
                     <div class="row">
@@ -152,6 +157,6 @@
 <script src="${url}/js/main.js"></script>
 <script src="${url}/js/html5shiv.js"></script>
 <script src="${url}/js/respond.min.js"></script>
-
+<script src="ckeditor/ckeditor.js"></script>
 </body>
 </html>

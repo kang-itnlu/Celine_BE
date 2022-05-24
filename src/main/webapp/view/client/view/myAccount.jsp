@@ -129,7 +129,7 @@
                                                value="${sessionScope.account.password}">
                                         <input type="button" id="changePasswordBtn" class="change__password-btn"
                                                style="margin-top: 6px;" onclick="showChangePassword()"
-                                               value="Thay đổi mật khẩu"></input>
+                                               value="Thay đổi mật khẩu">
                                     </div>
                                 </div>
                             </fieldset>
@@ -440,7 +440,7 @@
 
     </div>
     <div id="modal__body1">
-        <div id="turn__off" style="cursor: pointer; float:right; padding: 0 6px;">
+        <div id="turn__off"  style="cursor: pointer; float:right; padding: 0 6px;">
             <i class="fas fa-times"></i>
         </div>
         <div class="card login-form">
@@ -477,13 +477,13 @@
     </div>
 </div>
 
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.scrollUp.min.js"></script>
-<script src="js/price-range.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script src="js/main.js"></script>
-<script src="js/account.js"></script>
+<script src="${url}/js/jquery.js"></script>
+<script src="${url}/js/bootstrap.min.js"></script>
+<script src="${url}/js/jquery.scrollUp.min.js"></script>
+<script src="${url}/js/price-range.js"></script>
+<script src="${url}/js/jquery.prettyPhoto.js"></script>
+<script src="${url}/js/main.js"></script>
+<script src="${url}/js/account.js"></script>
 <script>
     $(".nav li").click(function () {
         if ($(".nav li").removeClass("active")) {
@@ -491,6 +491,12 @@
         }
         $(this).addClass("active");
     });
+    function showChangePassword(){
+        document.getElementById("modal1").style.display = "block";
+    }
+    function close(){
+        document.getElementById("modal1").style.display = "none";
+    }
 </script>
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = { "/admin/category/edit" })
+@WebServlet(urlPatterns = { "/Admin/category/edit" })
 public class CategoryEditController extends HttpServlet {
     CategoryService cateService = new CategoryServiceImpl();
 
@@ -26,7 +26,7 @@ public class CategoryEditController extends HttpServlet {
 
         request.setAttribute("category", category);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/category/edit-category.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/category/editCategory.jsp");
         dispatcher.forward(request, response);
     }
 

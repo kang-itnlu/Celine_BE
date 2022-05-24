@@ -32,7 +32,7 @@ public class LogoutController extends HttpServlet {
             }
         }
 
-        response.sendRedirect("./login");
+        response.sendRedirect("./welcome");
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

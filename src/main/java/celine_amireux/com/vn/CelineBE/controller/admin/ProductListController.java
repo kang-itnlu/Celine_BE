@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = { "/admin/product/list" })
+@WebServlet(urlPatterns = { "/Admin/product" })
 public class ProductListController extends HttpServlet {
     ProductService productService = new ProductServiceImpl();
     CategoryService cateService = new CategoryServiceImpl();
@@ -26,7 +26,7 @@ public class ProductListController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Product> proList = productService.getAll();
         request.setAttribute("proList", proList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/view/list-product.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/view/productManagement.jsp");
         dispatcher.forward(request, response);
     }
     @Override
