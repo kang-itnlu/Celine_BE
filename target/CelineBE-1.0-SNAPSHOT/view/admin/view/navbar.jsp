@@ -34,17 +34,27 @@
 
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-                <img src="${imgUrl}" alt="" style="width:40px;height:40px;">
-            </a>
+            <c:choose>
+                <c:when test="${sessionScope.account.avatar==null}">
+                    <a href="#"
+                       class="nav-link" data-toggle="dropdown"
+                       style="display: contents;font-size: 36px;margin-right: 12px;"><i class="fas fa-user" style=""></i>
+                </c:when>
+                <c:otherwise>
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <img src="${imgUrl}" alt="" style="width:40px;height:40px;">
+                    </a>
+                </c:otherwise>
+            </c:choose>
+
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <span class="dropdown-item dropdown-header">Tài khoản Admin: ${username}</span>
+                <span class="dropdown-item dropdown-header">Tài khoản Admin: ${sessionScope.account.username}</span>
                           <div class="dropdown-divider"></div>
-                          <a href="${pageContext.request.contextPath}/Admin/Login" class="dropdown-item">
+                          <a href="${pageContext.request.contextPath}/AdminLogin" class="dropdown-item">
                             <i class="fas fa-sign-in-alt mr-2"></i> Đăng nhập
                           </a>
                 <div class="dropdown-divider"></div>
-                <a href=" " class="dropdown-item">
+                <a href="${pageContext.request.contextPath}/AdminLogout" class="dropdown-item">
                     <i class="fas fa-sign-out-alt mr-2"></i> Đăng xuất
                 </a>
                 <div class="dropdown-divider"></div>

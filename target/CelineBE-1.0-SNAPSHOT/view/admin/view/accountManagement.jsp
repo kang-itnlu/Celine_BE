@@ -76,25 +76,26 @@
                             <table id="example1" class="table table-bordered table-responsive-md">
                                 <thead>
                                 <tr>
-                                    <th title="Số thứ tự">STT</th>
                                     <th>Mã khách hàng</th>
-                                    <th>Họ tên</th>
-                                    <th>Tên đăng nhập</th>
-                                    <th>Số điện thoại</th>
-                                    <th>Trạng thái</th>
+                                    <th>Email</th>
+                                    <th>Tên người dùng</th>
+                                    <th>Password</th>
+                                    <th>Avatar</th>
+                                    <th>Role</th>
                                     <th>Thao tác</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <c:forEach items="${userList}" var="account">
                                 <tr>
-                                    <td>1</td>
-                                    <td>user1</td>
-                                    <td>Nguyễn Văn Tèo</td>
-                                    <td>teodeptrai1999</td>
-                                    <td>
-                                        0785691234
-                                    </td>
-                                    <td>Online</td>
+                                    <td>${account.id}</td>
+                                    <td>${account.email}</td>
+                                    <td>${account.username}</td>
+                                    <td>${account.password}</td>
+                                    <c:url value="${account.avatar }" var="imgUrl"></c:url>
+                                    <td><img src="${imgUrl}" alt="" style="width:30px; height: 30px;margin: 0 auto;
+                    display: block"></td>
+                                    <td>${account.roleId}</td>
                                     <td>
                                         <div class="row justify-content-center">
                                             <a href="${pageContext.request.contextPath}/Admin/user/delete">
@@ -111,55 +112,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>user2</td>
-                                    <td>Cao Thị Thấp</td>
-                                    <td>thapthiketao123</td>
-                                    <td>
-                                        0342578545
-                                    </td>
-                                    <td>Offline</td>
-                                    <td>
-                                        <div class="row justify-content-center">
-                                            <a href="${pageContext.request.contextPath}/Admin/user/delete">
-                                                <button type="button" class="btn btn-block btn-outline-danger">
-                                                    <i class="fa fa-trash-alt"></i>
-                                                </button>
-                                            </a>
-                                            <a  href="${pageContext.request.contextPath}/Admin/user/edit">
-                                                <button type="button" class="btn btn-block btn-outline-success ml-1">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                            </a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>user3</td>
-                                    <td>Huỳnh Văn Phúc</td>
-                                    <td>phucloctho321</td>
-                                    <td>0815346709
-                                    </td>
-                                    <td>Online</td>
-                                    <td>
-                                        <div class="row justify-content-center">
-                                            <a href="${pageContext.request.contextPath}/Admin/user/delete">
-                                                <button type="button" class="btn btn-block btn-outline-danger">
-                                                    <i class="fa fa-trash-alt"></i>
-                                                </button>
-                                            </a>
-                                            <a  href="${pageContext.request.contextPath}/Admin/user/edit">
-                                                <button type="button" class="btn btn-block btn-outline-success ml-1">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                            </a>
-
-                                        </div>
-                                    </td>
-                                </tr>
+                                </c:forEach>
                                 </tbody>
                                 <tfoot>
                                 </tfoot>

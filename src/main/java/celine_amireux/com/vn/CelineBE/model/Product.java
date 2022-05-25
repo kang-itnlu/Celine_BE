@@ -6,6 +6,7 @@ public class Product implements Serializable {
     private int id;
     private String name;
     private long price;
+    private int stock;
     private long salePrice;
     private String image;
     private String des;
@@ -21,13 +22,14 @@ public class Product implements Serializable {
         super();
     }
 
-    public Product(int id, String name, long price,long salePrice, String image, String des, Category category,int isLiked,
+    public Product(int id, String name, long price,int stock,long salePrice, String image, String des, Category category,int isLiked,
                 int rating,int soldQuantity, String brand, String manufacturer, String product_detail
                    ) {
         super();
         this.id = id;
         this.name = name;
         this.price = price;
+        this.stock=stock;
         this.salePrice=salePrice;
         this.image = image;
         this.des = des;
@@ -38,6 +40,22 @@ public class Product implements Serializable {
         this.brand = brand;
         this.manufacturer = manufacturer;
         this.product_detail=product_detail;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public int getIsLiked() {
+        return isLiked;
+    }
+
+    public void setIsLiked(int isLiked) {
+        this.isLiked = isLiked;
     }
 
     public int getId() {

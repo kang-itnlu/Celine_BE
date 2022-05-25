@@ -77,6 +77,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User loginAdmin(String email, String password) {
+        User user = this.get(email);
+        if (user != null && password.equals(user.getPassword())) {
+            return user;
+        }
+
+        return null;
+    }
+
+    @Override
     public boolean register(String username, String password, String email) {
         if (userDao.checkExistUsername(username)) {
             return false;

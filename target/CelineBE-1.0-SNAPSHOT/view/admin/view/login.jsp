@@ -8,6 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/view/admin/static" var="url"></c:url>
+<%
+    String alert = (String) request.getAttribute("alert");
+%>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -37,17 +41,26 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">Đăng nhập để bắt đầu</p>
 
-            <form action="${pageContext.request.contextPath}/Admin/Welcome" method="post">
+            <form action="${pageContext.request.contextPath}/AdminLogin" method="post">
+                <%
+                    if (alert != null) {
+                %>
+                <p class="alert alert-danger" role="alert">
+                    <%= alert %>
+                </p>
+                <%
+                    }
+                %>
                 <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="text" name="username" class="form-control" placeholder="Tên người dùng">
                     <div class="input-group-append">
                         <div class="input-group-text">
-                            <span class="fas fa-envelope"></span>
+                            <span class="fas fa-user"></span>
                         </div>
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Mật khẩu">
+                    <input type="password" name="password" class="form-control" placeholder="Mật khẩu">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -57,7 +70,7 @@
                 <div class="row">
                     <div class="col-8">
                         <div class="icheck-primary">
-                            <input type="checkbox" id="remember">
+                            <input type="checkbox" name="remember" id="remember">
                             <label for="remember">
                                 Nhớ tài khoản
                             </label>

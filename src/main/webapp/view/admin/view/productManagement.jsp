@@ -75,27 +75,27 @@
                             <table id="example1" class="table table-bordered table-responsive-md">
                                 <thead>
                                 <tr style="vertical-align: middle;">
-                                    <th title="Số thứ tự">STT</th>
                                     <th>Mã hàng</th>
                                     <th>Tên hàng</th>
                                     <th>Hình ảnh</th>
-                                    <th>Số lượng</th>
+                                    <th>Số lượng kho</th>
                                     <th>Giá</th>
                                     <th>Mô tả</th>
                                     <th>Thao tác</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+    <c:forEach items="${productList}" var="pro">
                                 <tr>
-                                    <td>1</td>
-                                    <td>sp1</td>
-                                    <td>Áo thu nam  phong cách Hàn Quốc</td>
-                                    <td><img src="${url}/dist/img/ao3.jpg" alt="" style="width:30%; height: 20%;margin: 0 auto;
+                                    <td>${pro.id}</td>
+                                    <td>${pro.name}</td>
+                                    <c:url value="${pro.image }" var="imgUrl"></c:url>
+                                    <td><img src="${imgUrl}" alt="" style="width:30%; height: 20%;margin: 0 auto;
                     display: block"></td>
-                                    <td>30</td>
-                                    <td>99000
+                                    <td>${pro.stock}</td>
+                                    <td>${pro.salePrice}
                                     </td>
-                                    <td>Chất vải Cotton thấm hút, freesize</td>
+                                    <td>${pro.des}</td>
                                     <td>
                                         <div class="row justify-content-center">
                                             <a href="${pageContext.request.contextPath}/Admin/product/delete">
@@ -112,62 +112,9 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>sp2</td>
-                                    <td>Áo loang unisex xanh da trời</td>
-                                    <td><img src="${url}/dist/img/ao5.jpg" alt="" style="width:30%; height: 20%;margin: 0 auto;
-                    display: block"></td>
-                                    <td>20</td>
-                                    <td>125000
-                                    </td>
-                                    <td>Chất vải co dãn, thấm hút mồ hôi, form áo rộng</td>
-                                    <td>
-                                        <div class="row justify-content-center">
-                                            <a href="#">
-                                                <button type="button" class="btn btn-block btn-outline-danger">
-                                                    <i class="fa fa-trash-alt"></i>
-                                                </button>
-                                            </a>
-                                            <a  href="suasanpham.html">
-                                                <button type="button" class="btn btn-block btn-outline-success ml-1">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                            </a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>sp3</td>
-                                    <td>Áo loang cầu vồng freezise</td>
-                                    <td><img src="${url}/dist/img/addimage2.jpg" alt="" style="width:30%; height: 20%;margin: 0 auto;
-                    display: block"></td>
-                                    <td>50</td>
-                                    <td>150000
-                                    </td>
-                                    <td>Áo với các vết loang vô cùng thẩm mỹ, chất vải mịn</td>
-                                    <td>
-                                        <div class="row justify-content-center">
-                                            <a href="#">
-                                                <button type="button" class="btn btn-block btn-outline-danger">
-                                                    <i class="fa fa-trash-alt"></i>
-                                                </button>
-                                            </a>
-                                            <a  href="suasanpham.html">
-                                                <button type="button" class="btn btn-block btn-outline-success ml-1">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                            </a>
-
-                                        </div>
-                                    </td>
-                                </tr>
+    </c:forEach>
 
                                 </tbody>
-                                <tfoot>
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->
@@ -198,14 +145,13 @@
 <!-- page script -->
 <script>
     $(function () {
-        $("#example1").DataTable();
-        $('#example2').DataTable({
+        $('#example1').DataTable({
             "paging": true,
-            "lengthChange": false,
+            "lengthChange": true,
             "searching": false,
             "ordering": true,
             "info": true,
-            "autoWidth": false,
+            "autoWidth": true,
         });
     });
 </script>
