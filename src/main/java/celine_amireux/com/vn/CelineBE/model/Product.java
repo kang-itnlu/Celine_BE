@@ -22,24 +22,24 @@ public class Product implements Serializable {
         super();
     }
 
-    public Product(int id, String name, long price,int stock,long salePrice, String image, String des, Category category,int isLiked,
-                int rating,int soldQuantity, String brand, String manufacturer, String product_detail
-                   ) {
+    public Product(int id, String name, long price, int stock, long salePrice, String image, String des, Category category, int isLiked,
+                   int rating, int soldQuantity, String brand, String manufacturer, String product_detail
+    ) {
         super();
         this.id = id;
         this.name = name;
         this.price = price;
-        this.stock=stock;
-        this.salePrice=salePrice;
+        this.stock = stock;
+        this.salePrice = salePrice;
         this.image = image;
         this.des = des;
         this.category = category;
-        this.isLiked=isLiked;
+        this.isLiked = isLiked;
         this.rating = rating;
         this.soldQuantity = soldQuantity;
         this.brand = brand;
         this.manufacturer = manufacturer;
-        this.product_detail=product_detail;
+        this.product_detail = product_detail;
     }
 
     public int getStock() {

@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="${url}/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="${url}/dist/img/celine_login.png"/>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -37,7 +38,7 @@ to get the desired effect
 -->
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-   <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
     <jsp:include page="/view/admin/view/mainbar.jsp"></jsp:include>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -128,7 +129,8 @@ to get the desired effect
                                     <tbody>
                                     <tr>
                                         <td>
-                                            <img src="${url}/dist/img/ao3.jpg" alt="Product 1" class="img-circle img-size-32 mr-2">
+                                            <img src="${url}/dist/img/ao3.jpg" alt="Product 1"
+                                                 class="img-circle img-size-32 mr-2">
                                             Áo thun nam Hàn Quốc
                                         </td>
                                         <td>99000đ</td>
@@ -147,7 +149,8 @@ to get the desired effect
                                     </tr>
                                     <tr>
                                         <td>
-                                            <img src="${url}/dist/img/ao5.jpg" alt="Product 1" class="img-circle img-size-32 mr-2">
+                                            <img src="${url}/dist/img/ao5.jpg" alt="Product 1"
+                                                 class="img-circle img-size-32 mr-2">
                                             Áo loang xanh
                                         </td>
                                         <td>125000đ</td>
@@ -166,7 +169,8 @@ to get the desired effect
                                     </tr>
                                     <tr>
                                         <td>
-                                            <img src="${url}/dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                                            <img src="${url}/dist/img/default-150x150.png" alt="Product 1"
+                                                 class="img-circle img-size-32 mr-2">
                                             Áo loang cầu vồng
                                         </td>
                                         <td>150000đ</td>
@@ -185,7 +189,8 @@ to get the desired effect
                                     </tr>
                                     <tr>
                                         <td>
-                                            <img src="${url}/dist/img/tobiPant.jpg" alt="Product 1" class="img-circle img-size-32 mr-2">
+                                            <img src="${url}/dist/img/tobiPant.jpg" alt="Product 1"
+                                                 class="img-circle img-size-32 mr-2">
                                             Combo sweater hồng
                                             <span class="badge bg-danger">NEW</span>
                                         </td>
@@ -311,7 +316,7 @@ to get the desired effect
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-<jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
 </div>
 <!-- ./wrapper -->
 

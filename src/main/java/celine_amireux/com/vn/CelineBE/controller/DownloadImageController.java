@@ -28,6 +28,7 @@ public class DownloadImageController extends HttpServlet {
             IOUtils.copy(new FileInputStream(file), resp.getOutputStream());
         }
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);

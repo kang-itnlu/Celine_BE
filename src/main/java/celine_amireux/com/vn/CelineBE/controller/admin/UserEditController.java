@@ -19,7 +19,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-@WebServlet(urlPatterns = { "/Admin/user/edit" })
+@WebServlet(urlPatterns = {"/Admin/user/edit"})
 public class UserEditController extends HttpServlet {
     UserService userService = new UserServiceImpl();
 

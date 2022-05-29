@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = { "/Admin/category/list" })
+@WebServlet(urlPatterns = {"/Admin/category/list"})
 public class CategoryListController extends HttpServlet {
     CategoryService cateService = new CategoryServiceImpl();
 
@@ -26,6 +26,7 @@ public class CategoryListController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/view/categoryManagement.jsp");
         dispatcher.forward(request, response);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);

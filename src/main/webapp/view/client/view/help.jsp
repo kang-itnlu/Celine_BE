@@ -19,14 +19,12 @@
     <link href="${url}/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="${url}/css/prettyPhoto.css" rel="stylesheet">
-    <link href="${url}/css/price-range.css" rel="stylesheet">
     <link href="${url}/css/animate.css" rel="stylesheet">
     <link href="${url}/css/help.css" rel="stylesheet">
     <link href="${url}/css/responsive.css" rel="stylesheet">
     <script src="${url}/js/jquery.js"></script>
     <script src="${url}/js/bootstrap.min.js"></script>
     <script src="${url}/js/jquery.scrollUp.min.js"></script>
-    <script src="${url}/js/price-range.js"></script>
     <script src="${url}/js/jquery.prettyPhoto.js"></script>
     <script src="${url}/js/main.js"></script>
     <link rel="shortcut icon" type="image/png" href="${url}/images/home/celine_login.png"/>

@@ -1,6 +1,7 @@
 package celine_amireux.com.vn.CelineBE.services;
 
 
+import celine_amireux.com.vn.CelineBE.model.Comment;
 import celine_amireux.com.vn.CelineBE.model.Product;
 
 import java.util.List;
@@ -22,11 +23,17 @@ public interface ProductService {
     List<Product> searchByCategory(int cate_id);
 
     List<Product> searchByName(String productName);
+
     List<Product> getProductByPage(int currentPage, int productsPerPage);
+
     int numOfProducts();
 
     int getCateId(int parseInt);
 
+    List<Comment> getAllProductComments(int id);
+
     List<Product> searchByBrand(String brand);
+
+    List<String> getMoreImage(int id);
 }
 

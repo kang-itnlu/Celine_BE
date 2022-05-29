@@ -28,10 +28,11 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- summernote -->
     <link rel="stylesheet" href="${url}/plugins/summernote/summernote-bs4.css">
+    <link rel="shortcut icon" type="image/png" href="${url}/dist/img/celine_login.png"/>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-   <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
     <jsp:include page="/view/admin/view/mainbar.jsp"></jsp:include>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -44,8 +45,11 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
-                            <li class="breadcrumb-item active"><a href="${pageContext.request.contextPath}/Admin/product/list">Quản lý sản phẩm</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang
+                                chủ</a></li>
+                            <li class="breadcrumb-item active"><a
+                                    href="${pageContext.request.contextPath}/Admin/product/list">Quản lý sản phẩm</a>
+                            </li>
                             <li class="breadcrumb-item active">Thêm sản phẩm</li>
                         </ol>
                     </div>
@@ -76,115 +80,129 @@
                                             <h3 class="card-title">Thông tin sản phẩm</h3>
                                         </div>
                                         <div class="card-body">
-                                            <form role="form" action="${pageContext.request.contextPath}/Admin/product/add" method="post">
+                                            <form role="form" action="add" method="post" enctype="multipart/form-data>
                                                 <!-- Date dd/mm/yyyy -->
-                                                <div class="form-group">
-                                                    <label>Mã hàng</label>
+<%--                                                <div class="form-group">--%>
+<%--                                                    <label>Mã hàng</label>--%>
 
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="far fa-id-card"></i></span>
-                                                        </div>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                    <!-- /.input group -->
+<%--                                                    <div class="input-group">--%>
+<%--                                                        <div class="input-group-prepend">--%>
+<%--                                                            <span class="input-group-text"><i class="far fa-id-card"></i></span>--%>
+<%--                                                        </div>--%>
+<%--                                                        <input type="text" class="form-control">--%>
+<%--                                                    </div>--%>
+<%--                                                    <!-- /.input group -->--%>
+<%--                                                </div>--%>
+                                                <div class=" form-group
+                                            ">
+                                            <label>Tên hàng</label>
+
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fa fa-list"></i></span>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label>Tên hàng</label>
-
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-list"></i></span>
-                                                        </div>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                                <!-- phone mask -->
-                                                <div class="form-group">
-                                                    <label>Hình ảnh</label>
-
-                                                    <!-- <label for="customFile">Custom File</label> -->
-
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile">
-                                                        <label class="custom-file-label" for="customFile">Choose file</label>
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                                <!-- phone mask -->
-                                                <div class="form-group">
-                                                    <label>Số lượng</label>
-
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-th-list"></i></span>
-                                                        </div>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Giá</label>
-
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-money-check"></i></span>
-                                                        </div>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                                <!-- /.form group -->
-                                                <!-- phone mask -->
-                                                <div class="form-group">
-                                                    <label>Mô tả</label>
-
-                                                    <div class="input-group">
-                                                        <div class="mb-3">
-                                  <textarea class="textarea" placeholder="Place some text here"
-                                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                                <!-- /.form group -->
-
-                                                <div class="form-group">
-                                                    <div class="input-group justify-content-center">
-                                                            <button type="submit" class="btn btn-success text-right">
-                                                                <i class="fa fa-plus-circle"></i> Thêm
-                                                            </button>
-                                                        <a href="${pageContext.request.contextPath}/Admin/product/list">
-                                                            <button type="button" class="btn btn-info text-right ml-1">
-                                                                <i class="fa fa-arrow-alt-circle-left"></i> Trở về
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                                <!-- /.form group -->
-                                            </form>
+                                                <input type="text" name="name" class="form-control">
+                                            </div>
+                                            <!-- /.input group -->
                                         </div>
-                                        <!-- /.card-body -->
-                                    </div>
-                                    <!-- /.card -->
+                                        <div class="form-group">
+                                            <label>Phân loại</label>
 
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fa fa-list"></i></span>
+                                                </div>
+                                                <input type="text" name="category" class="form-control">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                        <!-- phone mask -->
+                                        <div class="form-group">
+                                            <label>Hình ảnh</label>
+
+                                            <!-- <label for="customFile">Custom File</label> -->
+
+                                            <div class="custom-file">
+                                                <input type="file" accept="image/png, image/jpeg"
+                                                       class="custom-file-input" name="image" id="customFile">
+                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                        <!-- phone mask -->
+                                        <div class="form-group">
+                                            <label>Số lượng</label>
+
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fa fa-th-list"></i></span>
+                                                </div>
+                                                <input type="text" name="stock" class="form-control">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Giá</label>
+
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i
+                                                            class="fa fa-money-check"></i></span>
+                                                </div>
+                                                <input type="text" name="price" class="form-control">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                        <!-- /.form group -->
+                                        <!-- phone mask -->
+                                        <div class="form-group">
+                                            <label>Mô tả</label>
+
+                                            <div class="input-group">
+                                                <div class="mb-3">
+                                  <textarea class="textarea" name="des" placeholder="Place some text here"
+                                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;"></textarea>
+                                                </div>
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                        <!-- /.form group -->
+
+                                        <div class="form-group">
+                                            <div class="input-group justify-content-center">
+                                                <button type="submit" class="btn btn-success text-right">
+                                                    <i class="fa fa-plus-circle"></i> Thêm
+                                                </button>
+                                                <a href="${pageContext.request.contextPath}/Admin/product/list">
+                                                    <button type="button" class="btn btn-info text-right ml-1">
+                                                        <i class="fa fa-arrow-alt-circle-left"></i> Trở về
+                                                    </button>
+                                                </a>
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                        <!-- /.form group -->
+                                        </form>
+                                    </div>
+                                    <!-- /.card-body -->
                                 </div>
+                                <!-- /.card -->
+
                             </div>
                         </div>
-
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
+
+                    <!-- /.card-body -->
                 </div>
-                <!-- /.col -->
+                <!-- /.card -->
             </div>
-            <!-- /.row -->
-        </section>
-        <!-- /.content -->
+            <!-- /.col -->
     </div>
-   <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
+    <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
 </div>
 <!-- ./wrapper -->
 

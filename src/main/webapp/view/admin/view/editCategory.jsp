@@ -26,10 +26,11 @@
     <link rel="stylesheet" href="${url}/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="${url}/dist/img/celine_login.png"/>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-   <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
     <jsp:include page="/view/admin/view/mainbar.jsp"></jsp:include>
 
     <!-- Content Wrapper. Contains page content -->
@@ -43,8 +44,11 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
-                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/category/list">Quản lý danh mục</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang
+                                chủ</a></li>
+                            <li class="breadcrumb-item"><a
+                                    href="${pageContext.request.contextPath}/Admin/category/list">Quản lý danh mục</a>
+                            </li>
                             <li class="breadcrumb-item active">Sửa danh mục</li>
                         </ol>
                     </div>
@@ -75,16 +79,17 @@
                                         </div>
 
                                         <div class="card-body">
-                                            <form role="form" action="${pageContext.request.contextPath}/Admin/category/edit" method="post">
+                                            <form role="form" action="edit" method="post">
                                                 <!-- Date dd/mm/yyyy -->
                                                 <div class="form-group">
                                                     <label>Mã danh mục</label>
 
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="far fa-id-card"></i></span>
+                                                            <span class="input-group-text"><i
+                                                                    class="far fa-id-card"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" name="id" class="form-control">
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
@@ -95,9 +100,10 @@
 
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-list"></i></span>
+                                                            <span class="input-group-text"><i
+                                                                    class="fa fa-list"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" name="name" class="form-control">
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
@@ -106,9 +112,9 @@
                                                 <div class="form-group">
                                                     <div class="input-group justify-content-center">
 
-                                                            <button type="button" class="btn btn-success text-right">
-                                                                <i class="fa fa-edit"></i> Sửa
-                                                            </button>
+                                                        <button type="submit" class="btn btn-success text-right">
+                                                            <i class="fa fa-edit"></i> Sửa
+                                                        </button>
 
                                                         <a href="${pageContext.request.contextPath}/Admin/category/list">
                                                             <button type="button" class="btn btn-info text-right ml-1">
@@ -140,7 +146,7 @@
         </section>
         <!-- /.content -->
     </div>
-   <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
 </div>
 <!-- ./wrapper -->
 

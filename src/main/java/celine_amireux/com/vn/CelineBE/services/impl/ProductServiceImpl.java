@@ -2,6 +2,7 @@ package celine_amireux.com.vn.CelineBE.services.impl;
 
 import celine_amireux.com.vn.CelineBE.dao.ProductDao;
 import celine_amireux.com.vn.CelineBE.dao.impl.ProductDaoImpl;
+import celine_amireux.com.vn.CelineBE.model.Comment;
 import celine_amireux.com.vn.CelineBE.model.Product;
 import celine_amireux.com.vn.CelineBE.services.ProductService;
 
@@ -20,24 +21,24 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void edit(Product newProduct) {
-            Product oldProduct = productDao.get(newProduct.getId());
+        Product oldProduct = productDao.get(newProduct.getId());
 
-            oldProduct.setName(newProduct.getName());
-            oldProduct.setPrice(newProduct.getPrice());
-            oldProduct.setCategory(newProduct.getCategory());
-            if (newProduct.getImage() != null) {
-                // XOA ANH CU DI
-                String fileName = oldProduct.getImage();
-                final String dir = "F:\\upload";
-                File file = new File(dir + "/" + fileName);
-                if (file.exists()) {
-                    file.delete();
-                }
-
-                oldProduct.setImage(newProduct.getImage());
+        oldProduct.setName(newProduct.getName());
+        oldProduct.setPrice(newProduct.getPrice());
+        oldProduct.setCategory(newProduct.getCategory());
+        if (newProduct.getImage() != null) {
+            // XOA ANH CU DI
+            String fileName = oldProduct.getImage();
+            final String dir = "F:\\upload";
+            File file = new File(dir + "/" + fileName);
+            if (file.exists()) {
+                file.delete();
             }
 
-            productDao.edit(oldProduct);
+            oldProduct.setImage(newProduct.getImage());
+        }
+
+        productDao.edit(oldProduct);
 
     }
 
@@ -74,7 +75,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getProductByPage(int currentPage, int productsPerPage) {
-        return productDao.getProductByPage(currentPage,productsPerPage);
+        return productDao.getProductByPage(currentPage, productsPerPage);
     }
 
     @Override
@@ -88,8 +89,18 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<Comment> getAllProductComments(int id) {
+        return productDao.getAllProductComments(id);
+    }
+
+    @Override
     public List<Product> searchByBrand(String brand) {
         return productDao.searchByBrand(brand);
+    }
+
+    @Override
+    public List<String> getMoreImage(int id) {
+        return productDao.getMoreImage(id);
     }
 
 }

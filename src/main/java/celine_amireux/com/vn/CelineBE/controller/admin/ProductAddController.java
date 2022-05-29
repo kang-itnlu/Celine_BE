@@ -2,8 +2,10 @@ package celine_amireux.com.vn.CelineBE.controller.admin;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
-
+import java.util.UUID;
+import javax.servlet.http.Part;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import celine_amireux.com.vn.CelineBE.dao.ProductDao;
 import celine_amireux.com.vn.CelineBE.model.Category;
 import celine_amireux.com.vn.CelineBE.model.Product;
 import celine_amireux.com.vn.CelineBE.services.CategoryService;
@@ -22,60 +25,87 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-@WebServlet(urlPatterns = { "/Admin/product/add" })
+@WebServlet(urlPatterns = {"/Admin/product/add"})
 public class ProductAddController extends HttpServlet {
     ProductService productService = new ProductServiceImpl();
     CategoryService categoryService = new CategoryServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Category> categories = categoryService.getAll();
-
-        request.setAttribute("categories", categories);
-
+//        if (request.getSession().getAttribute("User") == null) {
+//            String errorString = "Bạn cần đăng nhập trước";
+//            request.setAttribute("errorString", errorString);
+//            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login.jsp");
+//            dispatcher.forward(request, response);
+//        } else {
+//
+//            String errorString = null;
+//            ArrayList<Category> list = null;
+//
+//            try {
+//                list = categoryBO.listCategory();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//                errorString = e.getMessage();
+//            }
+//            if (request.getAttribute("errorString") != null) {
+//                errorString = (String) request.getAttribute("errorString");
+//            }
+//            // Lưu thông tin vào request attribute trước khi forward sang views.
+//            request.setAttribute("errorString", errorString);
+//            request.setAttribute("categoryList", list);
+//            request.getSession().setAttribute("Check", "AddBook");
+//            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/add_book.jsp");
+//            dispatcher.forward(request, response);
+//        }
         RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/view/addProduct.jsp");
         dispatcher.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
 
-        Product product = new Product();
-        DiskFileItemFactory diskFileItemFactory = new DiskFileItemFactory();
-        ServletFileUpload servletFileUpload = new ServletFileUpload(diskFileItemFactory);
+        String name = request.getParameter("name");
+        String price = request.getParameter("price");
+        String stock = request.getParameter("stock");
+        String des = request.getParameter("des");
+        int category = Integer.parseInt(request.getParameter("category"));
 
-        try {
-            List<FileItem> items = servletFileUpload.parseRequest(request);
-            for (FileItem item : items) {
-                if (item.getFieldName().equals("name")) {
-                    product.setName(item.getString());
-                } else if (item.getFieldName().equals("category")) {
-                    product.setCategory(categoryService.get(Integer.parseInt(item.getString())));
-                } else if (item.getFieldName().equals("price")) {
-                    product.setPrice(Long.parseLong(item.getString()));
-                } else if (item.getFieldName().equals("des")) {
-                    product.setDes(item.getString());;
-                } else if (item.getFieldName().equals("image")) {
-                    final String dir = "E:\\upload";
-                    String originalFileName = item.getName();
-                    int index = originalFileName.lastIndexOf(".");
-                    String ext = originalFileName.substring(index + 1);
-                    String fileName = System.currentTimeMillis() + "." + ext;
-                    File file = new File(dir + "/" + fileName);
-                    item.write(file);
-                    product.setImage(fileName);
-                }
-            }
 
-            productService.insert(product);
-
-            response.sendRedirect(request.getContextPath() + "/Admin/product/list");
-        } catch (FileUploadException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
+        Part file = request.getPart("image");
+//		String path = getServletContext().getRealPath("/") + "Resources/images/";
+        String savePath = getServletContext().getRealPath("/") + "view\\admin\\static\\dist\\img";
+        File fileSaveDir = new File(savePath);
+        if (!fileSaveDir.exists()) {
+            fileSaveDir.mkdir();
         }
+        String fileName = extractfilename(file);
+        file.write(savePath + File.separator + fileName);
+//		String filePath = savePath + File.separator + fileName;
+        Product pro = new Product();
+        pro.setName(name);
+        pro.setPrice(Integer.parseInt(price));
+        pro.setStock(Integer.parseInt(stock));
+        pro.setDes(des);
+        pro.setCategory(categoryService.get(category));
 
+        productService.insert(pro);
+        request.setAttribute("errorString", "Thêm sách thành công");
+        doGet(request, response);
     }
+
+    private String extractfilename(Part file) {
+        String cd = file.getHeader("content-disposition");
+        String[] items = cd.split(";");
+        for (String string : items) {
+            if (string.trim().startsWith("filename")) {
+                return string.substring(string.indexOf("=") + 2, string.length() - 1);
+            }
+        }
+        return "";
+    }
+
+
 }
 

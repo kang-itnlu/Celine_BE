@@ -48,7 +48,7 @@
                     <a href="${pageContext.request.contextPath}/Admin/category/list" class="nav-link">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
-                            Quản lý danh mục
+                            Quản lý loại sản phẩm
                         </p>
                     </a>
                 </li>
@@ -77,10 +77,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="${pageContext.request.contextPath}/Admin/news/list" class="nav-link">
+                    <a href="${pageContext.request.contextPath}/Admin/blog/list" class="nav-link">
                         <i class="nav-icon fa fa-newspaper"></i>
                         <p>
-                            Quản lý tin tức
+                            Quản lý bài viết
                         </p>
                     </a>
                 </li>

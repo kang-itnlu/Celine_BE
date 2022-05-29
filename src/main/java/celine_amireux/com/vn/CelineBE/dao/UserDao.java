@@ -5,7 +5,6 @@ import celine_amireux.com.vn.CelineBE.model.User;
 import java.util.List;
 
 
-
 public interface UserDao {
     void insert(User user);
 

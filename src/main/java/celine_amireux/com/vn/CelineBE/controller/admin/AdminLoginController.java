@@ -16,7 +16,7 @@ public class AdminLoginController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         if (session != null && session.getAttribute("account") != null) {
-            response.sendRedirect(request.getContextPath()+ "/AdminWaiting");
+            response.sendRedirect(request.getContextPath() + "/AdminWaiting");
             return;
         }
         // Check cookie
@@ -26,12 +26,12 @@ public class AdminLoginController extends HttpServlet {
                 if (cookie.getName().equals("username")) {
                     session = request.getSession(true);
                     session.setAttribute("username", cookie.getValue());
-                    response.sendRedirect(request.getContextPath()+ "/AdminWaiting");
+                    response.sendRedirect(request.getContextPath() + "/AdminWaiting");
                     return;
                 }
             }
         }
-    request.getRequestDispatcher("/view/admin/view/login.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/admin/view/login.jsp").forward(request, response);
     }
 
     @Override
@@ -43,12 +43,12 @@ public class AdminLoginController extends HttpServlet {
         boolean isRememberMe = false;
         String remember = request.getParameter("remember");
 
-        if("on".equals(remember)){
+        if ("on".equals(remember)) {
             isRememberMe = true;
         }
-        String alertMsg="";
+        String alertMsg = "";
 
-        if(username.isEmpty() || password.isEmpty()){
+        if (username.isEmpty() || password.isEmpty()) {
             alertMsg = "Vui lòng không để trống các ô bên dưới!";
             request.setAttribute("alert", alertMsg);
             request.getRequestDispatcher("/view/admin/view/login.jsp").forward(request, response);
@@ -60,27 +60,27 @@ public class AdminLoginController extends HttpServlet {
         User user = service.login(username, password);
 
 
-        if(user!=null){
+        if (user != null) {
             HttpSession session = request.getSession(true);
             session.setAttribute("account", user);
 
-            if(isRememberMe){
+            if (isRememberMe) {
                 saveRememberMe(response, username);
             }
 
-            response.sendRedirect(request.getContextPath()+"/AdminWaiting");
+            response.sendRedirect(request.getContextPath() + "/AdminWaiting");
 
-        }else{
+        } else {
             alertMsg = "Sai thông tin đăng nhập";
             request.setAttribute("alert", alertMsg);
             request.getRequestDispatcher("/view/admin/view/login.jsp").forward(request, response);
         }
     }
 
-    private void saveRememberMe(HttpServletResponse response, String username){
+    private void saveRememberMe(HttpServletResponse response, String username) {
         Cookie cookie = new Cookie(Constant.COOKIE_REMEMBER, username);
-        cookie.setMaxAge(30*60);
+        cookie.setMaxAge(30 * 60);
         response.addCookie(cookie);
     }
-    }
+}
 

@@ -26,10 +26,11 @@
     <link rel="stylesheet" href="${url}/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="${url}/dist/img/celine_login.png"/>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-   <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
     <jsp:include page="/view/admin/view/mainbar.jsp"></jsp:include>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -42,7 +43,8 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang
+                                chủ</a></li>
                             <li class="breadcrumb-item active">Quản lý danh mục</li>
                         </ol>
                     </div>
@@ -75,79 +77,36 @@
                             <table id="example1" class="table table-bordered">
                                 <thead>
                                 <tr>
-                                    <th title="Số thứ tự">STT</th>
                                     <th>Mã danh mục</th>
                                     <th>Tên danh mục</th>
                                     <th>Thao tác</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>
-                                        dm_logo
-                                    </td>
-                                    <td>Logo</td>
-                                    <td>
-                                        <div class="row justify-content-center">
-                                            <a href="${pageContext.request.contextPath}/Admin/category/delete">
-                                                <button type="button" class="btn btn-block btn-outline-danger">
-                                                    <i class="fa fa-trash-alt"></i>
-                                                </button>
-                                            </a>
-                                            <a  href="${pageContext.request.contextPath}/Admin/category/edit">
-                                                <button type="button" class="btn btn-block btn-outline-success ml-1">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                            </a>
+                                <c:forEach items="${cateList}" var="cate">
+                                    <tr>
+                                        <td>
+                                                ${cate.id}
+                                        </td>
+                                        <td>${cate.name}</td>
+                                        <td>
+                                            <div class="row justify-content-center">
+                                                <a href="${pageContext.request.contextPath}/Admin/category/delete?id=${cate.id}">
+                                                    <button type="button" class="btn btn-block btn-outline-danger">
+                                                        <i class="fa fa-trash-alt"></i>
+                                                    </button>
+                                                </a>
+                                                <a href="${pageContext.request.contextPath}/Admin/category/edit?id=${cate.id}">
+                                                    <button type="button"
+                                                            class="btn btn-block btn-outline-success ml-1">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                </a>
 
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>
-                                        dm_giohang
-                                    </td>
-                                    <td>Giỏ hàng</td>
-                                    <td>
-                                        <div class="row justify-content-center">
-                                            <a href="${pageContext.request.contextPath}/Admin/category/delete">
-                                                <button type="button" class="btn btn-block btn-outline-danger">
-                                                    <i class="fa fa-trash-alt"></i>
-                                                </button>
-                                            </a>
-                                            <a  href="${pageContext.request.contextPath}/Admin/category/edit">
-                                                <button type="button" class="btn btn-block btn-outline-success ml-1">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                            </a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>
-                                        dm_banner
-                                    </td>
-                                    <td>Banner</td>
-                                    <td>
-                                        <div class="row justify-content-center">
-                                            <a href="${pageContext.request.contextPath}/Admin/category/delete">
-                                                <button type="button" class="btn btn-block btn-outline-danger">
-                                                    <i class="fa fa-trash-alt"></i>
-                                                </button>
-                                            </a>
-                                            <a  href="${pageContext.request.contextPath}/Admin/category/edit">
-                                                <button type="button" class="btn btn-block btn-outline-success ml-1">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                            </a>
-
-                                        </div>
-                                    </td>
-                                </tr>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                                 <tfoot>
                                 </tfoot>
@@ -163,7 +122,7 @@
         </section>
         <!-- /.content -->
     </div>
-   <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
 </div>
 <!-- ./wrapper -->
 
@@ -186,7 +145,7 @@
             "infor": true,
             "searching": true,
             "lengthChange": true,
-            "ordering":true,
+            "ordering": true,
             "autoWidth": true,
             "paging": true // hiện Show 10 entries
         });

@@ -14,7 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import celine_amireux.com.vn.CelineBE.model.User;
 import celine_amireux.com.vn.CelineBE.services.UserService;
 import celine_amireux.com.vn.CelineBE.services.impl.UserServiceImpl;
-@WebServlet(urlPatterns= {"/Admin/user/list"})
+
+@WebServlet(urlPatterns = {"/Admin/user/list"})
 public class UserListController extends HttpServlet {
     UserService userService = new UserServiceImpl();
 
@@ -25,6 +26,7 @@ public class UserListController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/view/accountManagement.jsp");
         dispatcher.forward(request, response);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);

@@ -11,9 +11,10 @@ import java.util.List;
 
 public class ContactServiceImpl implements ContactService {
     ContactDao contactDao = new ContactDaoImpl();
+
     @Override
     public void insert(Contact contact) {
-    contactDao.insert(contact);
+        contactDao.insert(contact);
     }
 
     @Override
@@ -32,7 +33,7 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public void delete(int id) {
-    contactDao.delete(id);
+        contactDao.delete(id);
     }
 
     @Override

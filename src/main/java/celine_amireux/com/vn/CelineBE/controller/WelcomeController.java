@@ -16,11 +16,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns="/welcome")
+@WebServlet(urlPatterns = "/welcome")
 
 public class WelcomeController extends HttpServlet {
     ProductService productService = new ProductServiceImpl();
     CategoryService cateService = new CategoryServiceImpl();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //                1: gợi ý hôm nay
@@ -28,13 +29,13 @@ public class WelcomeController extends HttpServlet {
 //                3: Sale sập sàn
 //                4: Freeship
 //                  5: Bán chạy cuối tuần
-        List<Product> listToday= productService.searchByCategory(1) ;
-        List<Product> listSearch= productService.searchByCategory(2) ;
-        List<Product> listSale= productService.searchByCategory(3) ;
-        List<Product> listFreeship= productService.searchByCategory(4) ;
-        List<Product> listHotWeek= productService.searchByCategory(5) ;
-        List<Product> listShow= productService.searchByCategory(6) ;
-        request.setAttribute("pwelcome",listShow);
+        List<Product> listToday = productService.searchByCategory(1);
+        List<Product> listSearch = productService.searchByCategory(2);
+        List<Product> listSale = productService.searchByCategory(3);
+        List<Product> listFreeship = productService.searchByCategory(4);
+        List<Product> listHotWeek = productService.searchByCategory(5);
+        List<Product> listShow = productService.searchByCategory(6);
+        request.setAttribute("pwelcome", listShow);
         request.setAttribute("ptoday", listToday);
         request.setAttribute("psearch", listSearch);
         request.setAttribute("psale", listSale);
@@ -45,6 +46,6 @@ public class WelcomeController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       doGet(request, response);
+        doGet(request, response);
     }
 }

@@ -13,17 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class CategoryDaoImpl extends JDBCConnection implements CategoryDao {
 
     @Override
     public void insert(Category category) {
-        String sql = "INSERT INTO category(cate_name) VALUES (?)";
-        Connection con = super.getJDBCConnection();
+        String sql = "INSERT INTO category(cate_id,cate_name) VALUES (?,?)";
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, category.getName());
+            ps.setInt(1, category.getId());
+            ps.setString(2, category.getName());
+
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -33,7 +34,7 @@ public class CategoryDaoImpl extends JDBCConnection implements CategoryDao {
     @Override
     public void edit(Category category) {
         String sql = "UPDATE category SET cate_name = ? WHERE cate_id = ?";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -49,7 +50,7 @@ public class CategoryDaoImpl extends JDBCConnection implements CategoryDao {
     @Override
     public void delete(int id) {
         String sql = "DELETE FROM category WHERE cate_id = ?";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -64,7 +65,7 @@ public class CategoryDaoImpl extends JDBCConnection implements CategoryDao {
     @Override
     public Category get(int id) {
         String sql = "SELECT * FROM category WHERE cate_id = ? ";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -90,7 +91,7 @@ public class CategoryDaoImpl extends JDBCConnection implements CategoryDao {
     public List<Category> getAll() {
         List<Category> categories = new ArrayList<Category>();
         String sql = "SELECT * FROM Category";
-        Connection conn = super.getJDBCConnection();
+        Connection conn = getJDBCConnection();
 
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -116,7 +117,7 @@ public class CategoryDaoImpl extends JDBCConnection implements CategoryDao {
     public List<Category> search(String keyword) {
         List<Category> categories = new ArrayList<Category>();
         String sql = "SELECT * FROM category WHERE name LIKE ? ";
-        Connection conn = super.getJDBCConnection();
+        Connection conn = getJDBCConnection();
 
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -142,7 +143,7 @@ public class CategoryDaoImpl extends JDBCConnection implements CategoryDao {
     @Override
     public Category get(String name) {
         String sql = "SELECT * FROM Category WHERE cate_name = ? ";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);

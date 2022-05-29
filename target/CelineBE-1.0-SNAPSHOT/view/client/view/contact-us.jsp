@@ -76,11 +76,7 @@
                             <label for="message" class="col-form-label">Nội dung *</label>
                             <textarea class="form-control ckeditor" name="message" id="message" cols="30" rows="4"
                                       placeholder="Nhập nội dung" required></textarea>
-                            <script>
 
-                                CKEDITOR.replace( 'message' );
-
-                            </script>
                         </div>
                     </div>
                     <div class="row">
@@ -109,7 +105,9 @@
                             <span class="text">Khu phố 6, phường Linh Trung, quận Thủ Đức, TP Hồ chí Minh, Việt
                             Nam</span>
                         </li>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.2145946660494!2d106.78957301458999!3d10.871276392257197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175276398969f7b%3A0x9672b7efd0893fc4!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBOw7RuZyBMw6JtIFRwLiBI4buTIENow60gTWluaA!5e0!3m2!1svi!2s!4v1652806006618!5m2!1svi!2s" width="500" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.2145946660494!2d106.78957301458999!3d10.871276392257197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175276398969f7b%3A0x9672b7efd0893fc4!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBOw7RuZyBMw6JtIFRwLiBI4buTIENow60gTWluaA!5e0!3m2!1svi!2s!4v1652806006618!5m2!1svi!2s"
+                                width="500" height="100" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                         <li class="d-flex">
                             <span class="wrap-icon fas fa-phone-square mr-3"></span>
@@ -157,6 +155,11 @@
 <script src="${url}/js/main.js"></script>
 <script src="${url}/js/html5shiv.js"></script>
 <script src="${url}/js/respond.min.js"></script>
-<script src="ckeditor/ckeditor.js"></script>
+<script src="<%=request.getContextPath()%>/ckeditor/ckeditor.js"></script>
+<script>
+
+    CKEDITOR.replace('message');
+
+</script>
 </body>
 </html>

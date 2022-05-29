@@ -11,9 +11,10 @@ import java.util.List;
 
 public class BlogServiceImpl implements BlogService {
     BlogDao dao = new BlogDaoImpl();
+
     @Override
     public void insert(Blog blog) {
-    dao.insert(blog);
+        dao.insert(blog);
     }
 
     @Override
@@ -41,7 +42,7 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public void delete(int id) {
-    dao.delete(id);
+        dao.delete(id);
     }
 
     @Override

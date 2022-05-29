@@ -26,10 +26,11 @@
     <link rel="stylesheet" href="${url}/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="${url}/dist/img/celine_login.png"/>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-   <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
     <jsp:include page="/view/admin/view/mainbar.jsp"></jsp:include>
 
 
@@ -44,8 +45,10 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
-                            <li class="breadcrumb-item active"><a href="${pageContext.request.contextPath}/Admin/order/list">Quản lý hóa đơn</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang
+                                chủ</a></li>
+                            <li class="breadcrumb-item active"><a
+                                    href="${pageContext.request.contextPath}/Admin/order/list">Quản lý hóa đơn</a></li>
                             <li class="breadcrumb-item active">Thêm hóa đơn</li>
                         </ol>
                     </div>
@@ -75,14 +78,17 @@
                                             <h3 class="card-title">Thông tin hóa đơn</h3>
                                         </div>
                                         <div class="card-body">
-                                            <form role="form" action="${pageContext.request.contextPath}/Admin/order/add" method="post">
+                                            <form role="form"
+                                                  action="${pageContext.request.contextPath}/Admin/order/add"
+                                                  method="post">
                                                 <!-- Date dd/mm/yyyy -->
                                                 <div class="form-group">
                                                     <label>Mã hóa đơn</label>
 
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="far fa-id-card"></i></span>
+                                                            <span class="input-group-text"><i
+                                                                    class="far fa-id-card"></i></span>
                                                         </div>
                                                         <input type="text" class="form-control">
                                                     </div>
@@ -95,7 +101,8 @@
 
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                                            <span class="input-group-text"><i
+                                                                    class="fa fa-user"></i></span>
                                                         </div>
                                                         <input type="text" class="form-control">
                                                     </div>
@@ -108,7 +115,8 @@
 
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span>
+                                                            <span class="input-group-text"><i
+                                                                    class="fa fa-map-marker-alt"></i></span>
                                                         </div>
                                                         <textarea class="form-control"></textarea>
                                                     </div>
@@ -122,7 +130,8 @@
 
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-info-circle"></i></span>
+                                                            <span class="input-group-text"><i
+                                                                    class="fa fa-info-circle"></i></span>
                                                         </div>
                                                         <input type="text" class="form-control">
                                                     </div>
@@ -135,10 +144,13 @@
 
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                            <span class="input-group-text"><i
+                                                                    class="far fa-calendar-alt"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" data-inputmask-alias="datetime"
-                                                               data-inputmask-inputformat="dd/mm/yyyy" data-mask="" im-insert="false">
+                                                        <input type="text" class="form-control"
+                                                               data-inputmask-alias="datetime"
+                                                               data-inputmask-inputformat="dd/mm/yyyy" data-mask=""
+                                                               im-insert="false">
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
@@ -149,7 +161,8 @@
 
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-money-check"></i></span>
+                                                            <span class="input-group-text"><i
+                                                                    class="fa fa-money-check"></i></span>
                                                         </div>
                                                         <input type="text" class="form-control">
                                                     </div>
@@ -160,9 +173,9 @@
                                                 <div class="form-group">
                                                     <div class="input-group justify-content-center">
 
-                                                            <button type="button" class="btn btn-success text-right">
-                                                                <i class="fa fa-plus-circle"></i> Thêm
-                                                            </button>
+                                                        <button type="button" class="btn btn-success text-right">
+                                                            <i class="fa fa-plus-circle"></i> Thêm
+                                                        </button>
 
                                                         <a href="${pageContext.request.contextPath}/Admin/order/list">
                                                             <button type="button" class="btn btn-info text-right ml-1">
@@ -192,7 +205,7 @@
         </section>
         <!-- /.content -->
     </div>
-   <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
 </div>
 <!-- ./wrapper -->
 

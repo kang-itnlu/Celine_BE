@@ -5,7 +5,6 @@ import celine_amireux.com.vn.CelineBE.model.Cart;
 import java.util.List;
 
 
-
 public interface CartDao {
     void insert(Cart cart);
 

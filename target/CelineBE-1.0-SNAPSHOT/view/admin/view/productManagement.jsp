@@ -26,10 +26,11 @@
     <link rel="stylesheet" href="${url}/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="${url}/dist/img/celine_login.png"/>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-   <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/navbar.jsp"></jsp:include>
     <jsp:include page="/view/admin/view/mainbar.jsp"></jsp:include>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -42,7 +43,8 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang
+                                chủ</a></li>
                             <li class="breadcrumb-item active">Quản lý sản phẩm</li>
                         </ol>
                     </div>
@@ -85,34 +87,35 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-    <c:forEach items="${productList}" var="pro">
-                                <tr>
-                                    <td>${pro.id}</td>
-                                    <td>${pro.name}</td>
-                                    <c:url value="${pro.image }" var="imgUrl"></c:url>
-                                    <td><img src="${imgUrl}" alt="" style="width:30%; height: 20%;margin: 0 auto;
+                                <c:forEach items="${productList}" var="pro">
+                                    <tr>
+                                        <td>${pro.id}</td>
+                                        <td>${pro.name}</td>
+                                        <c:url value="${pro.image }" var="imgUrl"></c:url>
+                                        <td><img src="${imgUrl}" alt="" style="width:30%; height: 20%;margin: 0 auto;
                     display: block"></td>
-                                    <td>${pro.stock}</td>
-                                    <td>${pro.salePrice}
-                                    </td>
-                                    <td>${pro.des}</td>
-                                    <td>
-                                        <div class="row justify-content-center">
-                                            <a href="${pageContext.request.contextPath}/Admin/product/delete">
-                                                <button type="button" class="btn btn-block btn-outline-danger">
-                                                    <i class="fa fa-trash-alt"></i>
-                                                </button>
-                                            </a>
-                                            <a  href="${pageContext.request.contextPath}/Admin/product/edit">
-                                                <button type="button" class="btn btn-block btn-outline-success ml-1">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                            </a>
+                                        <td>${pro.stock}</td>
+                                        <td>${pro.salePrice}
+                                        </td>
+                                        <td>${pro.des}</td>
+                                        <td>
+                                            <div class="row justify-content-center">
+                                                <a href="${pageContext.request.contextPath}/Admin/product/delete?id=${pro.id}">
+                                                    <button type="button" class="btn btn-block btn-outline-danger">
+                                                        <i class="fa fa-trash-alt"></i>
+                                                    </button>
+                                                </a>
+                                                <a href="${pageContext.request.contextPath}/Admin/product/edit?id=${pro.id}">
+                                                    <button type="button"
+                                                            class="btn btn-block btn-outline-success ml-1">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                </a>
 
-                                        </div>
-                                    </td>
-                                </tr>
-    </c:forEach>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
 
                                 </tbody>
                             </table>
@@ -127,7 +130,7 @@
         </section>
         <!-- /.content -->
     </div>
-   <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
 </div>
 <!-- ./wrapper -->
 

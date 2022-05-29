@@ -18,6 +18,7 @@
     .header__nav-item-has-product:hover .header__has-cart {
         display: block;
     }
+
     .header__nav-item-has-product:hover .header__no-cart {
         display: block;
     }
@@ -97,20 +98,23 @@
     }
 
     .header__cart-name {
-        margin-top:20px;
+        margin-top: 20px;
         display: block;
         font-size: 1.6rem;
         color: lightgray;
         font-weight: 400;
         line-height: 1.8rem;
     }
-    .close{
+
+    .close {
         margin-top: 30px;
     }
-    .header__cart-footer{
+
+    .header__cart-footer {
         display: flex;
     }
-    .header__cart-footer-btn{
+
+    .header__cart-footer-btn {
         text-decoration: none;
         color: #efac92;
         padding: 8px 32px;
@@ -119,16 +123,19 @@
         font-weight: 400;
         text-align: center;
     }
-    .no__cart-text{
+
+    .no__cart-text {
         font-size: 1.6rem;
         text-align: center;
         margin-top: 12px;
     }
-    .no__cart-text span{
+
+    .no__cart-text span {
         color: #efac92;
 
     }
-    .img__no-cart{
+
+    .img__no-cart {
         display: block;
         margin: 0 auto;
         width: 60%;
@@ -175,14 +182,18 @@
                     <div class="col-sm-6">
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="${pageContext.request.contextPath}/welcome" class ="navbar__header-first" >Trang Chủ</a>
+                                <li><a href="${pageContext.request.contextPath}/welcome" class="navbar__header-first">Trang
+                                    Chủ</a>
                                 </li>
-                                <li><a href="${pageContext.request.contextPath }/product/list" class="navbar__header-first">Sản Phẩm</a></li>
+                                <li><a href="${pageContext.request.contextPath }/product/list"
+                                       class="navbar__header-first">Sản Phẩm</a></li>
 
 
-                                <li><a href="${pageContext.request.contextPath }/blog" class="navbar__header-first">Blog</a>
+                                <li><a href="${pageContext.request.contextPath }/blog"
+                                       class="navbar__header-first">Blog</a>
                                 </li>
-                                <li><a href="${pageContext.request.contextPath }/contact" class="navbar__header-first">Liên Hệ</a></li>
+                                <li><a href="${pageContext.request.contextPath }/contact" class="navbar__header-first">Liên
+                                    Hệ</a></li>
                             </ul>
                         </div>
                     </div>
@@ -211,7 +222,7 @@
                                 <c:url value="${sessionScope.account.avatar}"
                                        var="imgUrl"></c:url>
                                 <c:choose>
-                                    <c:when test="${sessionScope.account.avatar==null}">
+                                    <c:when test="${sessionScope.account.username==null}">
                                         <a href="${pageContext.request.contextPath }/login"
                                            class="header__navbar-user-name text"
                                            style="display: contents;"><i class="fas fa-user" style=""></i> Đăng nhập<i
@@ -269,7 +280,8 @@
                         <form action="${pageContext.request.contextPath }/product/search" method="get">
                             <div class="header__search-input-wrap">
 
-                                <input type="text" class="header__search-input" placeholder="BỘ SƯU TẬP CUỐI NĂM" name="name">
+                                <input type="text" class="header__search-input" placeholder="BỘ SƯU TẬP CUỐI NĂM"
+                                       name="name">
                                 <!--Lịch sử tìm kiếm-->
                                 <div class="header__search-history">
                                     <h3 class="header__search-history-heading">
@@ -329,8 +341,9 @@
                                                     <img src="${imgUrl}" alt="" width="10"
                                                          height="20" class="header__cart-img">
                                                     <div class="overflow-h header__cart-name">
-                                                        <span>${map.value.product.name }</span> <small>${map.value.quantity }
-                                                        * ${map.value.product.salePrice }đ </small>
+                                                        <span>${map.value.product.name }</span>
+                                                        <small>${map.value.quantity }
+                                                            * ${map.value.product.salePrice }đ </small>
                                                     </div>
                                                     <a
                                                             href="${pageContext.request.contextPath}/member/cart/remove?pId=${map.value.product.id} ">
@@ -356,12 +369,12 @@
                                                 <%--                                &lt;%&ndash;                                </div>&ndash;%&gt;--%>
                                         </ul>
                                         <footer class="header__cart-footer">
-                                            <a href="${pageContext.request.contextPath }/member/cart" class="header__cart-footer-btn">Xem tất cả</a>
+                                            <a href="${pageContext.request.contextPath }/member/cart"
+                                               class="header__cart-footer-btn">Xem tất cả</a>
                                         </footer>
                                     </div>
                                 </c:otherwise>
                             </c:choose>
-
 
 
                         </li>

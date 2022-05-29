@@ -19,7 +19,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-@WebServlet(urlPatterns = { "/Admin/user/add" })
+@WebServlet(urlPatterns = {"/Admin/user/add"})
 public class UserAddController extends HttpServlet {
     UserService userService = new UserServiceImpl();
 
@@ -46,13 +46,15 @@ public class UserAddController extends HttpServlet {
             List<FileItem> items = servletFileUpload.parseRequest(request);
             for (FileItem item : items) {
                 if (item.getFieldName().equals("email")) {
-                    user.setEmail(item.getString());;
+                    user.setEmail(item.getString());
+                    ;
                 } else if (item.getFieldName().equals("username")) {
                     user.setUsername(item.getString());
                 } else if (item.getFieldName().equals("password")) {
                     user.setPassword(item.getString());
                 } else if (item.getFieldName().equals("role")) {
-                    user.setRoleId(Integer.parseInt(item.getString()));;
+                    user.setRoleId(Integer.parseInt(item.getString()));
+                    ;
                 } else if (item.getFieldName().equals("avatar")) {
                     final String dir = "E:\\upload";
                     String originalFileName = item.getName();

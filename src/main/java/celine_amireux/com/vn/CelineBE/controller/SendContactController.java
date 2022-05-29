@@ -14,22 +14,22 @@ import java.util.Random;
 public class SendContactController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    Random random = new Random();
-    String alert="";
-    String name= request.getParameter("name");
-    String email = request.getParameter("email");
-    String title= request.getParameter("title");
-    String message = request.getParameter("message");
-    Contact contact = new Contact(random.nextInt(1000), name, email, title, message);
+        Random random = new Random();
+        String alert = "";
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String title = request.getParameter("title");
+        String message = request.getParameter("message");
+        Contact contact = new Contact(random.nextInt(1000), name, email, title, message);
         ContactService contactService = new ContactServiceImpl();
         contactService.insert(contact);
-        alert="Đã gửi liên hệ thành công!";
-        request.setAttribute("alert",alert);
-        request.getRequestDispatcher("view/client/view/contact-us.jsp").forward(request,response);
+        alert = "Đã gửi liên hệ thành công!";
+        request.setAttribute("alert", alert);
+        request.getRequestDispatcher("view/client/view/contact-us.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    doGet(request, response);
+        doGet(request, response);
     }
 }

@@ -13,7 +13,7 @@ public class BlogDaoImpl extends JDBCConnection implements BlogDao {
     @Override
     public void insert(Blog blog) {
         String sql = "INSERT INTO Blog(image, blog_category, date, name, des) VALUES (?,?,?,?,?)";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -31,14 +31,15 @@ public class BlogDaoImpl extends JDBCConnection implements BlogDao {
     @Override
     public void edit(Blog blog) {
         String sql = "UPDATE Blog SET Blog.name = ? ,image = ?,blog_category=?, date = ?,des=? WHERE id = ?";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, blog.getImage());
-            ps.setString(2, blog.getBlog_category());
-            ps.setDate(3, (Date) blog.getDate());
-            ps.setString(4, blog.getName());
+            ps.setString(2, blog.getImage());
+            ps.setString(3, blog.getBlog_category());
+            ps.setDate(4, (Date) blog.getDate());
+            ps.setString(1, blog.getName());
             ps.setString(5, blog.getDes());
+            ps.setInt(6, blog.getId());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -48,7 +49,7 @@ public class BlogDaoImpl extends JDBCConnection implements BlogDao {
     @Override
     public void delete(int id) {
         String sql = "DELETE FROM Blog WHERE id=?";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
@@ -63,7 +64,7 @@ public class BlogDaoImpl extends JDBCConnection implements BlogDao {
     public Blog get(int id) {
         String sql = "SELECT blog.id, blog.image,blog.blog_category,blog.date,blog.name,blog.des"
                 + "FROM blog  WHERE blog.id=?";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -78,10 +79,11 @@ public class BlogDaoImpl extends JDBCConnection implements BlogDao {
                 blog.setBlog_category(rs.getString("blog_category"));
                 blog.setName(rs.getString("name"));
                 blog.setDes(rs.getString("des"));
-                return blog;}
-            } catch (SQLException e) {
-                e.printStackTrace();
+                return blog;
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         return null;
     }
@@ -118,13 +120,13 @@ public class BlogDaoImpl extends JDBCConnection implements BlogDao {
     public List<Blog> getBlogByPage(int currentPage, int blogsPerPage) {
         List<Blog> blogList = new ArrayList<Blog>();
         String sql = "SELECT blog.id, blog.name , blog.blog_category,blog.date, blog.image, blog.des"
-                + " FROM blog  LIMIT ?,?" ;
+                + " FROM blog  LIMIT ?,?";
         Connection conn = getJDBCConnection();
 
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1,currentPage*blogsPerPage-blogsPerPage);
-            ps.setInt(2,blogsPerPage);
+            ps.setInt(1, currentPage * blogsPerPage - blogsPerPage);
+            ps.setInt(2, blogsPerPage);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -149,4 +151,7 @@ public class BlogDaoImpl extends JDBCConnection implements BlogDao {
     public int getNumOfBlogs() {
         return getAll().size();
     }
+
 }
+
+

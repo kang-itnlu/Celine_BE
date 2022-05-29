@@ -1,9 +1,11 @@
 package celine_amireux.com.vn.CelineBE.controller;
 
+import celine_amireux.com.vn.CelineBE.model.User;
 import celine_amireux.com.vn.CelineBE.services.UserService;
 import celine_amireux.com.vn.CelineBE.services.impl.UserServiceImpl;
 import celine_amireux.com.vn.CelineBE.tools.SendEmail;
 import celine_amireux.com.vn.CelineBE.util.Constant;
+import celine_amireux.com.vn.CelineBE.util.SecurityUtils;
 
 import java.io.IOException;
 
@@ -44,14 +46,15 @@ public class RegisterController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         String email = req.getParameter("email");
 
         UserService service = new UserServiceImpl();
         String alertMsg = "";
-        if(email=="" || password=="" || username ==""){
-            alertMsg="Vui lòng không để trống các ô!";
+        if (email == "" || password == "" || username == "") {
+            alertMsg = "Vui lòng không để trống các ô!";
             req.getRequestDispatcher(Constant.Path.REGISTER).forward(req, resp);
             return;
         }
@@ -67,19 +70,27 @@ public class RegisterController extends HttpServlet {
             req.getRequestDispatcher(Constant.Path.REGISTER).forward(req, resp);
             return;
         }
-
-        boolean isSuccess = service.register(username, password, email);
-
-        if (isSuccess) {
-            SendEmail sm= new SendEmail();
-            sm.sendMail(email, "Celine", "Welcome to Celine. Please login to use our services. Thanks !");
-            req.setAttribute("alert", alertMsg);
-            resp.sendRedirect(req.getContextPath() + "/login");
-        } else {
-            alertMsg = "System error!";
+        if (password.length() <= 6) {
+            alertMsg = "Mật khẩu phải có ít nhất 6 kí tự!";
             req.setAttribute("alert", alertMsg);
             req.getRequestDispatcher(Constant.Path.REGISTER).forward(req, resp);
+            return;
         }
-    }
 
+//        boolean isSuccess = service.register(username, SecurityUtils.hash(password), email);
+
+//        if (isSuccess) {
+        SendEmail sm = new SendEmail();
+        String code = sm.getRandom();
+        User user = new User(email, username, code, password);
+        sm.sendMail(email, "Celine-Email of verification", "Welcome to Celine. Here is your verification code: " + user.getCode() + " .Thanks !");
+        HttpSession session = req.getSession();
+        session.setAttribute("authcode", user);
+        resp.sendRedirect(req.getContextPath() + "/redirect");
+//        } else {
+//            alertMsg = "System error!";
+//            req.setAttribute("alert", alertMsg);
+//            req.getRequestDispatcher(Constant.Path.REGISTER).forward(req, resp);
+
+    }
 }

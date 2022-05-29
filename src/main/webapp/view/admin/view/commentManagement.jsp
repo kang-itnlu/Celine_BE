@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="${url}/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="${url}/dist/img/celine_login.png"/>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -42,7 +43,8 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang
+                                chủ</a></li>
                             <li class="breadcrumb-item active">Quản lý bình luận</li>
                         </ol>
                     </div>
@@ -68,71 +70,38 @@
                             <table id="example1" class="table table-bordered table-responsive-md">
                                 <thead>
                                 <tr>
-                                    <th title="Số thứ tự">STT</th>
                                     <th>Mã bình luận</th>
-                                    <th>Nội dunng</th>
                                     <th>Người bình luận</th>
-                                    <th>Phân loại</th>
+                                    <th>Avatar</th>
+                                    <th>Sao đánh giá</th>
+                                    <th>Nội dung</th>
                                     <th>Thời gian</th>
                                     <th>Thao tác</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>bl1</td>
-                                    <td>Sản phẩm rất tốt, vưa tầm giá</td>
-                                    <td>Tony Tèo</td>
-                                    <td>Bình thường
-                                    </td>
-                                    <td>1/11/2021</td>
-                                    <td>
-                                        <div class="row justify-content-center">
-                                            <a target="_blank" href="${pageContext.request.contextPath}/Admin/comment/delete">
-                                                <button type="button" class="btn btn-block btn-outline-danger">
-                                                    <i class="fa fa-trash-alt"></i>
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>bl2</td>
-                                    <td>aaaaaaaaaaaa</td>
-                                    <td>Mr.Đờm</td>
-                                    <td>Spam
-                                    </td>
-                                    <td>11/11/2021</td>
-                                    <td>
-                                        <div class="row justify-content-center">
-                                            <a target="_blank" href="${pageContext.request.contextPath}/Admin/comment/delete">
-                                                <button type="button" class="btn btn-block btn-outline-danger">
-                                                    <i class="fa fa-trash-alt"></i>
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>bl3</td>
-                                    <td>Chất vải chưa tốt lắm, cần nâng cấp</td>
-                                    <td>Ms.Kim</td>
-                                    <td>Bình thường
-                                    </td>
-                                    <td>1/12/2021</td>
-                                    <td>
-                                        <div class="row justify-content-center">
-                                            <a target="_blank" href="${pageContext.request.contextPath}/Admin/comment/delete">
-                                                <button type="button" class="btn btn-block btn-outline-danger">
-                                                    <i class="fa fa-trash-alt"></i>
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-
+                                <c:forEach items="${commentList}" var="c">
+                                    <tr>
+                                        <td>${c.id}</td>
+                                        <td>${c.username}</td>
+                                        <c:url value="${c.avatar }" var="imgUrl"></c:url>
+                                        <td><img src="${imgUrl}" alt="" style="width:30px; height: 30px;margin: 0 auto;
+                    display: block"></td>
+                                        <td>${c.rating}</td>
+                                        <td>${c.content}</td>
+                                        <td>${c.time}
+                                        </td>
+                                        <td>
+                                            <div class="row justify-content-center">
+                                                <a href="${pageContext.request.contextPath}/Admin/comment/delete?id=${c.id}">
+                                                    <button type="button" class="btn btn-block btn-outline-danger">
+                                                        <i class="fa fa-trash-alt"></i>
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                                 <tfoot>
 
@@ -149,7 +118,7 @@
         </section>
         <!-- /.content -->
     </div>
-   <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
 </div>
 <!-- ./wrapper -->
 

@@ -16,7 +16,7 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
 
     @Override
     public void insert(User user) {
-        int roleId=0;
+        int roleId = 0;
         String sql = "INSERT INTO User(email, username, password,avatar,role_id) VALUES (?,?,?,?,?)";
         Connection con = JDBCConnection.getJDBCConnection();
 
@@ -25,16 +25,16 @@ public class UserDaoImpl extends JDBCConnection implements UserDao {
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getUsername());
             ps.setString(3, user.getPassword());
-            ps.setString(4, user.getAvatar());
+            ps.setString(4, "/view/client/static/images/user/default.png");
             try {
-                if(user.getRoleId()==1) {
-                    roleId=1;
-                }else {
-                    roleId=2;
+                if (user.getRoleId() == 1) {
+                    roleId = 1;
+                } else {
+                    roleId = 2;
                 }
 
             } catch (Exception e) {
-                roleId=2;
+                roleId = 2;
             }
             ps.setInt(5, roleId);
             ps.executeUpdate();

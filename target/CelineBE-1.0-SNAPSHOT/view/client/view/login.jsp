@@ -5,7 +5,6 @@
     String alert = (String) request.getAttribute("alert");
 %>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,17 +15,15 @@
     <title>Login | Céline</title>
 
     <link href="${url}/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">s
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="${url}/css/prettyPhoto.css" rel="stylesheet">
-    <link href="${url}/css/price-range.css" rel="stylesheet">
     <link href="${url}/css/animate.css" rel="stylesheet">
     <link href="${url}/css/main.css" rel="stylesheet">
     <link href="${url}/css/responsive.css" rel="stylesheet">
     <link href="${url}/css/login.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="${url}/images/home/celine_login.png"/>
     <!--[if lt IE 9]>
-    <script src="${url}/js/html5shiv.js"></script>
-    <script src="${url}/js/respond.min.js"></script>
+
     <![endif]-->
 </head><!--/head-->
 
@@ -54,7 +51,7 @@
                 </h3>
 
             </div>
-            <form id="form-regex" autocomplete="off" onsubmit="checkForm()" action="login" method="post">
+            <form id="form-regex"  onsubmit="checkForm()" action="login" method="post">
                 <%
                     if (alert != null) {
                 %>
@@ -100,7 +97,8 @@
                          </span>
             </a>
             <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/AccessGoogle/login-google&response_type=code
-    &client_id=244932279445-jrl3r41jt8ci3on7mkbnm1bbg4bjvse4.apps.googleusercontent.com&approval_prompt=force" class="auth-form__socials--google btn btn--size-s btn--with-icon">
+    &client_id=244932279445-jrl3r41jt8ci3on7mkbnm1bbg4bjvse4.apps.googleusercontent.com&approval_prompt=force"
+               class="auth-form__socials--google btn btn--size-s btn--with-icon">
                 <img src="${url}/images/home/google.png" alt="">
                 <span class="auth-form__socials-title">
                               Google
@@ -239,6 +237,8 @@
         </div>
     </div>
 </footer><!--/Footer-->
+<script src="${url}/js/html5shiv.js"></script>
+<script src="${url}/js/respond.min.js"></script>
 <script>
     const form = document.getElementById('form-regex');
     const email = document.getElementById('email');

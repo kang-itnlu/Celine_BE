@@ -14,7 +14,9 @@ public class Contact {
         this.title = title;
         this.message = message;
     }
-    public Contact(){}
+
+    public Contact() {
+    }
 
     public int getId() {
         return id;

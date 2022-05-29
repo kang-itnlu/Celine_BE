@@ -440,7 +440,7 @@
 
     </div>
     <div id="modal__body1">
-        <div id="turn__off"  style="cursor: pointer; float:right; padding: 0 6px;">
+        <div id="turn__off" style="cursor: pointer; float:right; padding: 0 6px;">
             <i class="fas fa-times"></i>
         </div>
         <div class="card login-form">
@@ -458,11 +458,11 @@
                             </a>
                         </div>
                         <div class="form-group">
-                            <label >Mật khẩu cũ</label>
+                            <label>Mật khẩu cũ</label>
                             <input type="password" class="form-control form-control-sm">
                         </div>
                         <div class="form-group">
-                            <label >Mật khẩu mới</label>
+                            <label>Mật khẩu mới</label>
                             <input type="password" class="form-control form-control-sm">
                         </div>
                         <div class="form-group">
@@ -491,10 +491,12 @@
         }
         $(this).addClass("active");
     });
-    function showChangePassword(){
+
+    function showChangePassword() {
         document.getElementById("modal1").style.display = "block";
     }
-    function close(){
+
+    function close() {
         document.getElementById("modal1").style.display = "none";
     }
 </script>

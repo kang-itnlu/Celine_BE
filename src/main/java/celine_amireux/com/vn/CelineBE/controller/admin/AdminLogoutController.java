@@ -17,9 +17,9 @@ public class AdminLogoutController extends HttpServlet {
 
         Cookie[] cookies = request.getCookies();
 
-        if(cookies!=null){
+        if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if(Constant.COOKIE_REMEMBER.equals(cookie.getName())){
+                if (Constant.COOKIE_REMEMBER.equals(cookie.getName())) {
                     cookie.setMaxAge(0); // <=> remove cookie
                     response.addCookie(cookie); // add again
                     break;
@@ -32,6 +32,6 @@ public class AdminLogoutController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    doGet(request, response);
+        doGet(request, response);
     }
 }

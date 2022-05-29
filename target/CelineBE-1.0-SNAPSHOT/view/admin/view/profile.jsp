@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="${url}/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="${url}/dist/img/celine_login.png"/>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -42,7 +43,8 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang
+                                chủ</a></li>
                             <li class="breadcrumb-item active">Thông tin người dùng</li>
                         </ol>
                     </div>
@@ -124,7 +126,8 @@
 
                                 <strong><i class="far fa-file-alt mr-1"></i> Ghi chú</strong>
 
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                                    fermentum enim neque.</p>
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -135,9 +138,12 @@
                         <div class="card">
                             <div class="card-header p-2">
                                 <ul class="nav nav-pills">
-                                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Hoạt động</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Dòng thời gian</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Cài đặt</a></li>
+                                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Hoạt
+                                        động</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Dòng
+                                        thời gian</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Cài
+                                        đặt</a></li>
                                 </ul>
                             </div><!-- /.card-header -->
                             <div class="card-body">
@@ -146,7 +152,8 @@
                                         <!-- Post -->
                                         <div class="post">
                                             <div class="user-block">
-                                                <img class="img-circle img-bordered-sm" src="${url}/dist/img/user1-128x128.jpg" alt="user image">
+                                                <img class="img-circle img-bordered-sm"
+                                                     src="${url}/dist/img/user1-128x128.jpg" alt="user image">
                                                 <span class="username">
                           <a href="#">Jonathan Burke Jr.</a>
                           <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
@@ -163,8 +170,10 @@
                                             </p>
 
                                             <p>
-                                                <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Chia sẻ</a>
-                                                <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Thích</a>
+                                                <a href="#" class="link-black text-sm mr-2"><i
+                                                        class="fas fa-share mr-1"></i> Chia sẻ</a>
+                                                <a href="#" class="link-black text-sm"><i
+                                                        class="far fa-thumbs-up mr-1"></i> Thích</a>
                                                 <span class="float-right">
                           <a href="#" class="link-black text-sm">
                             <i class="far fa-comments mr-1"></i> Bình luận (5)
@@ -172,14 +181,16 @@
                         </span>
                                             </p>
 
-                                            <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+                                            <input class="form-control form-control-sm" type="text"
+                                                   placeholder="Type a comment">
                                         </div>
                                         <!-- /.post -->
 
                                         <!-- Post -->
                                         <div class="post clearfix">
                                             <div class="user-block">
-                                                <img class="img-circle img-bordered-sm" src="${url}/dist/img/user7-128x128.jpg" alt="User Image">
+                                                <img class="img-circle img-bordered-sm"
+                                                     src="${url}/dist/img/user7-128x128.jpg" alt="User Image">
                                                 <span class="username">
                           <a href="#">Sarah Ross</a>
                           <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
@@ -209,7 +220,8 @@
                                         <!-- Post -->
                                         <div class="post">
                                             <div class="user-block">
-                                                <img class="img-circle img-bordered-sm" src="${url}/dist/img/user6-128x128.jpg" alt="User Image">
+                                                <img class="img-circle img-bordered-sm"
+                                                     src="${url}/dist/img/user6-128x128.jpg" alt="User Image">
                                                 <span class="username">
                           <a href="#">Adam Jones</a>
                           <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
@@ -225,13 +237,17 @@
                                                 <div class="col-sm-6">
                                                     <div class="row">
                                                         <div class="col-sm-6">
-                                                            <img class="img-fluid mb-3" src="${url}/dist/img/photo2.png" alt="Photo">
-                                                            <img class="img-fluid" src="${url}/dist/img/photo3.jpg" alt="Photo">
+                                                            <img class="img-fluid mb-3" src="${url}/dist/img/photo2.png"
+                                                                 alt="Photo">
+                                                            <img class="img-fluid" src="${url}/dist/img/photo3.jpg"
+                                                                 alt="Photo">
                                                         </div>
                                                         <!-- /.col -->
                                                         <div class="col-sm-6">
-                                                            <img class="img-fluid mb-3" src="${url}/dist/img/photo4.jpg" alt="Photo">
-                                                            <img class="img-fluid" src="${url}/dist/img/photo1.png" alt="Photo">
+                                                            <img class="img-fluid mb-3" src="${url}/dist/img/photo4.jpg"
+                                                                 alt="Photo">
+                                                            <img class="img-fluid" src="${url}/dist/img/photo1.png"
+                                                                 alt="Photo">
                                                         </div>
                                                         <!-- /.col -->
                                                     </div>
@@ -242,8 +258,10 @@
                                             <!-- /.row -->
 
                                             <p>
-                                                <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Chia sẻ</a>
-                                                <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Thích</a>
+                                                <a href="#" class="link-black text-sm mr-2"><i
+                                                        class="fas fa-share mr-1"></i> Chia sẻ</a>
+                                                <a href="#" class="link-black text-sm"><i
+                                                        class="far fa-thumbs-up mr-1"></i> Thích</a>
                                                 <span class="float-right">
                           <a href="#" class="link-black text-sm">
                             <i class="far fa-comments mr-1"></i>Bình luận (5)
@@ -251,7 +269,8 @@
                         </span>
                                             </p>
 
-                                            <input class="form-control form-control-sm" type="text" placeholder="Bình luận">
+                                            <input class="form-control form-control-sm" type="text"
+                                                   placeholder="Bình luận">
                                         </div>
                                         <!-- /.post -->
                                     </div>
@@ -273,12 +292,14 @@
                                                 <div class="timeline-item">
                                                     <span class="time"><i class="far fa-clock"></i> 12:05</span>
 
-                                                    <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+                                                    <h3 class="timeline-header"><a href="#">Support Team</a> sent you an
+                                                        email</h3>
 
                                                     <div class="timeline-body">
                                                         Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
                                                         weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                                                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                                                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo
+                                                        kaboodle
                                                         quora plaxo ideeli hulu weebly balihoo...
                                                     </div>
                                                     <div class="timeline-footer">
@@ -295,7 +316,8 @@
                                                 <div class="timeline-item">
                                                     <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
 
-                                                    <h3 class="timeline-header border-0"><a href="#">Sarah Young</a> đã đồng ý kết bạn
+                                                    <h3 class="timeline-header border-0"><a href="#">Sarah Young</a> đã
+                                                        đồng ý kết bạn
                                                     </h3>
                                                 </div>
                                             </div>
@@ -307,7 +329,8 @@
                                                 <div class="timeline-item">
                                                     <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
 
-                                                    <h3 class="timeline-header"><a href="#">Jay White</a> đã bình luận về bài viết của bạn</h3>
+                                                    <h3 class="timeline-header"><a href="#">Jay White</a> đã bình luận
+                                                        về bài viết của bạn</h3>
 
                                                     <div class="timeline-body">
                                                         Take me to your leader!
@@ -315,7 +338,8 @@
                                                         We are more like Germany, ambitious and misunderstood!
                                                     </div>
                                                     <div class="timeline-footer">
-                                                        <a href="#" class="btn btn-warning btn-flat btn-sm">Xem bình luận</a>
+                                                        <a href="#" class="btn btn-warning btn-flat btn-sm">Xem bình
+                                                            luận</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -334,13 +358,18 @@
                                                 <div class="timeline-item">
                                                     <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
 
-                                                    <h3 class="timeline-header"><a href="#">Mina Lee</a> đã đăng ảnh mới</h3>
+                                                    <h3 class="timeline-header"><a href="#">Mina Lee</a> đã đăng ảnh mới
+                                                    </h3>
 
                                                     <div class="timeline-body">
-                                                        <img src="${url}/dist/img/post1.jpg" alt="..." style="width:30%;height:40%;">
-                                                        <img src="${url}/dist/img/post2.jpg" alt="..."style="width:30%;height:40%;">
-                                                        <img src="${url}/dist/img/post3.jpg" alt="..."style="width:30%;height:40%;">
-                                                        <img src="${url}/dist/img/post4.jpg" alt="..."style="width:30%;height:40%;">
+                                                        <img src="${url}/dist/img/post1.jpg" alt="..."
+                                                             style="width:30%;height:40%;">
+                                                        <img src="${url}/dist/img/post2.jpg" alt="..."
+                                                             style="width:30%;height:40%;">
+                                                        <img src="${url}/dist/img/post3.jpg" alt="..."
+                                                             style="width:30%;height:40%;">
+                                                        <img src="${url}/dist/img/post4.jpg" alt="..."
+                                                             style="width:30%;height:40%;">
                                                     </div>
                                                 </div>
                                             </div>
@@ -357,38 +386,46 @@
                                             <div class="form-group row">
                                                 <label for="inputName" class="col-sm-2 col-form-label">Tên</label>
                                                 <div class="col-sm-10">
-                                                    <input type="email" class="form-control" id="inputName" placeholder="Tên">
+                                                    <input type="email" class="form-control" id="inputName"
+                                                           placeholder="Tên">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                                                 <div class="col-sm-10">
-                                                    <input type="email" class="form-control" id="inputEmail" placeholder="abc@xyz">
+                                                    <input type="email" class="form-control" id="inputEmail"
+                                                           placeholder="abc@xyz">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="inputName2" class="col-sm-2 col-form-label">Số điện thoại</label>
+                                                <label for="inputName2" class="col-sm-2 col-form-label">Số điện
+                                                    thoại</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName2" placeholder="0xxxxxxxxx">
+                                                    <input type="text" class="form-control" id="inputName2"
+                                                           placeholder="0xxxxxxxxx">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="inputExperience" class="col-sm-2 col-form-label">Kinh nghiệm</label>
+                                                <label for="inputExperience" class="col-sm-2 col-form-label">Kinh
+                                                    nghiệm</label>
                                                 <div class="col-sm-10">
-                                                    <textarea class="form-control" id="inputExperience" placeholder="Viết lách, Content..."></textarea>
+                                                    <textarea class="form-control" id="inputExperience"
+                                                              placeholder="Viết lách, Content..."></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputSkills" class="col-sm-2 col-form-label">Kỹ năng</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputSkills" placeholder="Teamworks,Giao tiếp">
+                                                    <input type="text" class="form-control" id="inputSkills"
+                                                           placeholder="Teamworks,Giao tiếp">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="offset-sm-2 col-sm-10">
                                                     <div class="checkbox">
                                                         <label>
-                                                            <input type="checkbox"> Tôi đồng ý với <a href="#">điều khoản và chính sách bảo mật</a>
+                                                            <input type="checkbox"> Tôi đồng ý với <a href="#">điều
+                                                            khoản và chính sách bảo mật</a>
                                                         </label>
                                                     </div>
                                                 </div>

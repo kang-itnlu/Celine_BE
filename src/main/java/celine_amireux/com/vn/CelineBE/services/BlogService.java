@@ -12,7 +12,7 @@ public interface BlogService {
 
     void delete(int id);
 
- Blog  get(int id);
+    Blog get(int id);
 
     List<Blog> getAll();
 

@@ -32,7 +32,7 @@ public class CartItemDaoImpl extends JDBCConnection implements CartItemDao {
     @Override
     public void insert(CartItem cartItem) {
         String sql = "INSERT INTO CartItem(id, cat_id, pro_id, quantity, unitPrice) VALUES (?,?,?,?,?)";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -60,7 +60,7 @@ public class CartItemDaoImpl extends JDBCConnection implements CartItemDao {
     @Override
     public void edit(CartItem cartItem) {
         String sql = "UPDATE CartItem SET cat_id = ?, pro_id = ?, quantity = ?, unitPrice=? WHERE id = ?";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -83,7 +83,7 @@ public class CartItemDaoImpl extends JDBCConnection implements CartItemDao {
     @Override
     public void delete(String id) {
         String sql = "DELETE FROM CartItem WHERE id = ?";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -111,7 +111,7 @@ public class CartItemDaoImpl extends JDBCConnection implements CartItemDao {
                 "INNER JOIN Product " +
                 "ON CartItem.pro_id = Product.id " +
                 "WHERE CartItem.id = ?";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -161,7 +161,7 @@ public class CartItemDaoImpl extends JDBCConnection implements CartItemDao {
                 "ON CartItem.cat_id = Cart.id " +
                 "INNER JOIN Product " +
                 "ON CartItem.pro_id = Product.id ";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);

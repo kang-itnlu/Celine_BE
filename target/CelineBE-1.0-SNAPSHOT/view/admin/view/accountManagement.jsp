@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="${url}/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="${url}/dist/img/celine_login.png"/>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -43,7 +44,8 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang
+                                chủ</a></li>
                             <li class="breadcrumb-item active">Quản lý tài khoản</li>
                         </ol>
                     </div>
@@ -63,7 +65,7 @@
                                         Bảng quản lý các tài khoản</a>
                                 </div>
                                 <div class=" col-6 text-right">
-                                    <a href="${pageContext.request.contextPath}/Admin/user/add">
+                                    <a href="add">
                                         <button type="button" class="btn btn-primary text-right">
                                             <i class="fa fa-plus-circle"></i> Thêm tài khoản
                                         </button>
@@ -87,31 +89,32 @@
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${userList}" var="account">
-                                <tr>
-                                    <td>${account.id}</td>
-                                    <td>${account.email}</td>
-                                    <td>${account.username}</td>
-                                    <td>${account.password}</td>
-                                    <c:url value="${account.avatar }" var="imgUrl"></c:url>
-                                    <td><img src="${imgUrl}" alt="" style="width:30px; height: 30px;margin: 0 auto;
+                                    <tr>
+                                        <td>${account.id}</td>
+                                        <td>${account.email}</td>
+                                        <td>${account.username}</td>
+                                        <td>${account.password}</td>
+                                        <c:url value="${account.avatar }" var="imgUrl"></c:url>
+                                        <td><img src="${imgUrl}" alt="" style="width:30px; height: 30px;margin: 0 auto;
                     display: block"></td>
-                                    <td>${account.roleId}</td>
-                                    <td>
-                                        <div class="row justify-content-center">
-                                            <a href="${pageContext.request.contextPath}/Admin/user/delete">
-                                                <button type="button" class="btn btn-block btn-outline-danger">
-                                                    <i class="fa fa-trash-alt"></i>
-                                                </button>
-                                            </a>
-                                            <a  href="${pageContext.request.contextPath}/Admin/user/edit">
-                                                <button type="button" class="btn btn-block btn-outline-success ml-1">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                            </a>
+                                        <td>${account.roleId}</td>
+                                        <td>
+                                            <div class="row justify-content-center">
+                                                <a href="${pageContext.request.contextPath}/Admin/user/delete?id=${account.id}">
+                                                    <button type="button" class="btn btn-block btn-outline-danger">
+                                                        <i class="fa fa-trash-alt"></i>
+                                                    </button>
+                                                </a>
+                                                <a href="${pageContext.request.contextPath}/Admin/user/edit?id=${account.id}">
+                                                    <button type="button"
+                                                            class="btn btn-block btn-outline-success ml-1">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                </a>
 
-                                        </div>
-                                    </td>
-                                </tr>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </c:forEach>
                                 </tbody>
                                 <tfoot>
@@ -128,7 +131,7 @@
         </section>
         <!-- /.content -->
     </div>
-  <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
 </div>
 <!-- ./wrapper -->
 

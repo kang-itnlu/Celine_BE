@@ -12,6 +12,7 @@ import java.io.IOException;
 @WebServlet(name = "LoginWithGoogleServlet", value = "/login-google")
 public class LoginWithGoogleController extends HttpServlet {
     private static final long serialVersionUID = 1L;
+
     public LoginWithGoogleController() {
         super();
     }
@@ -35,6 +36,6 @@ public class LoginWithGoogleController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    doGet(request, response);
+        doGet(request, response);
     }
 }

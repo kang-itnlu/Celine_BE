@@ -52,7 +52,7 @@
     <link href="${url}/css/all.min.css" rel="stylesheet">
     <link href="${url}/css/fontawesome.min.css" rel="stylesheet">
     <link href="${url}/css/fontawesome.css" rel="stylesheet">
-
+    <link rel="shortcut icon" type="image/png" href="${url}/images/home/celine_login.png"/>
 </head>
 
 <body>
@@ -117,7 +117,8 @@
                                 <p class="mb-25" data-animation="fadeInUp" data-delay="0.9s">Khuyến mãi giáng sinh -
                                     Sale off lên đến 50%. Khi mua hàng bạn còn có cơ hội nhận những phần quà hấp dẫn.
                                     Hãy đến với chúng tôi ngay thôi</p>
-                                <a class="main-btn" href="${pageContext.request.contextPath }/welcome" data-animation="fadeInUp" data-delay="1.5s">Shop
+                                <a class="main-btn" href="${pageContext.request.contextPath }/welcome"
+                                   data-animation="fadeInUp" data-delay="1.5s">Shop
                                     now <i class="lni-chevron-right"></i></a>
                             </div> <!-- slider product content -->
                         </div>
@@ -143,7 +144,8 @@
                                 <p class="mb-25" data-animation="fadeInUp" data-delay="0.9s">Mua từ 3 sản phẩm trở lên
                                     bạn sẽ nhận được ưu đãi giảm 10% tổng hóa đơn. Còn chần chờ gì nữa, hãy đến mua sắm
                                     cùng chúng tôi</p>
-                                <a class="main-btn" href="${pageContext.request.contextPath }/welcome" data-animation="fadeInUp" data-delay="1.5s">Shop
+                                <a class="main-btn" href="${pageContext.request.contextPath }/welcome"
+                                   data-animation="fadeInUp" data-delay="1.5s">Shop
                                     now <i class="lni-chevron-right"></i></a>
                             </div> <!-- slider product content -->
                         </div>
@@ -163,7 +165,8 @@
                             <div class="slider-product-content">
                                 <h1 class="slider-title mb-10" data-animation="fadeInUp" data-delay="0.3s">Cùng khám phá
                                     nào!!!</h1>
-                                <a class="main-btn" href="${pageContext.request.contextPath }/welcome" data-animation="fadeInUp" data-delay="1.5s">Let's
+                                <a class="main-btn" href="${pageContext.request.contextPath }/welcome"
+                                   data-animation="fadeInUp" data-delay="1.5s">Let's
                                     go<i class="lni-chevron-right"></i></a>
                             </div> <!-- slider product content -->
                         </div>

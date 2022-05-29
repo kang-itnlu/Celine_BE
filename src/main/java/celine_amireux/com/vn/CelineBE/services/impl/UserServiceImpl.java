@@ -4,14 +4,14 @@ import celine_amireux.com.vn.CelineBE.dao.UserDao;
 import celine_amireux.com.vn.CelineBE.dao.impl.UserDaoImpl;
 import celine_amireux.com.vn.CelineBE.model.User;
 import celine_amireux.com.vn.CelineBE.services.UserService;
+import celine_amireux.com.vn.CelineBE.util.SecurityUtils;
 
 import java.io.File;
 import java.util.List;
 
 
-
 public class UserServiceImpl implements UserService {
-    UserDao userDao =  new UserDaoImpl();
+    UserDao userDao = new UserDaoImpl();
 
     @Override
     public void insert(User user) {
@@ -69,7 +69,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User login(String username, String password) {
         User user = this.get(username);
-        if (user != null && password.equals(user.getPassword())) {
+        if (user != null && SecurityUtils.hash(password).equals(user.getPassword())) {
             return user;
         }
 
@@ -79,7 +79,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User loginAdmin(String email, String password) {
         User user = this.get(email);
-        if (user != null && password.equals(user.getPassword())) {
+        if (user != null && SecurityUtils.hash(password).equals(user.getPassword())) {
             return user;
         }
 
@@ -87,11 +87,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean register(String username, String password, String email) {
+    public boolean register(String email, String password, String username) {
         if (userDao.checkExistUsername(username)) {
             return false;
         }
-        userDao.insert(new User(email, username, password));
+        userDao.insert(new User(email, password, username));
         return true;
     }
 

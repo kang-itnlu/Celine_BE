@@ -7,7 +7,6 @@ import celine_amireux.com.vn.CelineBE.model.Product;
 import java.util.List;
 
 
-
 public interface CategoryService {
     void insert(Category category);
 

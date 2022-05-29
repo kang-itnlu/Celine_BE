@@ -16,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quên mật khẩu?</title>
     <link rel="stylesheet" href="${url}/css/forgot_password.css"/>
+    <link rel="shortcut icon" type="image/png" href="${url}/images/home/celine_login.png"/>
 </head>
 <body>
 <div class="container-center">

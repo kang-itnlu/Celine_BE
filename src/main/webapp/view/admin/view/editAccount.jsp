@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="${url}/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="${url}/dist/img/celine_login.png"/>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -43,8 +44,10 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang chủ</a></li>
-                            <li class="breadcrumb-item active"><a href="${pageContext.request.contextPath}/Admin/user/list">Quản lý tài khoản</a></li>
+                            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Admin/Welcome">Trang
+                                chủ</a></li>
+                            <li class="breadcrumb-item active"><a
+                                    href="${pageContext.request.contextPath}/Admin/user/list">Quản lý tài khoản</a></li>
                             <li class="breadcrumb-item active">Sửa tài khoản</li>
                         </ol>
                     </div>
@@ -74,56 +77,17 @@
                                             <h3 class="card-title">Thông tin tài khoản</h3>
                                         </div>
                                         <div class="card-body">
-                                            <form role="form" action="${pageContext.request.contextPath}/Admin/user/edit" method="post">
+                                            <form role="form" action="edit" method="post">
                                                 <!-- Date dd/mm/yyyy -->
                                                 <div class="form-group">
                                                     <label>Mã tài khoản</label>
 
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="far fa-id-card"></i></span>
+                                                            <span class="input-group-text"><i
+                                                                    class="far fa-id-card"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                                <!-- /.form group -->
-                                                <!-- phone mask -->
-                                                <div class="form-group">
-                                                    <label>Mật khẩu</label>
-
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-key"></i></span>
-                                                        </div>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                                <!-- /.form group -->
-                                                <!-- phone mask -->
-                                                <div class="form-group">
-                                                    <label>Họ và tên</label>
-
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-user-alt"></i></span>
-                                                        </div>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                                <!-- /.form group -->
-
-                                                <!-- phone mask -->
-                                                <div class="form-group">
-                                                    <label>Số điện thoại </label>
-
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-phone"></i></span>
-                                                        </div>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" name="id" class="form-control">
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
@@ -134,9 +98,64 @@
 
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                                            <span class="input-group-text"><i class="fa fa-envelop"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control">
+                                                        <input type="email" name="email" class="form-control">
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                                <!-- /.form group -->
+                                                <!-- phone mask -->
+                                                <div class="form-group">
+                                                    <label>Tên người dùng</label>
+
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i
+                                                                    class="fa fa-user-alt"></i></span>
+                                                        </div>
+                                                        <input type="text" name="username" class="form-control">
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                                <!-- /.form group -->
+
+                                                <!-- phone mask -->
+                                                <div class="form-group">
+                                                    <label>Mật khẩu</label>
+
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i
+                                                                    class="fa fa-key"></i></span>
+                                                        </div>
+                                                        <input type="password" name="password" class="form-control">
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                                <!-- /.form group -->
+                                                <!-- phone mask -->
+                                                <div class="form-group">
+                                                    <label>Avatar</label>
+
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i
+                                                                    class="fa fa-user-alt"></i></span>
+                                                        </div>
+                                                        <input type="file" name="image" class="form-control">
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Role</label>
+
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i
+                                                                    class="fa fa-key"></i></span>
+                                                        </div>
+                                                        <input type="text" name="role" class="form-control">
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
@@ -145,9 +164,9 @@
                                                 <div class="form-group">
                                                     <div class="input-group justify-content-center">
 
-                                                            <button type="button" class="btn btn-success text-right">
-                                                                <i class="fa fa-edit"></i> Sửa
-                                                            </button>
+                                                        <button type="submit" class="btn btn-success text-right">
+                                                            <i class="fa fa-edit"></i> Sửa
+                                                        </button>
 
                                                         <a href="${pageContext.request.contextPath}/Admin/user/list">
                                                             <button type="button" class="btn btn-info text-right ml-1">
@@ -178,7 +197,7 @@
         </section>
         <!-- /.content -->
     </div>
-  <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
+    <jsp:include page="/view/admin/view/footer.jsp"></jsp:include>
 </div>
 <!-- ./wrapper -->
 

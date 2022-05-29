@@ -17,6 +17,7 @@ public interface UserService {
     User get(int id);
 
     User login(String username, String password);
+
     User loginAdmin(String email, String password);
 
     boolean register(String email, String password, String username);

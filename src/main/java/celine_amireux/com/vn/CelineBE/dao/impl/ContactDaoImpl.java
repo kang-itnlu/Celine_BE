@@ -17,7 +17,7 @@ public class ContactDaoImpl extends JDBCConnection implements ContactDao {
     @Override
     public void insert(Contact contact) {
         String sql = "INSERT INTO Contact(name, email,title,message) VALUES (?,?,?,?)";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -34,7 +34,7 @@ public class ContactDaoImpl extends JDBCConnection implements ContactDao {
     @Override
     public void edit(Contact contact) {
         String sql = "UPDATE Contact SET Contact.name = ? , email = ?,title=?, message = ? WHERE id = ?";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -42,6 +42,7 @@ public class ContactDaoImpl extends JDBCConnection implements ContactDao {
             ps.setString(2, contact.getEmail());
             ps.setString(3, contact.getTitle());
             ps.setString(4, contact.getMessage());
+            ps.setInt(5, contact.getId());
             ps.executeUpdate();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -52,7 +53,7 @@ public class ContactDaoImpl extends JDBCConnection implements ContactDao {
     @Override
     public void delete(int id) {
         String sql = "DELETE FROM Contact WHERE id=?";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -77,7 +78,7 @@ public class ContactDaoImpl extends JDBCConnection implements ContactDao {
 
             while (rs.next()) {
 
-                Contact  contact = new Contact();
+                Contact contact = new Contact();
                 contact.setId(rs.getInt("id"));
                 contact.setName(rs.getString("p_name"));
                 contact.setEmail(rs.getString("p_email"));

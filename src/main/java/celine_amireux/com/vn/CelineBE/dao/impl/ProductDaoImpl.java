@@ -3,6 +3,7 @@ package celine_amireux.com.vn.CelineBE.dao.impl;
 import celine_amireux.com.vn.CelineBE.dao.ProductDao;
 import celine_amireux.com.vn.CelineBE.jdbc.JDBCConnection;
 import celine_amireux.com.vn.CelineBE.model.Category;
+import celine_amireux.com.vn.CelineBE.model.Comment;
 import celine_amireux.com.vn.CelineBE.model.Product;
 import celine_amireux.com.vn.CelineBE.services.CategoryService;
 import celine_amireux.com.vn.CelineBE.services.impl.CategoryServiceImpl;
@@ -21,7 +22,7 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
     @Override
     public void insert(Product product) {
         String sql = "INSERT INTO Product(name, price, salePrice, stock,image, cate_id, des,isLiked,rating,soldQuantity,brand,manufacturer,product_detail) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -32,7 +33,7 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
             ps.setString(4, product.getImage());
             ps.setInt(5, product.getCategory().getId());
             ps.setString(6, product.getDes());
-            ps.setInt(7,product.isLiked());
+            ps.setInt(7, product.isLiked());
             ps.setInt(8, product.getRating());
             ps.setInt(9, product.getSoldQuantity());
             ps.setString(10, product.getBrand());
@@ -47,7 +48,7 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
     @Override
     public void edit(Product product) {
         String sql = "UPDATE Product SET Product.name = ? , price = ?,stock=?,salePrice=?, image = ?,cate_id=?, des=?,isLiked=?,rating=?,soldQuantity=?,brand=?,manufacturer=?,product_detail=? WHERE id = ?";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -58,13 +59,13 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
             ps.setString(4, product.getImage());
             ps.setInt(5, product.getCategory().getId());
             ps.setString(6, product.getDes());
-            ps.setInt(7, product.getId());
+            ps.setInt(7, product.isLiked());
             ps.setInt(8, product.getRating());
-            ps.setInt(9, product.isLiked());
-            ps.setInt(10, product.getSoldQuantity());
-            ps.setString(11, product.getBrand());
-            ps.setString(12,product.getManufacturer());
-            ps.setString(13,product.getProduct_detail());
+            ps.setInt(9, product.getSoldQuantity());
+            ps.setString(10, product.getBrand());
+            ps.setString(11, product.getManufacturer());
+            ps.setString(12, product.getProduct_detail());
+            ps.setInt(13, product.getId());
             ps.executeUpdate();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -75,7 +76,7 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
     @Override
     public void delete(int id) {
         String sql = "DELETE FROM Product WHERE id=?";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -91,7 +92,7 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
     public Product get(int id) {
         String sql = "SELECT product.id, product.name AS p_name, product.price,product.stock,product.salePrice, product.image,product.des, category.cate_name AS c_name, category.cate_id AS c_id ,product.isLiked,product.rating,product.soldQuantity,product.brand,product.manufacturer,product.product_detail"
                 + " FROM product INNER JOIN category " + "ON product.cate_id = category.cate_id WHERE product.id=?";
-        Connection con = super.getJDBCConnection();
+        Connection con = getJDBCConnection();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -132,7 +133,7 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
         List<Product> productList = new ArrayList<Product>();
         String sql = "SELECT product.id, product.name AS p_name, product.price,product.stock,product.salePrice, product.image, product.des , category.cate_name AS c_name, category.cate_id AS c_id,product.isLiked,product.rating,product.soldQuantity,product.brand,product.manufacturer,product.product_detail"
                 + " FROM product INNER JOIN category " + "ON product.cate_id = category.cate_id";
-        Connection conn = super.getJDBCConnection();
+        Connection conn = getJDBCConnection();
 
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -170,7 +171,7 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
     public List<Product> search(String keyword) {
         List<Product> productList = new ArrayList<Product>();
         String sql = "SELECT * FROM product WHERE name LIKE ? ";
-        Connection conn = super.getJDBCConnection();
+        Connection conn = getJDBCConnection();
 
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -213,12 +214,12 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
     public List<Product> searchByCategory(int cate_id) {
         List<Product> productList = new ArrayList<Product>();
         String sql = "SELECT product.id, product.name AS p_name, product.price,product.stock,product.salePrice, product.image, product.des , category.cate_name AS c_name, category.cate_id AS c_id,product.isLiked,product.rating,product.soldQuantity,product.brand,product.manufacturer,product.product_detail 				 FROM Product join Category   on product.cate_id = category.cate_id where product.cate_id=?";
-        Connection conn = super.getJDBCConnection();
+        Connection conn = getJDBCConnection();
 
         try {
 
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1,cate_id);
+            ps.setInt(1, cate_id);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -256,11 +257,11 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
         List<Product> productList = new ArrayList<Product>();
         String sql = "SELECT product.id, product.name AS p_name, product.price,product.stock,product.salePrice, product.image, product.des , category.cate_name AS c_name, category.cate_id AS c_id,product.isLiked,product.rating,product.soldQuantity,product.brand,product.manufacturer,product.product_detail  				"
                 + " FROM Product , Category   where product.cate_id = category.cate_id and Product.name like ? ";
-        Connection conn = super.getJDBCConnection();
+        Connection conn = getJDBCConnection();
 
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1,"%"+ productName +"%");
+            ps.setString(1, "%" + productName + "%");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -297,13 +298,13 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
     public List<Product> getProductByPage(int currentPage, int productsPerPage) {
         List<Product> list = new ArrayList<Product>();
         String sql = "SELECT product.id, product.name AS p_name, product.price,product.stock,product.salePrice, product.image, product.des , category.cate_name AS c_name, category.cate_id AS c_id,product.isLiked,product.rating,product.soldQuantity,product.brand,product.manufacturer,product.product_detail"
-                + " FROM product INNER JOIN category " + "ON product.cate_id = category.cate_id LIMIT ?,?" ;
+                + " FROM product INNER JOIN category " + "ON product.cate_id = category.cate_id LIMIT ?,?";
         Connection conn = getJDBCConnection();
 
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1,currentPage*productsPerPage-productsPerPage);
-            ps.setInt(2,productsPerPage);
+            ps.setInt(1, currentPage * productsPerPage - productsPerPage);
+            ps.setInt(2, productsPerPage);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -323,7 +324,7 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
                 product.setBrand(rs.getString("brand"));
                 product.setManufacturer(rs.getString("manufacturer"));
                 product.setProduct_detail(rs.getString("product_detail"));
-               list.add(product);
+                list.add(product);
             }
 
         } catch (SQLException e) {
@@ -342,14 +343,14 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
     public int getCateId(int parseInt) {
         String sql = "SELECT product.cate_id  FROM Product  where product.id=?";
         Connection conn = getJDBCConnection();
-        int result=0;
+        int result = 0;
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1,parseInt);
+            ps.setInt(1, parseInt);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                result= rs.getInt("cate_id");
+                result = rs.getInt("cate_id");
             }
 
         } catch (SQLException e) {
@@ -368,7 +369,7 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
 
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1,"%"+ brand +"%");
+            ps.setString(1, "%" + brand + "%");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -401,6 +402,65 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
         return productList;
     }
 
+    @Override
+    public List<String> getMoreImage(int id) {
+        ArrayList<String> listImg = new ArrayList<String>();
+        String sql = "SELECT url FROM moreimage where product_id=?";
+        Connection conn = getJDBCConnection();
+
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                listImg.add(rs.getString("url"));
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return listImg;
+    }
+
+    @Override
+    public List<Comment> getAllProductComments(int id) {
+        List<Comment> listComment = new ArrayList<Comment>();
+        String sql = "SELECT username,avatar,rating,content,time "
+                + " FROM Comment " + " WHERE product_id=?";
+        Connection con = super.getJDBCConnection();
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+
+                Comment comment = new Comment();
+                comment.setUsername(rs.getString("username"));
+                comment.setAvatar(rs.getString("avatar"));
+                comment.setRating(rs.getInt("rating"));
+                comment.setContent(rs.getString("content"));
+                comment.setTime(rs.getDate("time"));
+                listComment.add(comment);
+
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return listComment;
+    }
+
+    public static void main(String[] args) {
+        List<Comment> list = new ProductDaoImpl().getAllProductComments(1);
+        for (Comment comment : list) {
+            System.out.println(comment);
+        }
+    }
 
 }
 

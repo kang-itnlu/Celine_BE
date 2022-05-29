@@ -16,14 +16,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(urlPatterns = { "/member/cart/add" }) // ?pId=123
+@WebServlet(urlPatterns = {"/member/cart/add"}) // ?pId=123
 public class CartAddController extends HttpServlet {
     ProductService productService = new ProductServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pId = req.getParameter("pId");
-        String quantity= req.getParameter("quantity");
+        String quantity = req.getParameter("quantity");
         Product product = productService.get(Integer.parseInt(pId));
         CartItem cartItem = new CartItem();
         cartItem.setQuantity(Integer.parseInt(quantity));

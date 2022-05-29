@@ -11,18 +11,18 @@ import java.io.IOException;
 public class AdminWaiting extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session= request.getSession();
-        if(session != null && session.getAttribute("account") != null) {
-            User u=(User) session.getAttribute("account");
+        HttpSession session = request.getSession();
+        if (session != null && session.getAttribute("account") != null) {
+            User u = (User) session.getAttribute("account");
             request.setAttribute("username", u.getUsername());
-            if(u.getRoleId()==1) {
-                response.sendRedirect(request.getContextPath()+"/Admin/Welcome");
-            }else {
-                response.sendRedirect(request.getContextPath()+"/welcome");
+            if (u.getRoleId() == 1) {
+                response.sendRedirect(request.getContextPath() + "/Admin/Welcome");
+            } else {
+                response.sendRedirect(request.getContextPath() + "/welcome");
             }
 
-        }else {
-            response.sendRedirect(request.getContextPath()+"/AdminLogin");
+        } else {
+            response.sendRedirect(request.getContextPath() + "/AdminLogin");
         }
     }
 

@@ -18,17 +18,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-@WebServlet(urlPatterns= {"/Admin/order/list"})
+
+@WebServlet(urlPatterns = {"/Admin/order/list"})
 public class OrderListController extends HttpServlet {
-    CartItemService cartItemService=new CartServiceItemImpl();
-    CartService cartService=new CartServiceImpl();
+    CartItemService cartItemService = new CartServiceItemImpl();
+    CartService cartService = new CartServiceImpl();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<CartItem> listCartItem =cartItemService.getAll();
+        List<CartItem> listCartItem = cartItemService.getAll();
         req.setAttribute("listCartItem", listCartItem);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/view/orderManagement.jsp");
         dispatcher.forward(req, resp);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);

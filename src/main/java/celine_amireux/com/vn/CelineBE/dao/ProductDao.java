@@ -1,5 +1,6 @@
 package celine_amireux.com.vn.CelineBE.dao;
 
+import celine_amireux.com.vn.CelineBE.model.Comment;
 import celine_amireux.com.vn.CelineBE.model.Product;
 
 import java.util.List;
@@ -29,5 +30,9 @@ public interface ProductDao {
     int getCateId(int parseInt);
 
     List<Product> searchByBrand(String brand);
+
+    List<String> getMoreImage(int id);
+
+    List<Comment> getAllProductComments(int id);
 }
 

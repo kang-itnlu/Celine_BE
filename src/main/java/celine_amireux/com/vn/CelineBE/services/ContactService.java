@@ -12,7 +12,7 @@ public interface ContactService {
 
     void delete(int id);
 
-   Contact get(int id);
+    Contact get(int id);
 
     List<Contact> getAll();
 

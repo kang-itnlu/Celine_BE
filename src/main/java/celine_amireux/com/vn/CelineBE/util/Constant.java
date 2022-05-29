@@ -11,6 +11,7 @@ public class Constant {
         public static final String DASHBOARD = "/view/admin/view/login.jsp";
 
     }
+
     public static String GOOGLE_CLIENT_ID = "244932279445-jrl3r41jt8ci3on7mkbnm1bbg4bjvse4.apps.googleusercontent.com";
     public static String GOOGLE_CLIENT_SECRET = "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";
     public static String GOOGLE_REDIRECT_URI = "http://localhost:8080/AccessGoogle/login-google";

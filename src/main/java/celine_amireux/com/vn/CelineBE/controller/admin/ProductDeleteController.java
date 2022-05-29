@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = { "/Admin/product/delete" })
+@WebServlet(urlPatterns = {"/Admin/product/delete"})
 public class ProductDeleteController extends HttpServlet {
     ProductService productService = new ProductServiceImpl();
 
@@ -25,6 +25,7 @@ public class ProductDeleteController extends HttpServlet {
 
         response.sendRedirect(request.getContextPath() + "/Admin/product/list");
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
