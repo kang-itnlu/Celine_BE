@@ -2,6 +2,8 @@ package celine_amireux.com.vn.CelineBE.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -32,6 +34,12 @@ public class ProductListClientController extends HttpServlet {
             currentPage = Integer.parseInt(
                     request.getParameter("page"));
         List<Product> productList = productService.getProductByPage(currentPage, productsPerPage);
+//        Collections.sort(productList, new Comparator<Product>() {
+//            @Override
+//            public int compare(Product o1, Product o2) {
+//                return o1.getSalePrice()>o2.getSalePrice() ? -1: (o1.getSalePrice()<o2.getSalePrice())?1:0;
+//            }
+//        });
         request.setAttribute("productList", productList);
         int numOfProduct = productService.numOfProducts();
         int numOfPages = numOfProduct / productsPerPage;

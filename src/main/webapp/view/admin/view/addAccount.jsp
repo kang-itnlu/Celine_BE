@@ -143,7 +143,8 @@
                                                             <span class="input-group-text"><i
                                                                     class="fa fa-user-alt"></i></span>
                                                         </div>
-                                                        <input type="button" name="image" id="image" value="Tải ảnh lên" class="form-control">
+                                                        <input id="Image" name="Image" type="text" class="form-control" />
+                                                        <input type="button" value="Tải ảnh lên" onclick="BrowseServer();" class="controls" />
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
@@ -225,34 +226,33 @@
 <!-- AdminLTE for demo purposes -->
 <script src="${url}/dist/js/demo.js"></script>
 <script src="<%=request.getContextPath()%>/ckeditor/ckeditor.js"></script>
+<script src="<%=request.getContextPath()%>/ckfinder/ckfinder.js"></script>
 <script>
 
-    CKEDITOR.replace('username');
-    const button1 = document.getElementById('image');
+   var editor = CKEDITOR.replace('username', {
+       filebrowserBrowseUrl : '/ckfinder/ckfinder.html',
+       filebrowserImageBrowseUrl : '/ckfinder/ckfinder.html?type=Images',
+       filebrowserFlashBrowseUrl : '/ckfinder/ckfinder.html?type=Flash',
+       filebrowserUploadUrl : '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Files',
+       filebrowserImageUploadUrl : '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Images',
+       filebrowserFlashUploadUrl : '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash'
 
-    button1.onclick = function() {
-        selectFileWithCKFinder( 'image' );
-    };
+   });
+   CKFinder.setupCKEditor(null, '<%=request.getContextPath()%>/ckfinder/');
 
-    function selectFileWithCKFinder(elementId) {
-        CKFinder.popup( {
-            chooseFiles: true,
-            width: 800,
-            height: 600,
-            onInit: function( finder ) {
-                finder.on( 'files:choose', function( evt ) {
-                    const file = evt.data.files.first();
-                    const output = document.getElementById(elementId);
-                    output.value = file.getUrl();
-                } );
+</script>
 
-                finder.on( 'file:choose:resizedImage', function( evt ) {
-                    var output = document.getElementById( elementId );
-                    output.value = evt.data.resizedUrl;
-                } );
-            }
-        } );
+<script type="text/javascript">
+    function BrowseServer() {
+        var finder = new CKFinder();
+        finder.basePath = "~/ckfinder";
+        finder.selectActionFunction = SetFileField;
+        finder.popup();
     }
+    function SetFileField(fileUrl) {
+        document.getElementById("Image").value = fileUrl;
+    }
+
 </script>
 <script>
     $(function () {

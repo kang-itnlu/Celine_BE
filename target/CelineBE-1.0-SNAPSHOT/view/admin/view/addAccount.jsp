@@ -114,7 +114,7 @@
                                                             <span class="input-group-text"><i
                                                                     class="fa fa-user-alt"></i></span>
                                                         </div>
-                                                        <input type="text" name="username" class="form-control">
+                                                        <input type="text" name="username" id="username" class="form-control">
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
@@ -143,7 +143,8 @@
                                                             <span class="input-group-text"><i
                                                                     class="fa fa-user-alt"></i></span>
                                                         </div>
-                                                        <input type="file" name="image" class="form-control">
+                                                        <input id="Image" name="Image" type="text" class="form-control" />
+                                                        <input type="button" value="Tải ảnh lên" onclick="BrowseServer();" class="controls" />
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
@@ -224,6 +225,35 @@
 <script src="${url}/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="${url}/dist/js/demo.js"></script>
+<script src="<%=request.getContextPath()%>/ckeditor/ckeditor.js"></script>
+<script src="<%=request.getContextPath()%>/ckfinder/ckfinder.js"></script>
+<script>
+
+   var editor = CKEDITOR.replace('username', {
+       filebrowserBrowseUrl : '/ckfinder/ckfinder.html',
+       filebrowserImageBrowseUrl : '/ckfinder/ckfinder.html?type=Images',
+       filebrowserFlashBrowseUrl : '/ckfinder/ckfinder.html?type=Flash',
+       filebrowserUploadUrl : '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Files',
+       filebrowserImageUploadUrl : '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Images',
+       filebrowserFlashUploadUrl : '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash'
+
+   });
+   CKFinder.setupCKEditor(null, '<%=request.getContextPath()%>/ckfinder/');
+
+</script>
+
+<script type="text/javascript">
+    function BrowseServer() {
+        var finder = new CKFinder();
+        finder.basePath = "~/ckfinder";
+        finder.selectActionFunction = SetFileField;
+        finder.popup();
+    }
+    function SetFileField(fileUrl) {
+        document.getElementById("Image").value = fileUrl;
+    }
+
+</script>
 <script>
     $(function () {
         $("#example1").DataTable();

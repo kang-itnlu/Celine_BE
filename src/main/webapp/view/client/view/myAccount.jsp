@@ -65,17 +65,19 @@
                 <div class="content-panel">
                     <div id="information">
                         <h2 class="title">Hồ sơ</h2>
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" action="${pageContext.request.contextPath}/member/myAccount">
+                            <input name="role" value="${sessionScope.account.roleId }" hidden="" >
+                            <input name="id" value="${sessionScope.account.id }" hidden="">
                             <fieldset class="fieldset">
                                 <h3 class="fieldset-title">Thông tin cá nhân</h3>
                                 <div class="form-group avatar">
                                     <figure class="figure col-md-2 col-sm-3 col-xs-12">
 
-                                        <img class="img-rounded img-responsive" src="${imgUrl}"
+                                        <img class="img-rounded img-responsive avatar" src="${imgUrl}"
                                              alt="">
                                     </figure>
                                     <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-                                        <input type="file" class="file-uploader pull-left">
+                                        <input type="file" name="avatar" class="file-uploader pull-left file-upload">
                                         <button type="submit" class="btn btn-sm btn-default-alt pull-left">Cập nhật
                                             hình
                                             ảnh
@@ -85,7 +87,7 @@
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-3 col-xs-12 control-label">Tên đăng nhập</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input type="text" class="form-control"
+                                        <input type="text" class="form-control" name="username"
                                                value="${sessionScope.account.username}">
                                     </div>
                                 </div>
@@ -110,7 +112,7 @@
                                 <div class="form-group">
                                     <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input type="email" class="form-control" value="${sessionScope.account.email}">
+                                        <input type="email" class="form-control" name="email" value="${sessionScope.account.email}">
                                         <p class="help-block">Đây là Email của bạn</p>
                                     </div>
                                 </div>
@@ -125,7 +127,7 @@
                                 <div class="form-group">
                                     <label class="col-md-2  col-sm-3 col-xs-12 control-label">Mật khẩu</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input type="password" class="form-control"
+                                        <input type="password" class="form-control" name="password"
                                                value="${sessionScope.account.password}">
                                         <input type="button" id="changePasswordBtn" class="change__password-btn"
                                                style="margin-top: 6px;" onclick="showChangePassword()"
@@ -499,6 +501,27 @@
     function close() {
         document.getElementById("modal1").style.display = "none";
     }
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        var readURL = function(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('.avatar').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $(".file-upload").on('change', function() {
+            readURL(this);
+        });
+    });
+    //-->
 </script>
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
