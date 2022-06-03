@@ -62,7 +62,7 @@ public final class AccessControlUtil {
 	/**
 	 * connector configuration.
 	 */
-	private final IConfiguration configuration;
+	private IConfiguration configuration;
 	/**
 	 * current instance.
 	 */
@@ -310,8 +310,8 @@ public final class AccessControlUtil {
 	 */
 	class CheckEntry {
 
-		private final String role;
-		private final String type;
+		private String role;
+		private String type;
 
 		/**
 		 * Constructor.

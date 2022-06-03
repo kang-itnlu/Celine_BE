@@ -26,14 +26,14 @@
                 <div id="sportswear" class="panel-collapse collapse">
                     <div class="panel-body">
                         <ul>
-                            <li><a href="${pageContext.request.contextPath }/product/category?cate_id=10">Hades </a>
+                            <li><a href="${pageContext.request.contextPath }/productSearchByBrand?brands=Hades">Hades </a>
                             </li>
-                            <li><a href="${pageContext.request.contextPath }/product/category?cate_id=11">Loren </a>
+                            <li><a href="${pageContext.request.contextPath }/productSearchByBrand?brands=Loren">Loren </a>
                             </li>
-                            <li><a href="${pageContext.request.contextPath }/product/category?cate_id=12">Venus </a>
+                            <li><a href="${pageContext.request.contextPath }/productSearchByBrand?brands=Venus">Venus </a>
                             </li>
-                            <li><a href="${pageContext.request.contextPath }/product/category?cate_id=13">Pearl</a></li>
-                            <li><a href="${pageContext.request.contextPath }/product/category?cate_id=14">Tote </a></li>
+                            <li><a href="${pageContext.request.contextPath }/productSearchByBrand?brands=Pearl">Pearl</a></li>
+                            <li><a href="${pageContext.request.contextPath }/productSearchByBrand?brands=Tote">Tote </a></li>
                         </ul>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
 
         <div class="filter_products"><!--filter_products-->
             <h2>Bộ lọc tìm kiếm</h2>
-            <form action="${pageContext.request.contextPath }/productSearchByBrand" method="post">
+            <form action="${pageContext.request.contextPath }/productSearchByPrice" method="post">
                 <div class="filter_products-brand">
                     <div class="filter_products-header">Thương Hiệu</div>
                     <div class="filter_products-father-list">
@@ -161,45 +161,49 @@
             <div class="filter_product-rating">
                 <div class="filter_product-rating-header">Đánh giá</div>
                 <div class="filter_product-rating-star">
-                    <div class="filter_product-rating-5star star">
+                    <a class="filter_product-rating-5star star" href="${pageContext.request.contextPath}/searchByRating?rating=5">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-                    </div>
-                    <div class="filter_product-rating-4star star">
+                    </a>
+                    <br>
+                    <a class="filter_product-rating-4star star" href="${pageContext.request.contextPath}/searchByRating?rating=4" style="color:#333;">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="far fa-star"></i>
                         trở lên
-                    </div>
-                    <div class="filter_product-rating-3star star">
+                    </a>
+                    <br>
+                    <a class="filter_product-rating-3star star" href="${pageContext.request.contextPath}/searchByRating?rating=3" style="color:#333;">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
                         trở lên
-                    </div>
-                    <div class="filter_product-rating-2star star">
+                    </a>
+                    <br>
+                    <a class="filter_product-rating-2star star" href="${pageContext.request.contextPath}/searchByRating?rating=2" style="color:#333;">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
                         trở lên
-                    </div>
-                    <div class="filter_product-rating-1star star">
+                    </a>
+                    <br>
+                    <a class="filter_product-rating-1star star" href="${pageContext.request.contextPath}/searchByRating?rating=1" style="color:#333;">
                         <i class="fas fa-star"></i>
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
                         trở lên
-                    </div>
+                    </a>
                 </div>
             </div>
             <!--Shipping-->

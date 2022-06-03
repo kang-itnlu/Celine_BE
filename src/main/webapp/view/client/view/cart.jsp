@@ -30,6 +30,7 @@
     <link href="${url}/css/main.css" rel="stylesheet">
     <link href="${url}/css/responsive.css" rel="stylesheet">
     <link href="${url}/css/cart.css" rel="stylesheet">
+    <link href="${url}/css/checkout.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="${url}/images/home/celine_login.png"/>
     <!--[if lt IE 9]>
 
@@ -54,7 +55,8 @@
                         <input type="checkbox" class="checkbox-filter" name="brands">
                         Tất cả (${numProduct} sản phẩm)
                     </td>
-                    <td class="description"></td>
+                    <td class="description">Tên sản phẩm</td>
+                    <td class="price">Size</td>
                     <td class="price">Đơn giá</td>
                     <td class="quantity">Số lượng</td>
                     <td class="total">Thành tiền</td>
@@ -72,6 +74,9 @@
                         </td>
                         <td class="cart_description">
                             <h4><a href="">${map.value.product.name}</a></h4>
+                        </td>
+                        <td class="cart_price">
+                            <p>${map.value.size}</p>
                         </td>
                         <td class="cart_price">
                             <p>${map.value.product.salePrice}đ</p>
@@ -99,12 +104,107 @@
 <section id="do_action">
     <div class="container">
         <div class="row">
+            <div class="col-sm-12">
+                <div class="payment__type">
+                    <div class="payment__type-left">Phương thức thanh toán</div>
+                    <div class="payment__type-right">
+                        <p>Thanh toán khi nhận hàng</p>
+                        <div class="payment__type-right-change">
+                            <div type="button" class="launch" data-toggle="modal" data-target="#staticBackdrop">THAY ĐỔI
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
+                                 tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="text-right"><i class="fas fa-times-circle text-close"
+                                                                       data-dismiss="modal"></i></div>
+                                            <div class="tabs mt-3">
+                                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                                    <li class="nav-item" role="presentation"><a class="nav-link active"
+                                                                                                id="visa-tab"
+                                                                                                data-toggle="tab"
+                                                                                                href="#visa" role="tab"
+                                                                                                aria-controls="visa"
+                                                                                                aria-selected="true">
+                                                        <img src="${url}/images/home/visa.jpg" width="80"> </a></li>
+                                                    <li class="nav-item" role="presentation"><a class="nav-link"
+                                                                                                id="paypal-tab"
+                                                                                                data-toggle="tab"
+                                                                                                href="#paypal"
+                                                                                                role="tab"
+                                                                                                aria-controls="paypal"
+                                                                                                aria-selected="false">
+                                                        <img src="${url}/images/home/Paypal.png" width="80"> </a></li>
+                                                </ul>
+                                                <div class="tab-content" id="myTabContent">
+                                                    <div class="tab-pane fade" id="visa" role="tabpanel"
+                                                         aria-labelledby="visa-tab">
+                                                        <div class="mt-4 mx-4">
+                                                            <div class="text-center">
+                                                                <h5>Credit card</h5>
+                                                            </div>
+                                                            <div class="form mt-3">
+                                                                <div class="inputbox"><input type="text" name="name"
+                                                                                             class="form-control"
+                                                                                             required="required"> <span>Cardholder Name</span>
+                                                                </div>
+                                                                <div class="inputbox"><input type="text" name="name"
+                                                                                             min="1" max="999"
+                                                                                             class="form-control"
+                                                                                             required="required"> <span>Card Number</span>
+                                                                    <i class="fa fa-eye"></i></div>
+                                                                <div class="d-flex flex-row">
+                                                                    <div class="inputbox"><input type="text" name="name"
+                                                                                                 min="1" max="999"
+                                                                                                 class="form-control"
+                                                                                                 required="required">
+                                                                        <span>Expiration Date</span></div>
+                                                                    <div class="inputbox"><input type="text" name="name"
+                                                                                                 min="1" max="999"
+                                                                                                 class="form-control"
+                                                                                                 required="required">
+                                                                        <span>CVV</span></div>
+                                                                </div>
+                                                                <div class="px-5 pay">
+                                                                    <button class="btn btn-success btn-block">Add card
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade  show active" id="paypal" role="tabpanel"
+                                                         aria-labelledby="paypal-tab">
+                                                        <div class="px-5 mt-5">
+                                                            <div class="inputbox"><input type="text" name="name"
+                                                                                         class="form-control"
+                                                                                         required="required"> <span>Paypal Email Address</span>
+                                                            </div>
+                                                            <div class="pay px-5">
+                                                                <button class="btn btn-primary btn-block">Add paypal
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <form action="${pageContext.request.contextPath}/member/order" method="post">
                 <div class="col-sm-6">
                     <div class="chose_area">
                         <div class="heading">
                             <h3>Giao tới </h3>
-                            <div class="change_address">Thay đổi</div>
+                            <div class="change_address">THAY ĐỔI</div>
                         </div>
                         <div class="user_infor">
                             <p class="name">Mít tơ Tèo</p>

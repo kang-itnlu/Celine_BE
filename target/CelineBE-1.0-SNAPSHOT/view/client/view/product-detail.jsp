@@ -318,10 +318,18 @@
                         </div>
                         <div id="product__size">
                             Size:
-                            <div class="product__size-S first">S</div>
-                            <div class="product__size-S second">M</div>
-                            <div class="product__size-S third">L</div>
-                            <div class="product__size-S four">XL</div>
+<%--                            <div class="product__size-S first">S</div>--%>
+<%--                            <div class="product__size-S second">M</div>--%>
+<%--                            <div class="product__size-S third">L</div>--%>
+<%--                            <div class="product__size-S four">XL</div>--%>
+                            <input type="radio" id="sizeS" name="size" value="S" style="margin-left:12px;">
+                            <label for="sizeS" style="margin-right:12px;">S</label><br>
+                            <input type="radio" id="sizeM" name="size" value="M" >
+                            <label for="sizeM" style="margin-right:12px;">M</label><br>
+                             <input type="radio" id="sizeL" name="size" value="L">
+                            <label for="sizeL" style="margin-right:12px;">L</label>
+                            <input type="radio" id="sizeXL" name="size" value="XL" >
+                            <label for="sizeXL" >XL</label>
                         </div>
                         <div class="product__buy">
                             <div class="add__to-cart">

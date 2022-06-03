@@ -1,5 +1,5 @@
-<%@ page import="celine_amireux.com.vn.CelineBE.dao.ProductDao" %>
-<%@ page import="celine_amireux.com.vn.CelineBE.dao.impl.ProductDaoImpl" %>
+<%@ page import="com.celine_amireux.CelineBE.dao.ProductDao" %>
+<%@ page import="com.celine_amireux.CelineBE.dao.impl.ProductDaoImpl" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/view/client/static" var="url"></c:url>
@@ -58,7 +58,7 @@
                                 <i class="select-input__icon fas fa-angle-down"></i>
                                 <ul class="select-input__list">
                                     <li class="select-input__item">
-                                        <a href="" class="select-input__link">Giá: Thấp đến cao</a>
+                                        <a href=""  class="select-input__link">Giá: Thấp đến cao</a>
                                     </li>
                                     <li class="select-input__item">
                                         <a href="" class="select-input__link">Giá: Cao đến thấp</a>

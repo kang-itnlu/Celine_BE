@@ -146,121 +146,71 @@
                     <!--Đơn mua-->
                     <div id="order" style="display: none">
                         <h2 class="title">Đơn hàng</h2>
-                        <div class="one-order">
-                            <div class="row order-header">
-                                <div class="col-md-8 col-sm-12 order-id">
-                                    <strong>Đơn hàng:</strong>
-                                    <span>#ID3721534</span>
-                                </div>
-                                <div class="col-md-4 col-sm-12 order-id">
-                                    <span class="fas fa-truck"></span>
-                                    <span class="complete">Đang xử lí</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2 product-img">
-                                    <img src="${url}/images/shop/pants/7milionShort.jpg">
-                                </div>
-                                <div class="col-md-10 product-info">
-                                    <h4>Quần short 7millions Essentials+ / Màu đen</h4>
-                                    <p>x1</p>
-                                    <span class="base-price">300.000đ</span>
-                                    <span class="discount">280.000đ</span>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-8 total">
-                                    <span><i class="fas fa-donate"></i></span>
-                                    <span class="total-price">Tổng tiền: <strong>280.000đ</strong></span>
-                                </div>
-                                <div class="col-md-4 total">
-                                    <span><button class="btn-again" type="button">Liên hệ</button></span>
-                                    <span><button class="btn-rate" type="button" data-toggle="modal"
-                                                  data-target="#cancelOrder">Hủy đơn hàng</button></span>
+<%--                        <div class="one-order">--%>
+<%--                            <div class="row order-header">--%>
+<%--                                <div class="col-md-8 col-sm-12 order-id">--%>
+<%--                                    <strong>Đơn hàng:</strong>--%>
+<%--                                    <span>#ID3721534</span>--%>
+<%--                                </div>--%>
+<%--                                <div class="col-md-4 col-sm-12 order-id">--%>
+<%--                                    <span class="fas fa-truck"></span>--%>
+<%--                                    <span class="complete">Đang xử lí</span>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="row">--%>
+<%--                                <div class="col-md-2 product-img">--%>
+<%--                                    <img src="${url}/images/shop/pants/7milionShort.jpg">--%>
+<%--                                </div>--%>
+<%--                                <div class="col-md-10 product-info">--%>
+<%--                                    <h4>Quần short 7millions Essentials+ / Màu đen</h4>--%>
+<%--                                    <p>x1</p>--%>
+<%--                                    <span class="base-price">300.000đ</span>--%>
+<%--                                    <span class="discount">280.000đ</span>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <hr>--%>
+<%--                            <div class="row">--%>
+<%--                                <div class="col-md-8 total">--%>
+<%--                                    <span><i class="fas fa-donate"></i></span>--%>
+<%--                                    <span class="total-price">Tổng tiền: <strong>280.000đ</strong></span>--%>
+<%--                                </div>--%>
+<%--                                <div class="col-md-4 total">--%>
+<%--                                    <span><button class="btn-again" type="button">Liên hệ</button></span>--%>
+<%--                                    <span><button class="btn-rate" type="button" data-toggle="modal"--%>
+<%--                                                  data-target="#cancelOrder">Hủy đơn hàng</button></span>--%>
 
-                                </div>
-                            </div>
-                        </div>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
                         <div class="one-order">
                             <div class="row order-header">
                                 <div class="col-md-8 col-sm-12 order-id">
                                     <strong>Đơn hàng:</strong>
-                                    <span>#ID3784951</span>
+                                    <span>#ID${idCart}</span>
                                 </div>
                                 <div class="col-md-4 col-sm-12 order-id">
                                     <span class="fas fa-truck"></span>
                                     <span class="complete">Giao hàng thành công</span>
                                 </div>
                             </div>
+                            <c:forEach items="${listCartItem}" var="cart">
                             <div class="row">
                                 <div class="col-md-2 product-img">
-                                    <img src="${url}/images/shop/shirt/cinder_tee01jpg.jpg">
+                                    <c:url value="${cart}"
+                                           var="imgUrl"></c:url>
+                                    <img src="${imgUrl}">
                                 </div>
                                 <div class="col-md-10 product-info">
-                                    <h4>Áo thun tay lỡ màu loang trẻ trung, năng động</h4>
-                                    <p>x1</p>
-                                    <span class="base-price">450.000đ</span>
-                                    <span class="discount">350.000đ</span>
+<%--                                    <h4>${cart.getProduct.getName}</h4>--%>
+                                    <p>x${cart.quantity}</p>
+<%--                                    <span class="base-price">${cart.getProduct.getPrice}đ</span>--%>
+<%--                                    <span class="discount">${cart.getProduct.getSalePrice}đ</span>--%>
                                 </div>
                             </div>
                             <hr>
-                            <div class="row">
-                                <div class="col-md-2 product-img">
-                                    <img src="${url}/images/shop/nón/non4.jpg">
-                                </div>
-                                <div class="col-md-10 product-info">
-                                    <h4>Mũ local brand LEVENTS Space/ Black blue</h4>
-                                    <p>x1</p>
-                                    <span class="base-price">500.000đ</span>
-                                    <span class="discount">310.000đ</span>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-8 total">
-                                    <span><i class="fas fa-donate"></i></span>
-                                    <span class="total-price">Tổng tiền: <strong>660.000đ</strong></span>
-                                </div>
-                                <div class="col-md-4 total">
-                                    <span><button class="btn-again" type="button">Mua lần nữa</button></span>
-                                    <span><button class="btn-rate" type="button">Đánh giá</button></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="one-order">
-                            <div class="row order-header">
-                                <div class="col-md-8 col-sm-12 order-id">
-                                    <strong>Đơn hàng:</strong>
-                                    <span>#ID3784951</span>
-                                </div>
-                                <div class="col-md-4 col-sm-12 order-id">
-                                    <span class="fas fa-truck"></span>
-                                    <span class="complete">Giao hàng thành công</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2 product-img">
-                                    <img src="${url}/images/shop/balo/balo2.jpg">
-                                </div>
-                                <div class="col-md-10 product-info">
-                                    <h4>Balo XXME Logo – Viền phản quang</h4>
-                                    <p>x1</p>
-                                    <span class="base-price">1.000.000đ</span>
-                                    <span class="discount">875.839đ</span>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-8 total">
-                                    <span><i class="fas fa-donate"></i></span>
-                                    <span class="total-price">Tổng tiền: <strong>875.839đ</strong></span>
-                                </div>
-                                <div class="col-md-4 total">
-                                    <span><button class="btn-again" type="button">Mua lần nữa</button></span>
-                                    <span><button class="btn-rate" type="button">Đánh giá</button></span>
-                                </div>
-                            </div>
+                            </c:forEach>
+
+
                         </div>
                     </div>
 

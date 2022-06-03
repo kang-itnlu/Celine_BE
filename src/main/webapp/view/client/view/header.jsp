@@ -229,7 +229,7 @@
                                                 class="fas fa-chevron-down" style="padding-left: 6px;"></i></a>
                                     </c:when>
                                     <c:otherwise>
-                                        <a href="${pageContext.request.contextPath }/member/myAccount"
+                                        <a href="${pageContext.request.contextPath }/member/myAccount?id=${sessionScope.account.id}"
                                            class="header__navbar-user-name text"
                                            style="display: contents;"><img src="${imgUrl}"
                                                                            style="width:24px;height:24px;border-radius: 50%;"> ${sessionScope.account.username}<i
@@ -399,7 +399,7 @@
 </script>
 <script>
 
-    let newYears = '12 June 2022';
+    let newYears = '12 August 2022';
     const dayEl = document.getElementById('days')
     const hourEl = document.getElementById('hours')
     const minsEl = document.getElementById('mins')

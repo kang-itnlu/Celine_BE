@@ -229,15 +229,16 @@
 <script src="<%=request.getContextPath()%>/ckfinder/ckfinder.js"></script>
 <script>
 
-   var editor = CKEDITOR.replace('username', {
-       filebrowserBrowseUrl : '/ckfinder/ckfinder.html',
-       filebrowserImageBrowseUrl : '/ckfinder/ckfinder.html?type=Images',
-       filebrowserFlashBrowseUrl : '/ckfinder/ckfinder.html?type=Flash',
-       filebrowserUploadUrl : '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Files',
-       filebrowserImageUploadUrl : '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Images',
-       filebrowserFlashUploadUrl : '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash'
-
-   });
+   var editor = CKEDITOR.replace('username')
+       // , {
+   //     filebrowserBrowseUrl : '/ckfinder/ckfinder.html',
+   //     filebrowserImageBrowseUrl : '/ckfinder/ckfinder.html?type=Images',
+   //     filebrowserFlashBrowseUrl : '/ckfinder/ckfinder.html?type=Flash',
+   //     filebrowserUploadUrl : '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Files',
+   //     filebrowserImageUploadUrl : '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Images',
+   //     filebrowserFlashUploadUrl : '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash'
+   //
+   // });
    CKFinder.setupCKEditor(null, '<%=request.getContextPath()%>/ckfinder/');
 
 </script>

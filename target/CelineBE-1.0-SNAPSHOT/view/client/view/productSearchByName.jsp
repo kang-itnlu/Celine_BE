@@ -112,7 +112,7 @@
                     <ul class="pagination">
                         <c:if test="${currentPage != 1}">
                             <li class="page-item"><a class="page-link"
-                                                     href="?page=${currentPage-1}">&laquo;</a>
+                                                     href="?name=${name}&page=${currentPage-1}">&laquo;</a>
                             </li>
                         </c:if>
 
@@ -125,7 +125,7 @@
                                 </c:when>
                                 <c:otherwise>
                                     <li class="page-item"><a class="page-link"
-                                                             href="?page=${i}">${i}</a>
+                                                             href="?name=${name}&page=${i}">${i}</a>
                                     </li>
                                 </c:otherwise>
                             </c:choose>
@@ -133,7 +133,7 @@
 
                         <c:if test="${currentPage lt numOfPages}">
                             <li class="page-item"><a class="page-link"
-                                                     href="?page=${currentPage+1}">&raquo;</a>
+                                                     href="?name=${name}&page=${currentPage+1}">&raquo;</a>
                             </li>
                         </c:if>
                     </ul>
